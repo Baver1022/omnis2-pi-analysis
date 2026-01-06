@@ -18,7 +18,7 @@ Comprehensive statistical analysis of 10 billion digits of Pi using 27 statistic
 
 ## 📁 Project Structure
 
-**[OMNIS2](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)**/
+**[OMNIS2](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)**
 
 ## 📊 Statistical Tests
 
