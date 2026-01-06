@@ -17,7 +17,7 @@ Comprehensive statistical analysis of 10 billion digits of Pi using 27 statistic
 - ✅ **Mathematical formulas documentation** (PDF)
 
 ## 📁 Project Structure
-
+https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2
 ```
 OMNIS2/
 └── MATHEMATICAL_FORMULAS_27_TESTS.pdf    # Mathematical formulas documentation
