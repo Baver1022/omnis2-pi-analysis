@@ -132,7 +132,7 @@ pip install omnis2-pi-analysis
 
 ## 👤 Author
 
-Pi statistical analysis project - part of baver
+Pi statistical analysis project - part of baver + AI
 
 ## 📄 License
 
