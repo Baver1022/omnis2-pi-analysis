@@ -43,23 +43,25 @@ jobs:
       - name: Build package
         run: python -m build
       
+      - name: Upload package artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-package
+          path: dist/*
+          retention-days: 30
+      
       - name: Publish to GitHub Packages
         env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.GITHUB_PACKAGES_TOKEN || secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Publishing to GitHub Packages..."
-          echo "Repository: https://github.com/Baver1022/omnis2-pi-analysis/packages"
-          echo "Package name: omnis2-pi-analysis"
+          echo "Package files are available as artifacts"
+          echo "Download from workflow run artifacts and upload manually to:"
+          echo "https://github.com/Baver1022/omnis2-pi-analysis/packages"
           echo ""
-          # GitHub Packages for Python uses PyPI-compatible API
-          # The correct endpoint for GitHub Packages is the same as PyPI
-          # BUT we must configure it to publish to GitHub Packages
-          # Format: https://upload.pypi.org/legacy/
-          # When using GITHUB_TOKEN, it should route to GitHub Packages
-          python -m twine upload \
-            --repository-url https://upload.pypi.org/legacy/ \
-            --username __token__ \
-            --password ${{ secrets.GITHUB_PACKAGES_TOKEN || secrets.GITHUB_TOKEN }} \
-            --verbose \
-            dist/*
+          echo "OR use GitHub Packages API directly..."
+          echo ""
+          # GitHub Packages for Python doesn't work with twine + PyPI endpoint
+          # Package is built and available as artifact
+          # Upload manually through GitHub UI or use GitHub Packages API
+          ls -la dist/
