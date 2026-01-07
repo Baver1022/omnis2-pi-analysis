@@ -1,5 +1,11 @@
 # 🔬 OMNIS2 - Statistical Analysis of 10 Billion Digits of Pi
 
+## 🌟 What Fascinates Us
+
+What drives us in this project? The **mystery of randomness** hidden in the infinite sequence of Pi digits. Is Pi truly random, or does it contain hidden patterns? Can we trust it for cryptographic applications? These questions led us to conduct one of the most comprehensive statistical analyses of Pi digits ever performed.
+
+We analyzed **10 billion digits** using **27 rigorous statistical tests** - a journey that revealed both expected randomness and surprising anomalies. This is just the beginning - **our next goal is to analyze 1 trillion (1T) digits after the decimal point**, pushing the boundaries of computational statistics and exploring the deepest secrets of this mathematical constant.
+
 ## 📊 About the Project
 
 **OMNIS2** is a comprehensive project for statistical analysis of **10 billion digits of Pi** using **27 statistical tests** (17 NIST tests + 10 SmallCrush tests) with GPU acceleration.
@@ -8,6 +14,7 @@ The project includes:
 - ✅ **27 statistical tests** (Python source code)
 - ✅ **55 JSON files** with analysis results of 10B Pi digits
 - ✅ **Scientific reports** (PDF) - 70+ pages each
+- ✅ **Mathematical formulas** - complete documentation
 - ✅ **GPU acceleration** (CuPy for NVIDIA RTX)
 - ✅ **Streaming processing** - processing 10B digits batch-by-batch
 
@@ -20,27 +27,41 @@ Analysis of 10 billion Pi digits revealed:
 - 📊 **Entropy**: H ≈ 3.32 (close to maximum for decimal system)
 - 📈 **Compression**: R ≈ 0.47 (high unpredictability)
 
-## 📁 Project Structure
+## 🌿 Main Project - OMNIS2 Branch
+
+**All project files are located in the [`OMNIS2`](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2) branch**
+
+### Project structure in OMNIS2 branch:
 
 ```
 OMNIS2/
 ├── Program/                      # Main program
 │   ├── analysis_orchestrator.py  # Main analysis orchestrator
 │   ├── analysis_steps/           # 27 statistical test modules
-│   ├── requirements.txt          # Python dependencies
-│   └── README.md                 # Program documentation
+│   └── requirements.txt          # Python dependencies
 ├── Raporty/                      # Scientific reports (PDF)
 │   ├── RAPORT_Z_ANALIZY_PI.pdf
 │   └── RAPORT_Z_ANALIZY_PI_EN.pdf
 ├── Dane z analizy/               # Research results
 │   └── *.json                    # 55 JSON files with results
-├── README.md                     # This file
-└── LICENSE                       # MIT License
+└── README.md                     # Full documentation
 ```
+
+**[👉 Go to OMNIS2 branch](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)**
 
 ## 🚀 Quick Start
 
-### Installation:
+### Option 1: Install from GitHub Packages (Recommended)
+
+```bash
+# Install the package
+pip install omnis2-pi-analysis
+
+# Run analysis
+python3 -m omnis2_pi_analysis.analysis_orchestrator --pi-file pi_10billion.txt
+```
+
+### Option 2: Download the full project:
 
 ```bash
 git clone https://github.com/Baver1022/omnis2-pi-analysis.git
@@ -50,12 +71,8 @@ git checkout OMNIS2
 # Install dependencies
 cd Program
 pip install -r requirements.txt
-```
 
-### Run Analysis:
-
-```bash
-# From Program/ directory
+# Run analysis
 python3 analysis_orchestrator.py --pi-file pi_10billion.txt
 ```
 
@@ -63,45 +80,49 @@ python3 analysis_orchestrator.py --pi-file pi_10billion.txt
 
 ### 📄 Scientific Reports
 
+Both reports contain comprehensive analysis of 10 billion Pi digits using 27 statistical tests, including:
+
+- 📖 **Theoretical introduction** - mathematical foundations and test methodology
+- 🔬 **Detailed description** of all 27 statistical tests (17 NIST + 10 SmallCrush)
+- 📐 **Mathematical formulas** - complete formulas and test procedures
+- 📊 **Results and interpretations** - statistical analysis and significance testing
+- 📈 **Charts and tables** - visualizations of test results
+- 🔍 **Comparative analysis** - comparison with previous studies
+- 💡 **Conclusions** - implications for cryptography and number theory
+- 📚 **Bibliography** - complete references and citations
+
 <div align="center">
 
-| 📊 Report | 🌐 Language | 📥 Download | 📄 Description |
-|:---------:|:--------:|:---------:|:-------:|
-| **RAPORT_Z_ANALIZY_PI.pdf** | 🇵🇱 Polish | [📥 Download PDF](https://github.com/Baver1022/omnis2-pi-analysis/raw/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI.pdf) | Comprehensive scientific report (40+ pages) with complete statistical analysis |
-| **RAPORT_Z_ANALIZY_PI_EN.pdf** | 🇬🇧 English | [📥 Download PDF](https://github.com/Baver1022/omnis2-pi-analysis/raw/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI_EN.pdf) | Full scientific report (40+ pages) with complete statistical analysis |
+| | 🇵🇱 Polish | 🇬🇧 English |
+|:---:|:---:|:---:|
+| **📄 Report** | [RAPORT_Z_ANALIZY_PI.pdf](https://github.com/Baver1022/omnis2-pi-analysis/raw/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI.pdf) | [RAPORT_Z_ANALIZY_PI_EN.pdf](https://github.com/Baver1022/omnis2-pi-analysis/raw/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI_EN.pdf) |
+| **📊 Pages** | 40+ | 40+ |
+| **📥 Download** | [📥 PDF](https://github.com/Baver1022/omnis2-pi-analysis/raw/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI.pdf) | [📥 PDF](https://github.com/Baver1022/omnis2-pi-analysis/raw/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI_EN.pdf) |
 
 </div>
 
-#### 📋 Scientific Reports Content
+### 📖 Other Materials
 
-**RAPORT_Z_ANALIZY_PI.pdf** (Polish) contains:
-- 📖 Theoretical introduction
-- 🔬 Detailed description of all 27 statistical tests
-- 📐 Mathematical formulas for each test
-- 📊 Results and statistical interpretations
-- 📈 Charts and result tables
-- 🔍 Comparative analysis with other studies
-- 💡 Conclusions and cryptographic applications
-- 📚 Bibliography and references
+- **📖 Full documentation:** [OMNIS2 Branch](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)
+- **📊 Research results:** 55 JSON files in `OMNIS2/Dane z analizy/`
 
-**RAPORT_Z_ANALIZY_PI_EN.pdf** (English) contains:
-- 📖 Theoretical introduction
-- 🔬 Detailed description of all 27 statistical tests
-- 📐 Mathematical formulas for each test
-- 📊 Results and statistical interpretations
-- 📈 Charts and result tables
-- 🔍 Comparative analysis with other studies
-- 💡 Conclusions and cryptographic applications
-- 📚 Bibliography and references
+## 📦 Package Installation
 
-### 📖 Research Results
+The project is available as a Python package on **GitHub Packages**:
 
-- **📊 Analysis results:** 55 JSON files in `Dane z analizy/` directory
-- **📄 Program documentation:** See `Program/README.md`
+```bash
+pip install omnis2-pi-analysis
+```
+
+**Package Details:**
+- 📦 **Name:** `omnis2-pi-analysis`
+- 📌 **Version:** `1.0.0`
+- 🔗 **GitHub Packages:** [View Package](https://github.com/Baver1022/omnis2-pi-analysis/packages)
+- 📚 **Documentation:** See [OMNIS2 Branch](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)
 
 ## 🔗 Links
 
-- 🌿 **Main Branch:** [https://github.com/Baver1022/omnis2-pi-analysis](https://github.com/Baver1022/omnis2-pi-analysis)
+- 🌿 **OMNIS2 Branch:** [https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)
 - 📦 **Releases:** [https://github.com/Baver1022/omnis2-pi-analysis/releases](https://github.com/Baver1022/omnis2-pi-analysis/releases)
 - 📦 **Packages:** [https://github.com/Baver1022/omnis2-pi-analysis/packages](https://github.com/Baver1022/omnis2-pi-analysis/packages)
 
@@ -111,81 +132,12 @@ Pi statistical analysis project - part of baver
 
 ## 📄 License
 
-MIT License - see LICENSE file for details
-
----
-
-## 📊 Research Summary: What We Discovered
-
-### 🎯 The Quest
-
-Our journey began with a fundamental question: **Is Pi truly random?** To answer this, we embarked on one of the most comprehensive statistical analyses of Pi digits ever conducted, examining **10 billion digits** through the lens of **27 rigorous statistical tests**.
-
-### 🔬 Methodology
-
-We applied a comprehensive battery of tests combining:
-- **17 NIST Statistical Test Suite** tests - the gold standard for randomness testing
-- **10 SmallCrush tests** - additional randomness validation
-- **GPU-accelerated processing** using CuPy for NVIDIA RTX
-- **Streaming batch processing** to handle the massive dataset efficiently
-
-### 📈 Key Findings
-
-#### ✅ **What Confirmed Randomness:**
-- **~70% of tests PASSED** - indicating strong local randomness properties
-- **Entropy (H) ≈ 3.32** - extremely close to the theoretical maximum of 3.3219 for decimal digits
-- **Compression Ratio (R) ≈ 0.47** - high unpredictability, difficult to compress
-- Most frequency tests, runs tests, and block tests showed expected random behavior
-
-#### ⚠️ **Surprising Anomalies:**
-- **Critical failures** in Random Excursions tests (tests 13, 14) - suggesting potential long-range correlations
-- Some SmallCrush tests revealed unexpected patterns
-- These anomalies raise intriguing questions about the nature of Pi's digit distribution
-
-### 💡 Scientific Implications
-
-Our findings have significant implications for:
-- **Cryptography**: Understanding Pi's randomness properties for potential cryptographic applications
-- **Number Theory**: Insights into the distribution patterns of transcendental numbers
-- **Computational Mathematics**: Pushing the boundaries of large-scale statistical analysis
-
-### 🚀 What's Next?
-
-This analysis of 10 billion digits is just the beginning. **Our next ambitious goal is to analyze 1 trillion (1T) digits after the decimal point**, which will:
-- Provide even deeper insights into Pi's statistical properties
-- Test the limits of computational statistics
-- Potentially reveal new patterns or confirm existing hypotheses
-- Push forward the frontier of mathematical research
-
-### 📚 Detailed Reports
-
-For comprehensive analysis, detailed methodology, mathematical formulas, and complete results, please refer to our scientific reports:
-
-<div align="center">
-
-| 📄 Report | 🌐 Language | 📥 Direct Download |
-|:---------:|:--------:|:-----------------:|
-| **RAPORT_Z_ANALIZY_PI.pdf** | 🇵🇱 Polish | [📥 Download](https://github.com/Baver1022/omnis2-pi-analysis/raw/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI.pdf) |
-| **RAPORT_Z_ANALIZY_PI_EN.pdf** | 🇬🇧 English | [📥 Download](https://github.com/Baver1022/omnis2-pi-analysis/raw/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI_EN.pdf) |
-
-</div>
-
-**Report Contents:**
-- 📖 Complete theoretical background
-- 🔬 Detailed description of all 27 statistical tests
-- 📐 Mathematical formulas and test procedures
-- 📊 Comprehensive results with statistical interpretations
-- 📈 Visualizations, charts, and data tables
-- 🔍 Comparative analysis with previous studies
-- 💡 Conclusions and future research directions
-- 📚 Complete bibliography and references
+See LICENSE file in the [OMNIS2](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2) branch.
 
 ---
 
 <div align="center">
 
-**🔬 The mystery of Pi's randomness continues to unfold...**
-
-*This research represents a significant contribution to understanding the statistical properties of one of mathematics' most fascinating constants.*
+**💡 All project files, source code, reports, and research results are located in the [`OMNIS2`](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2) branch**
 
 </div>
