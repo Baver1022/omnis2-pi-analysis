@@ -10,12 +10,12 @@
 
 W katalogu `analiza_wynikow_output/` znajdują się szczegółowe raporty z analizy:
 
-| Raport | Opis | Format |
-|--------|------|--------|
-| 📊 **RAPORT_Z_ANALIZY_PI.pdf** | Raport naukowy w języku polskim (70+ stron) | PDF |
-| 📊 **RAPORT_Z_ANALIZY_PI_EN.pdf** | Raport naukowy w języku angielskim (70+ stron) | PDF |
-| 📝 **RAPORT_Z_ANALIZY_PI.tex** | Źródło LaTeX raportu PL | LaTeX |
-| 📝 **RAPORT_Z_ANALIZY_PI_EN.tex** | Źródło LaTeX raportu EN | LaTeX |
+| Raport | Opis | Pobierz |
+|--------|------|---------|
+| 📊 **RAPORT_Z_ANALIZY_PI.pdf** | Raport naukowy w języku polskim (70+ stron) | [📥 Pobierz PDF](analiza_wynikow_output/RAPORT_Z_ANALIZY_PI.pdf) |
+| 📊 **RAPORT_Z_ANALIZY_PI_EN.pdf** | Raport naukowy w języku angielskim (70+ stron) | [📥 Pobierz PDF](analiza_wynikow_output/RAPORT_Z_ANALIZY_PI_EN.pdf) |
+| 📝 **RAPORT_Z_ANALIZY_PI.tex** | Źródło LaTeX raportu PL | [📥 Pobierz LaTeX](analiza_wynikow_output/RAPORT_Z_ANALIZY_PI.tex) |
+| 📝 **RAPORT_Z_ANALIZY_PI_EN.tex** | Źródło LaTeX raportu EN | [📥 Pobierz LaTeX](analiza_wynikow_output/RAPORT_Z_ANALIZY_PI_EN.tex) |
 
 ### 🔍 Co zawierają raporty:
 
