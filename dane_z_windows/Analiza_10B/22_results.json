@@ -1,0 +1,10 @@
+{
+  "test_name": "CouponCollector Test",
+  "n": 10000000,
+  "p_value": 0.2642135554867311,
+  "status": "completed",
+  "execution_time": 924.361579656601,
+  "step_id": "22",
+  "step_name": "SmallCrush: CouponCollector",
+  "timestamp": "2026-01-07T04:08:52.899044"
+}

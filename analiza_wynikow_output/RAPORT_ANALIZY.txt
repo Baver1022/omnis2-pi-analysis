@@ -1,0 +1,222 @@
+================================================================================
+RAPORT ANALIZY WYNIKÓW TESTÓW STATYSTYCZNYCH PI
+Analiza 10 miliardów cyfr Pi - 27 testów statystycznych
+================================================================================
+
+Data generacji: 2026-01-07 07:26:56
+Katalog wyników: /home/baver/hexstrike-ai/OMNIS2/dane_z_windows/Analiza_10B
+
+================================================================================
+PODSUMOWANIE
+================================================================================
+Całkowita liczba testów: 27
+Testy zakończone: 27
+Testy z ważnym p-value: 21
+Testy z p-value = 0: 6
+Testy z p-value = NaN: 6
+
+================================================================================
+STATYSTYKI P-VALUES
+================================================================================
+Średnia: 0.332755
+Mediana: 0.240062
+Minimum: 0.000000
+Maximum: 1.000000
+Odchylenie standardowe: 0.389009
+Testy które przeszły: 7
+Testy które nie przeszły: 6
+Wskaźnik sukcesu: 25.9%
+
+================================================================================
+CZASY WYKONANIA
+================================================================================
+Całkowity czas: 6.47 godzin
+Średni czas: 862.7 sekund
+Mediana: 924.7 sekund
+Minimum: 0.0 sekund
+Maximum: 1775.1 sekund
+
+================================================================================
+SZCZEGÓŁOWE WYNIKI TESTÓW
+================================================================================
+
+Test 01: Frequency Test (NIST)
+  P-value: 0.309623
+  Czas wykonania: 556.4 sekund
+  Status: completed
+  Wynik: ✓ PRZESZŁO
+
+Test 02: Runs Test (NIST)
+  P-value: 0.278108
+  Czas wykonania: 1211.2 sekund
+  Status: completed
+  Wynik: ✓ PRZESZŁO
+
+Test 03: Block Frequency Test (NIST)
+  P-value: 1.000000
+  Czas wykonania: 301.7 sekund
+  Status: completed
+  Wynik: ✓ PRZESZŁO
+
+Test 04: Entropy Analysis
+  P-value: NaN
+  Czas wykonania: 1775.1 sekund
+  Status: completed
+  Wynik: ? NIEZNANY
+
+Test 05: Spectral FFT Analysis
+  P-value: NaN
+  Czas wykonania: 14.3 sekund
+  Status: completed
+  Wynik: ? NIEZNANY
+
+Test 06: Compression Test
+  P-value: NaN
+  Czas wykonania: 1090.8 sekund
+  Status: completed
+  Wynik: ? NIEZNANY
+
+Test 07: Empirical Entropy Bounds
+  P-value: NaN
+  Czas wykonania: 983.4 sekund
+  Status: completed
+  Wynik: ? NIEZNANY
+
+Test 08: ML LSTM Anomaly Detection
+  P-value: NaN
+  Czas wykonania: 0.0 sekund
+  Status: completed
+  Wynik: ? NIEZNANY
+
+Test 09: Cumulative Sums Test (NIST)
+  P-value: 0.041575
+  Czas wykonania: 2.0 sekund
+  Status: completed
+  Wynik: ✓ PRZESZŁO
+
+Test 10: Approximate Entropy Test (NIST)
+  P-value: 0.001565
+  Czas wykonania: 40.4 sekund
+  Status: completed
+  Wynik: ✗ NIE PRZESZŁO
+
+Test 11: Serial Test (NIST)
+  P-value: 0.923391
+  Czas wykonania: 20.9 sekund
+  Status: completed
+  Wynik: ✓ PRZESZŁO
+
+Test 12: Linear Complexity Test (NIST)
+  P-value: 0.000000
+  Czas wykonania: 1365.1 sekund
+  Status: completed
+  Wynik: ✗ NIE PRZESZŁO
+
+Test 13: Random Excursions Test (NIST)
+  P-value: 0.000000
+  Czas wykonania: 988.9 sekund
+  Status: completed
+  Wynik: ✗ NIE PRZESZŁO
+
+Test 14: Random Excursions Variant Test (NIST)
+  P-value: 0.000000
+  Czas wykonania: 934.9 sekund
+  Status: completed
+  Wynik: ✗ NIE PRZESZŁO
+
+Test 15: Universal Statistical Test (NIST)
+  P-value: 0.801912
+  Czas wykonania: 1428.6 sekund
+  Status: completed
+  Wynik: ✓ PRZESZŁO
+
+Test 16: Non-overlapping Template Matching Test (NIST)
+  P-value: 0.000000
+  Czas wykonania: 1728.0 sekund
+  Status: completed
+  Wynik: ✗ NIE PRZESZŁO
+
+Test 17: Overlapping Template Matching Test (NIST)
+  P-value: 0.770520
+  Czas wykonania: 1596.2 sekund
+  Status: completed
+  Wynik: ✓ PRZESZŁO
+
+Test 18: BirthdaySpacings Test (SmallCrush)
+  P-value: 0.000000
+  Czas wykonania: 948.6 sekund
+  Status: completed
+  Wynik: ✗ NIE PRZESZŁO
+
+Test 19: Collision Test (SmallCrush)
+  P-value: 1.000000
+  Czas wykonania: 930.4 sekund
+  Status: completed
+  Wynik: ? NIEZNANY
+
+Test 20: Gap Test (SmallCrush)
+  P-value: 0.538007
+  Czas wykonania: 915.6 sekund
+  Status: completed
+  Wynik: ? NIEZNANY
+
+Test 21: SimplePoker Test
+  P-value: 0.000000
+  Czas wykonania: 916.2 sekund
+  Status: completed
+  Wynik: ? NIEZNANY
+
+Test 22: CouponCollector Test
+  P-value: 0.264214
+  Czas wykonania: 924.4 sekund
+  Status: completed
+  Wynik: ? NIEZNANY
+
+Test 23: MaxOft Test
+  P-value: 0.000000
+  Czas wykonania: 922.6 sekund
+  Status: completed
+  Wynik: ? NIEZNANY
+
+Test 24: WeightDistrib Test
+  P-value: 0.240062
+  Czas wykonania: 928.8 sekund
+  Status: completed
+  Wynik: ? NIEZNANY
+
+Test 25: MatrixRank Test
+  P-value: NaN
+  Czas wykonania: 920.4 sekund
+  Status: completed
+  Wynik: ? NIEZNANY
+
+Test 26: HammingIndep Test
+  P-value: 0.818876
+  Czas wykonania: 924.6 sekund
+  Status: completed
+  Wynik: ? NIEZNANY
+
+Test 27: RandomWalk1 Test
+  P-value: 0.000000
+  Czas wykonania: 924.7 sekund
+  Status: completed
+  Wynik: ? NIEZNANY
+
+================================================================================
+ANOMALIE I OBSERWACJE
+================================================================================
+Testy z p-value = 0.0: 6
+  - Test 13: Random Excursions Test (NIST)
+  - Test 14: Random Excursions Variant Test (NIST)
+  - Test 18: BirthdaySpacings Test (SmallCrush)
+  - Test 21: SimplePoker Test
+  - Test 23: MaxOft Test
+  - Test 27: RandomWalk1 Test
+
+Testy z p-value = NaN: 6
+  - Test 04: Entropy Analysis
+  - Test 05: Spectral FFT Analysis
+  - Test 06: Compression Test
+  - Test 07: Empirical Entropy Bounds
+  - Test 08: ML LSTM Anomaly Detection
+  - Test 25: MatrixRank Test

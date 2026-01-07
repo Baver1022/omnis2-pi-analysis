@@ -1,0 +1,18 @@
+{
+  "test_name": "Linear Complexity Test (NIST)",
+  "n": 10000000000,
+  "sample_size": 1000000,
+  "block_size": 500,
+  "num_blocks": 2000,
+  "mean_complexity": 250.2055,
+  "expected_complexity": 250.22222222222223,
+  "std_complexity": 1.007605949764093,
+  "chi2": 88.47544210994052,
+  "p_value": 2.7087998510921807e-11,
+  "status": "completed",
+  "interpretation": "Linear complexity test FAILED with p-value 0.000000",
+  "execution_time": 1365.133682012558,
+  "step_id": "12",
+  "step_name": "Linear Complexity Test (NIST)",
+  "timestamp": "2026-01-07T00:37:43.282572"
+}

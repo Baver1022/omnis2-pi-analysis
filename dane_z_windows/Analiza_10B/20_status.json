@@ -1,0 +1,10 @@
+{
+  "step_id": "20",
+  "step_name": "SmallCrush: Gap",
+  "status": "completed",
+  "started_at": "2026-01-07T03:22:56.646623",
+  "completed_at": "2026-01-07T03:38:12.236148",
+  "digits_processed": 10000000000,
+  "total_digits": 10000000000,
+  "error": null
+}

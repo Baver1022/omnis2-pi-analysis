@@ -1,0 +1,10 @@
+{
+  "step_id": "16",
+  "step_name": "Non-overlapping Template (NIST)",
+  "status": "completed",
+  "started_at": "2026-01-07T01:56:13.341681",
+  "completed_at": "2026-01-07T02:25:01.343802",
+  "digits_processed": 10000000000,
+  "total_digits": 10000000000,
+  "error": null
+}

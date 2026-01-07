@@ -1,0 +1,10 @@
+{
+  "step_id": "13",
+  "step_name": "Random Excursions Test (NIST)",
+  "status": "completed",
+  "started_at": "2026-01-07T01:00:20.805220",
+  "completed_at": "2026-01-07T01:16:49.716922",
+  "digits_processed": 10000000000,
+  "total_digits": 10000000000,
+  "error": "Unable to allocate 74.5 GiB for an array with shape (10000000000,) and data type int64"
+}
