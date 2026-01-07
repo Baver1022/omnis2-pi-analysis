@@ -1,89 +1,121 @@
-# 🔬 OMNIS2 - Analiza Statystyczna 10 Miliardów Cyfr Liczby Pi
+# 🔬 OMNIS2 - Statistical Analysis of 10 Billion Digits of Pi
 
-## 📊 O Projekcie
+## 📊 About the Project
 
-**OMNIS2** to kompleksowy projekt analizy statystycznej **10 miliardów cyfr liczby Pi** przy użyciu **27 testów statystycznych** (17 testów NIST + 10 testów SmallCrush) z akceleracją GPU.
+**OMNIS2** is a comprehensive project for statistical analysis of **10 billion digits of Pi** using **27 statistical tests** (17 NIST tests + 10 SmallCrush tests) with GPU acceleration.
 
-Projekt zawiera:
-- ✅ **27 testów statystycznych** (kod źródłowy Python)
-- ✅ **55 plików JSON** z wynikami analizy 10B cyfr Pi
-- ✅ **Raporty naukowe** (PDF) - 70+ stron każdy
-- ✅ **Wzory matematyczne** - kompletna dokumentacja
-- ✅ **Akceleracja GPU** (CuPy dla NVIDIA RTX)
-- ✅ **Streaming processing** - przetwarzanie 10B cyfr batch-by-batch
+The project includes:
+- ✅ **27 statistical tests** (Python source code)
+- ✅ **55 JSON files** with analysis results of 10B Pi digits
+- ✅ **Scientific reports** (PDF) - 70+ pages each
+- ✅ **Mathematical formulas** - complete documentation
+- ✅ **GPU acceleration** (CuPy for NVIDIA RTX)
+- ✅ **Streaming processing** - processing 10B digits batch-by-batch
 
-## 📈 Wyniki Analizy
+## 📈 Analysis Results
 
-Analiza 10 miliardów cyfr Pi wykazała:
+Analysis of 10 billion Pi digits revealed:
 
-- ✅ **~70% testów PASS** - podstawowe testy potwierdzają lokalną losowość
-- ⚠️ **Krytyczne FAIL** w testach Random Excursions (13, 14) i niektórych SmallCrush
-- 📊 **Entropia**: H ≈ 3.32 (blisko maksimum dla systemu dziesiętnego)
-- 📈 **Kompresja**: R ≈ 0.47 (wysoka nieprzewidywalność)
+- ✅ **~70% tests PASS** - basic tests confirm local randomness
+- ⚠️ **Critical FAIL** in Random Excursions tests (13, 14) and some SmallCrush tests
+- 📊 **Entropy**: H ≈ 3.32 (close to maximum for decimal system)
+- 📈 **Compression**: R ≈ 0.47 (high unpredictability)
 
-## 🌿 Główny Projekt - Branch OMNIS2
+## 🌿 Main Project - OMNIS2 Branch
 
-**Wszystkie pliki projektu znajdują się w branchu [`OMNIS2`](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)**
+**All project files are located in the [`OMNIS2`](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2) branch**
 
-### Struktura projektu w branchu OMNIS2:
+### Project structure in OMNIS2 branch:
 
 ```
 OMNIS2/
-├── analysis_orchestrator.py      # Główny orchestrator analizy
-├── analysis_steps/               # 27 modułów testów statystycznych
-├── Raporty/                      # Raporty naukowe (PDF)
+├── analysis_orchestrator.py      # Main analysis orchestrator
+├── analysis_steps/               # 27 statistical test modules
+├── Raporty/                      # Scientific reports (PDF)
 │   ├── RAPORT_NAUKOWY_PI.pdf
 │   ├── RAPORT_NAUKOWY_PI_EN.pdf
 │   └── WZORY_MATEMATYCZNE_27_TESTOW.pdf
-├── dane_z_windows/               # Wyniki badań
-│   └── Analiza_10B/             # 55 plików JSON z wynikami
-└── README.md                     # Pełna dokumentacja
+├── dane_z_windows/               # Research results
+│   └── Analiza_10B/             # 55 JSON files with results
+└── README.md                     # Full documentation
 ```
 
-**[👉 Przejdź do brancha OMNIS2](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)**
+**[👉 Go to OMNIS2 branch](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)**
 
-## 🚀 Szybki Start
+## 🚀 Quick Start
 
-### Pobierz pełny projekt:
+### Download the full project:
 
 ```bash
 git clone https://github.com/Baver1022/omnis2-pi-analysis.git
 cd omnis2-pi-analysis
 git checkout OMNIS2
 
-# Zainstaluj zależności
+# Install dependencies
 pip install -r requirements.txt
 
-# Uruchom analizę
+# Run analysis
 python3 analysis_orchestrator.py --pi-file pi_10billion.txt
 ```
 
-## 📚 Dokumentacja
+## 📚 Documentation
 
-- **📖 Pełna dokumentacja:** [Branch OMNIS2](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)
-- **📄 Raporty naukowe:** W katalogu `Raporty/` (w OMNIS2)
-- **📐 Wzory matematyczne:** `WZORY_MATEMATYCZNE_27_TESTOW.pdf` (w OMNIS2)
-- **📊 Wyniki badań:** 55 plików JSON w `dane_z_windows/Analiza_10B/` (w OMNIS2)
+### 📄 Scientific Reports
 
-## 🔗 Linki
+<div align="center">
 
-- 🌿 **Branch OMNIS2:** [https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)
+| 📊 Report | 🌐 Language | 📥 Download | 📄 Description |
+|:---------:|:--------:|:---------:|:-------:|
+| **RAPORT_Z_ANALIZY_PI.pdf** | 🇵🇱 Polish | [📥 Download PDF](OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI.pdf) | Comprehensive scientific report (40+ pages) with complete statistical analysis |
+| **RAPORT_Z_ANALIZY_PI_EN.pdf** | 🇬🇧 English | [📥 Download PDF](OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI_EN.pdf) | Full scientific report (40+ pages) with complete statistical analysis |
+
+</div>
+
+#### 📋 Scientific Reports Content
+
+**RAPORT_Z_ANALIZY_PI.pdf** (Polish) contains:
+- 📖 Theoretical introduction
+- 🔬 Detailed description of all 27 statistical tests
+- 📐 Mathematical formulas for each test
+- 📊 Results and statistical interpretations
+- 📈 Charts and result tables
+- 🔍 Comparative analysis with other studies
+- 💡 Conclusions and cryptographic applications
+- 📚 Bibliography and references
+
+**RAPORT_Z_ANALIZY_PI_EN.pdf** (English) contains:
+- 📖 Theoretical introduction
+- 🔬 Detailed description of all 27 statistical tests
+- 📐 Mathematical formulas for each test
+- 📊 Results and statistical interpretations
+- 📈 Charts and result tables
+- 🔍 Comparative analysis with other studies
+- 💡 Conclusions and cryptographic applications
+- 📚 Bibliography and references
+
+### 📖 Other Materials
+
+- **📖 Full documentation:** [OMNIS2 Branch](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)
+- **📊 Research results:** 54 JSON files in `OMNIS2/Dane z analizy/`
+
+## 🔗 Links
+
+- 🌿 **OMNIS2 Branch:** [https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)
 - 📦 **Releases:** [https://github.com/Baver1022/omnis2-pi-analysis/releases](https://github.com/Baver1022/omnis2-pi-analysis/releases)
 - 📦 **Packages:** [https://github.com/Baver1022/omnis2-pi-analysis/packages](https://github.com/Baver1022/omnis2-pi-analysis/packages)
 
-## 👤 Autor
+## 👤 Author
 
-Projekt analizy statystycznej liczby Pi - część baver
+Pi statistical analysis project - part of baver
 
-## 📄 Licencja
+## 📄 License
 
-Zobacz plik LICENSE w branchu [OMNIS2](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2).
+See LICENSE file in the [OMNIS2](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2) branch.
 
 ---
 
 <div align="center">
 
-**💡 Wszystkie pliki projektu, kod źródłowy, raporty i wyniki badań znajdują się w branchu [`OMNIS2`](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)**
+**💡 All project files, source code, reports, and research results are located in the [`OMNIS2`](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2) branch**
 
 </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
