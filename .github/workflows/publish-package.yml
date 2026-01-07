@@ -38,6 +38,3 @@ jobs:
             --username __token__ \
             --password ${{ secrets.GITHUB_TOKEN }} \
             dist/*
-        # Note: GitHub Packages dla Python używa PyPI-compatible API
-        # Pakiet będzie dostępny w sekcji Packages po publikacji
-
