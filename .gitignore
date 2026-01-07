@@ -83,6 +83,4 @@ test_results/
 
 
 # Gotowe pliki do Releases/Packages (nie commituj)
-setup.py
-pyproject.toml
 RELEASE_DESCRIPTION.txt
