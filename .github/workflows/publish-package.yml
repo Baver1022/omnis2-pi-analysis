@@ -46,7 +46,7 @@ jobs:
       - name: Publish to GitHub Packages
         env:
           TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          TWINE_PASSWORD: ${{ secrets.GITHUB_PACKAGES_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           echo "Publishing to GitHub Packages..."
           echo "Repository: https://github.com/Baver1022/omnis2-pi-analysis/packages"
