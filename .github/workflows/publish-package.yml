@@ -30,13 +30,15 @@ jobs:
       - name: Build package
         run: python -m build
       
-      - name: Publish to GitHub Packages
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PACKAGES_TOKEN }}
+      - name: Configure pip for GitHub Packages
         run: |
-          python -m twine upload \
-            --repository-url https://upload.pypi.org/legacy/ \
-            --username __token__ \
-            --password ${{ secrets.PACKAGES_TOKEN }} \
-            dist/*
+          echo "[distutils]" > ~/.pypirc
+          echo "index-servers = github" >> ~/.pypirc
+          echo "[github]" >> ~/.pypirc
+          echo "repository = https://upload.pypi.org/legacy/" >> ~/.pypirc
+          echo "username = __token__" >> ~/.pypirc
+          echo "password = ${{ secrets.PACKAGES_TOKEN }}" >> ~/.pypirc
+      
+      - name: Publish to GitHub Packages
+        run: |
+          python -m twine upload --repository github dist/*
