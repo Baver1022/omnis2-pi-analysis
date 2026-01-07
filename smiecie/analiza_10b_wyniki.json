@@ -1,0 +1,402 @@
+{
+  "fragments": [
+    {
+      "name": "Początek (1M)",
+      "start_pos": 1,
+      "size": 1000000,
+      "timestamp": "2026-01-04T15:27:16.040234",
+      "compression_ratio": 0.470448,
+      "prediction_accuracy": 9.94509945099451,
+      "lz_complexity": 183252,
+      "lz_normalized": 3.6524998034657936,
+      "apen": null,
+      "sampen": null,
+      "spectral": {
+        "max_power": 1.4138649988520603e-05,
+        "spectral_entropy": 0.9694308056729135,
+        "total_power": 8246725995643.999
+      },
+      "runs": {
+        "runs": 499597,
+        "expected": 500000.872992,
+        "statistic": -133.90235384612402,
+        "p_value": 0.0
+      },
+      "frequency": {
+        "frequencies": [
+          99959,
+          99758,
+          100026,
+          100229,
+          100230,
+          100359,
+          99548,
+          99800,
+          99985,
+          100106
+        ],
+        "expected": 100000.0,
+        "chi2": 5.50908,
+        "p_value": 0.7878669435508684
+      }
+    },
+    {
+      "name": "Początek (10M)",
+      "start_pos": 1,
+      "size": 10000000,
+      "timestamp": "2026-01-04T15:27:19.935377",
+      "compression_ratio": 0.4693553,
+      "prediction_accuracy": 9.99809998099981,
+      "lz_complexity": 1566291,
+      "lz_normalized": 3.642174254368455,
+      "apen": null,
+      "sampen": null,
+      "spectral": {
+        "max_power": 1.6366569623250928e-06,
+        "spectral_entropy": 0.9737742645108934,
+        "total_power": 824810431694076.0
+      },
+      "runs": {
+        "runs": 4996995,
+        "expected": 5000000.99998,
+        "statistic": -32827.550573879445,
+        "p_value": 0.0
+      },
+      "frequency": {
+        "frequencies": [
+          999440,
+          999333,
+          1000306,
+          999964,
+          1001093,
+          1000466,
+          999337,
+          1000207,
+          999814,
+          1000040
+        ],
+        "expected": 1000000.0,
+        "chi2": 2.78384,
+        "p_value": 0.9722519536917961
+      }
+    },
+    {
+      "name": "Środek 5B (1M)",
+      "start_pos": 5000000000,
+      "size": 1000000,
+      "timestamp": "2026-01-04T15:27:41.787922",
+      "compression_ratio": 0.470533,
+      "prediction_accuracy": 9.956099560995609,
+      "lz_complexity": 183302,
+      "lz_normalized": 3.65349638189426,
+      "apen": null,
+      "sampen": null,
+      "spectral": {
+        "max_power": 1.3373565357200256e-05,
+        "spectral_entropy": 0.9694009926199353,
+        "total_power": 8248464444990.999
+      },
+      "runs": {
+        "runs": 500336,
+        "expected": 500000.208718,
+        "statistic": 115.6318069302629,
+        "p_value": 0.0
+      },
+      "frequency": {
+        "frequencies": [
+          99970,
+          99777,
+          99677,
+          100381,
+          100243,
+          100183,
+          99716,
+          99961,
+          99765,
+          100327
+        ],
+        "expected": 100000.0,
+        "chi2": 6.36988,
+        "p_value": 0.702403941877545
+      }
+    },
+    {
+      "name": "Koniec 9.9B (1M)",
+      "start_pos": 9900000000,
+      "size": 1000000,
+      "timestamp": "2026-01-04T15:28:03.721339",
+      "compression_ratio": 0.470482,
+      "prediction_accuracy": 9.96009960099601,
+      "lz_complexity": 183307,
+      "lz_normalized": 3.6535960397371063,
+      "apen": null,
+      "sampen": null,
+      "spectral": {
+        "max_power": 1.4760184213794273e-05,
+        "spectral_entropy": 0.9693413169531208,
+        "total_power": 8251203739995.998
+      },
+      "runs": {
+        "runs": 501003,
+        "expected": 500000.774208,
+        "statistic": 334.1025434084389,
+        "p_value": 0.0
+      },
+      "frequency": {
+        "frequencies": [
+          100014,
+          99755,
+          99773,
+          100003,
+          100113,
+          100228,
+          99673,
+          100158,
+          100091,
+          100192
+        ],
+        "expected": 100000.0,
+        "chi2": 3.5355,
+        "p_value": 0.939247678131143
+      }
+    },
+    {
+      "name": "Pozycja 1B (1M)",
+      "start_pos": 1000000000,
+      "size": 1000000,
+      "timestamp": "2026-01-04T15:28:29.858908",
+      "compression_ratio": 0.470425,
+      "prediction_accuracy": 10.13010130101301,
+      "lz_complexity": 183331,
+      "lz_normalized": 3.6540743973827703,
+      "apen": null,
+      "sampen": null,
+      "spectral": {
+        "max_power": 1.3000530911498115e-05,
+        "spectral_entropy": 0.969378710690168,
+        "total_power": 8264875156150.998
+      },
+      "runs": {
+        "runs": 499628,
+        "expected": 500000.919198,
+        "statistic": -123.32695945599784,
+        "p_value": 0.0
+      },
+      "frequency": {
+        "frequencies": [
+          100237,
+          99898,
+          99792,
+          100002,
+          99566,
+          99512,
+          100013,
+          100162,
+          100593,
+          100225
+        ],
+        "expected": 100000.0,
+        "chi2": 9.65028,
+        "p_value": 0.3795314769398812
+      }
+    },
+    {
+      "name": "Pozycja 2B (1M)",
+      "start_pos": 2000000000,
+      "size": 1000000,
+      "timestamp": "2026-01-04T15:28:32.987175",
+      "compression_ratio": 0.470526,
+      "prediction_accuracy": 9.94409944099441,
+      "lz_complexity": 183297,
+      "lz_normalized": 3.6533967240514134,
+      "apen": null,
+      "sampen": null,
+      "spectral": {
+        "max_power": 1.4293783914435784e-05,
+        "spectral_entropy": 0.9694189919748004,
+        "total_power": 8243165895670.999
+      },
+      "runs": {
+        "runs": 500792,
+        "expected": 500000.986878,
+        "statistic": 260.63070247579833,
+        "p_value": 0.0
+      },
+      "frequency": {
+        "frequencies": [
+          99851,
+          99807,
+          99858,
+          100797,
+          99637,
+          100021,
+          100312,
+          99654,
+          100261,
+          99802
+        ],
+        "expected": 100000.0,
+        "chi2": 11.71418,
+        "p_value": 0.22990622929707083
+      }
+    },
+    {
+      "name": "Pozycja 3B (1M)",
+      "start_pos": 3000000000,
+      "size": 1000000,
+      "timestamp": "2026-01-04T15:28:35.819763",
+      "compression_ratio": 0.470594,
+      "prediction_accuracy": 9.96809968099681,
+      "lz_complexity": 183289,
+      "lz_normalized": 3.6532372715028587,
+      "apen": null,
+      "sampen": null,
+      "spectral": {
+        "max_power": 1.4622801406234558e-05,
+        "spectral_entropy": 0.9693894899404375,
+        "total_power": 8250496814078.999
+      },
+      "runs": {
+        "runs": 500303,
+        "expected": 499999.645342,
+        "statistic": 108.1365509511278,
+        "p_value": 0.0
+      },
+      "frequency": {
+        "frequencies": [
+          99787,
+          100167,
+          99769,
+          100007,
+          100393,
+          100248,
+          99386,
+          100055,
+          99842,
+          100346
+        ],
+        "expected": 100000.0,
+        "chi2": 8.67322,
+        "p_value": 0.4679689955424222
+      }
+    },
+    {
+      "name": "Pozycja 7B (1M)",
+      "start_pos": 7000000000,
+      "size": 1000000,
+      "timestamp": "2026-01-04T15:28:38.648939",
+      "compression_ratio": 0.470393,
+      "prediction_accuracy": 9.87609876098761,
+      "lz_complexity": 183319,
+      "lz_normalized": 3.6538352185599385,
+      "apen": null,
+      "sampen": null,
+      "spectral": {
+        "max_power": 1.698254765660653e-05,
+        "spectral_entropy": 0.9694631961910128,
+        "total_power": 8252413141974.999
+      },
+      "runs": {
+        "runs": 499530,
+        "expected": 500000.991022,
+        "statistic": -155.15180967678245,
+        "p_value": 0.0
+      },
+      "frequency": {
+        "frequencies": [
+          99704,
+          99702,
+          100167,
+          99586,
+          100083,
+          99873,
+          100088,
+          100373,
+          99891,
+          100533
+        ],
+        "expected": 100000.0,
+        "chi2": 8.415659999999999,
+        "p_value": 0.49286000318662426
+      }
+    },
+    {
+      "name": "Pozycja 8B (1M)",
+      "start_pos": 8000000000,
+      "size": 1000000,
+      "timestamp": "2026-01-04T15:28:41.478872",
+      "compression_ratio": 0.470464,
+      "prediction_accuracy": 10.05310053100531,
+      "lz_complexity": 183283,
+      "lz_normalized": 3.653117682091443,
+      "apen": null,
+      "sampen": null,
+      "spectral": {
+        "max_power": 1.3353605070284582e-05,
+        "spectral_entropy": 0.9694449551533949,
+        "total_power": 8246025971950.999
+      },
+      "runs": {
+        "runs": 499700,
+        "expected": 500000.611038,
+        "statistic": -101.13297593498726,
+        "p_value": 0.0
+      },
+      "frequency": {
+        "frequencies": [
+          100361,
+          99680,
+          100074,
+          99986,
+          99917,
+          100378,
+          99688,
+          100161,
+          100401,
+          99354
+        ],
+        "expected": 100000.0,
+        "chi2": 10.89548,
+        "p_value": 0.2829413785614201
+      }
+    }
+  ],
+  "consistency": {
+    "compression_ratio": {
+      "mean": 0.470357811111111,
+      "std": 0.00035906947159582305,
+      "cv": 0.0763396425261026,
+      "min": 0.4693553,
+      "max": 0.470594,
+      "status": "✅ BARDZO SPÓJNE"
+    },
+    "prediction_accuracy": {
+      "mean": 9.981210923220344,
+      "std": 0.0687990155609854,
+      "cv": 0.6892852589752512,
+      "min": 9.87609876098761,
+      "max": 10.13010130101301,
+      "status": "✅ BARDZO SPÓJNE"
+    },
+    "lz_normalized": {
+      "mean": 3.6521586414504483,
+      "std": 0.003555232796213272,
+      "cv": 0.09734606694963606,
+      "min": 3.642174254368455,
+      "max": 3.6540743973827703,
+      "status": "✅ BARDZO SPÓJNE"
+    },
+    "spectral_spectral_entropy": {
+      "mean": 0.9698936359674087,
+      "std": 0.00137244447718919,
+      "cv": 0.14150463785858972,
+      "min": 0.9693413169531208,
+      "max": 0.9737742645108934,
+      "status": "✅ BARDZO SPÓJNE"
+    }
+  },
+  "summary": {
+    "total_fragments": 9,
+    "total_digits_analyzed": 18000000
+  }
+}

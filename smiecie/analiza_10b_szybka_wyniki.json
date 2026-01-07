@@ -1,0 +1,104 @@
+{
+  "fragments": [
+    {
+      "name": "Początek 1M",
+      "start_pos": 1,
+      "size": 1000000,
+      "compression_ratio": 0.470448,
+      "prediction_accuracy": 9.950000000000001,
+      "frequency_chi2": 5.50908,
+      "frequency_pvalue": 0.7878669435508684
+    },
+    {
+      "name": "Początek 10M",
+      "start_pos": 1,
+      "size": 10000000,
+      "compression_ratio": 0.4693553,
+      "prediction_accuracy": 9.98,
+      "frequency_chi2": 2.78384,
+      "frequency_pvalue": 0.9722519536917961
+    },
+    {
+      "name": "Pozycja 1B",
+      "start_pos": 1000000000,
+      "size": 1000000,
+      "compression_ratio": 0.470425,
+      "prediction_accuracy": 10.57,
+      "frequency_chi2": 9.65028,
+      "frequency_pvalue": 0.3795314769398812
+    },
+    {
+      "name": "Pozycja 2B",
+      "start_pos": 2000000000,
+      "size": 1000000,
+      "compression_ratio": 0.470526,
+      "prediction_accuracy": 9.8,
+      "frequency_chi2": 11.71418,
+      "frequency_pvalue": 0.22990622929707083
+    },
+    {
+      "name": "Pozycja 3B",
+      "start_pos": 3000000000,
+      "size": 1000000,
+      "compression_ratio": 0.470594,
+      "prediction_accuracy": 9.969999999999999,
+      "frequency_chi2": 8.67322,
+      "frequency_pvalue": 0.4679689955424222
+    },
+    {
+      "name": "Pozycja 5B",
+      "start_pos": 5000000000,
+      "size": 1000000,
+      "compression_ratio": 0.470533,
+      "prediction_accuracy": 10.03,
+      "frequency_chi2": 6.36988,
+      "frequency_pvalue": 0.702403941877545
+    },
+    {
+      "name": "Pozycja 5B (10M)",
+      "start_pos": 5000000000,
+      "size": 10000000,
+      "compression_ratio": 0.4693566,
+      "prediction_accuracy": 10.2,
+      "frequency_chi2": 7.0398879999999995,
+      "frequency_pvalue": 0.6329663560320038
+    },
+    {
+      "name": "Pozycja 7B",
+      "start_pos": 7000000000,
+      "size": 1000000,
+      "compression_ratio": 0.470393,
+      "prediction_accuracy": 10.58,
+      "frequency_chi2": 8.415659999999999,
+      "frequency_pvalue": 0.49286000318662426
+    },
+    {
+      "name": "Pozycja 9B",
+      "start_pos": 9000000000,
+      "size": 1000000,
+      "compression_ratio": 0.470601,
+      "prediction_accuracy": 9.92,
+      "frequency_chi2": 7.27636,
+      "frequency_pvalue": 0.6083705037005858
+    },
+    {
+      "name": "Koniec 9.9B",
+      "start_pos": 9900000000,
+      "size": 1000000,
+      "compression_ratio": 0.470482,
+      "prediction_accuracy": 9.520000000000001,
+      "frequency_chi2": 3.5355,
+      "frequency_pvalue": 0.939247678131143
+    },
+    {
+      "name": "Koniec 9.9B (10M)",
+      "start_pos": 9900000000,
+      "size": 10000000,
+      "compression_ratio": 0.4693684,
+      "prediction_accuracy": 10.13,
+      "frequency_chi2": 15.153528,
+      "frequency_pvalue": 0.08680423485434408
+    }
+  ],
+  "timestamp": "2026-01-04T15:29:17.380526"
+}

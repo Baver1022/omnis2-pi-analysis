@@ -1,0 +1,87 @@
+{
+  "timestamp": "2026-01-05T14:20:21.656956",
+  "pi_file": "C:\\Users\\test\\pi_10billion.txt",
+  "max_digits": 10000000000,
+  "status": {
+    "total_steps": 8,
+    "completed": 8,
+    "running": 0,
+    "failed": 0,
+    "skipped": 0,
+    "pending": 0,
+    "steps": {
+      "01": {
+        "name": "Frequency Test (NIST)",
+        "status": "completed",
+        "started_at": "2026-01-05T08:02:45.156956",
+        "completed_at": "2026-01-05T08:12:01.614333",
+        "error": null
+      },
+      "02": {
+        "name": "Runs Test (NIST)",
+        "status": "completed",
+        "started_at": "2026-01-05T08:12:01.634102",
+        "completed_at": "2026-01-05T08:32:12.847632",
+        "error": null
+      },
+      "03": {
+        "name": "Block Frequency Test (NIST)",
+        "status": "completed",
+        "started_at": "2026-01-05T08:32:12.880985",
+        "completed_at": "2026-01-05T08:37:14.610485",
+        "error": null
+      },
+      "04": {
+        "name": "Entropy Analysis",
+        "status": "completed",
+        "started_at": "2026-01-05T08:37:14.630474",
+        "completed_at": "2026-01-05T09:06:49.694829",
+        "error": null
+      },
+      "05": {
+        "name": "Spectral FFT Analysis (GPU)",
+        "status": "completed",
+        "started_at": "2026-01-05T09:06:49.697056",
+        "completed_at": "2026-01-05T09:07:04.013588",
+        "error": null
+      },
+      "06": {
+        "name": "Compression Test",
+        "status": "completed",
+        "started_at": "2026-01-05T14:02:10.819059",
+        "completed_at": "2026-01-05T14:20:21.645892",
+        "error": ""
+      },
+      "07": {
+        "name": "Empirical Entropy Bounds",
+        "status": "completed",
+        "started_at": "2026-01-05T09:15:20.581008",
+        "completed_at": "2026-01-05T09:31:43.966174",
+        "error": null
+      },
+      "08": {
+        "name": "ML LSTM Anomaly Detection",
+        "status": "completed",
+        "started_at": "2026-01-05T09:31:43.969287",
+        "completed_at": "2026-01-05T09:31:43.971216",
+        "error": null
+      }
+    }
+  },
+  "results": {
+    "06": {
+      "test_name": "Compression Test",
+      "n": 10000000000,
+      "sample_size": 100000000,
+      "original_size": 100000000,
+      "compressed_size": 46924885,
+      "compression_ratio": 0.46924885,
+      "interpretation": "Compression ratio: 0.469249 (lower = more random, sample: 100,000,000 cyfr)",
+      "execution_time": 1090.8059430122375,
+      "step_id": "06",
+      "step_name": "Compression Test",
+      "timestamp": "2026-01-05T14:20:21.647129",
+      "status": "completed"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "test_name": "Frequency Test (NIST)",
+  "n": 100000,
+  "frequencies": [
+    10041,
+    9960,
+    10026,
+    9992,
+    10139,
+    10012,
+    9790,
+    10033,
+    9965,
+    10042
+  ],
+  "expected": 10000.0,
+  "chi2": 7.1664,
+  "p_value": 0.6197995190875719,
+  "status": "completed",
+  "interpretation": "Frequency test PASSED with p-value 0.619800",
+  "execution_time": 0.0004379749298095703,
+  "step_id": "01",
+  "step_name": "Frequency Test (NIST)",
+  "timestamp": "2026-01-05T23:54:16.358737"
+}

@@ -1,0 +1,52 @@
+{
+  "name": "\u00a4\u00c7 (turbo-optimized)",
+  "num_digits": 999999985,
+  "timestamp": "2026-01-05T02:39:03.301968",
+  "gpu_used": true,
+  "num_workers": 16,
+  "tests": {
+    "frequency": {
+      "chi2": 4.920911778813677,
+      "p_value": 0.8411473376182497,
+      "frequencies": [
+        99993940,
+        99997330,
+        100002409,
+        99986911,
+        100011958,
+        99998882,
+        100010387,
+        99996059,
+        100001837,
+        100000272
+      ],
+      "status": "PASS"
+    },
+    "runs": {
+      "runs": 499991367,
+      "expected_runs": 499999991.65634,
+      "z_score": -0.5454711666965759,
+      "p_value": 0.5854295058967465,
+      "status": "PASS"
+    },
+    "entropy": {
+      "avg_entropy": 3.3212781755388305,
+      "max_entropy": 3.321928094887362,
+      "ratio": 0.9998043547813296,
+      "samples": 99984
+    },
+    "binary": {
+      "ones": 499979454,
+      "zeros": 500020531,
+      "ones_ratio": 0.4999794614996919
+    }
+  },
+  "partial": false,
+  "state": {
+    "digits_processed": 1000000000,
+    "started_at": "2026-01-05T02:36:06.525842",
+    "last_checkpoint": "2026-01-05T02:39:03.156626",
+    "batches_processed": 11,
+    "status": "completed"
+  }
+}

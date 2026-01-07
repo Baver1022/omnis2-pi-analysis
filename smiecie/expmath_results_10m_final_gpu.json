@@ -1,0 +1,145 @@
+{
+  "name": "\u00a4\u00c7",
+  "num_digits": 9999998,
+  "timestamp": "2026-01-05T00:49:27.261348",
+  "gpu_used": true,
+  "tests": {
+    "nist": {
+      "timestamp": "2026-01-05T00:49:27.294073",
+      "num_digits": 9999998,
+      "tests": {
+        "frequency": {
+          "test_name": "Frequency Test",
+          "ones": 5000009,
+          "zeros": 4999989,
+          "s_obs": 0.006324555952792386,
+          "p_value": 0.9949537680929084,
+          "status": "PASS"
+        },
+        "block_frequency": {
+          "test_name": "Block Frequency Test",
+          "num_blocks": 78124,
+          "chi_square": 77609.28125,
+          "p_value": 0.9037703910820516,
+          "status": "PASS"
+        },
+        "runs": {
+          "test_name": "Runs Test",
+          "runs": 4996993,
+          "expected_runs": 4999998.99998,
+          "z_score": -1.9011616018258983,
+          "p_value": 0.05728084886168028,
+          "status": "PASS"
+        },
+        "longest_run": {
+          "test_name": "Longest Run Test",
+          "max_run": 24,
+          "expected_max": 11.626748187836249,
+          "p_value": 0.5,
+          "status": "PASS"
+        },
+        "binary_matrix_rank": {
+          "test_name": "Binary Matrix Rank Test",
+          "num_matrices": 9765,
+          "p_value": 0.5,
+          "status": "PASS"
+        },
+        "dft": {
+          "test_name": "Discrete Fourier Transform Test",
+          "proportion": 0.949956589991318,
+          "expected_proportion": 0.95,
+          "z_score": -0.44537724717695126,
+          "p_value": 0.6560471521399689,
+          "status": "PASS"
+        }
+      },
+      "summary": {
+        "passed": 6,
+        "total": 6,
+        "pass_rate": 1.0
+      }
+    },
+    "spectral": {
+      "window_size": 9999998,
+      "gpu_used": true,
+      "pairs_analysis": {
+        "spectral_entropy": 3.740161415944704,
+        "max_power": 2.4505626123704384e+17,
+        "dominant_frequencies": [
+          [
+            0,
+            2.4505626123704384e+17
+          ],
+          [
+            604409,
+            146082169669.39526
+          ],
+          [
+            2270074,
+            144986483955.30878
+          ]
+        ]
+      },
+      "triplets_analysis": null,
+      "spectral_gaps": [
+        [
+          74,
+          74
+        ],
+        [
+          85,
+          85
+        ],
+        [
+          107,
+          107
+        ],
+        [
+          126,
+          126
+        ],
+        [
+          128,
+          128
+        ]
+      ]
+    },
+    "entropy_bounds": {
+      "entropy_by_N": [
+        {
+          "N": 1000000,
+          "H_N": 3.3219241169670535,
+          "H_max": 3.321928094887362,
+          "ratio": 0.9999988025266667,
+          "difference": 3.977920308706473e-06
+        }
+      ],
+      "model_fit": null
+    },
+    "compression": {
+      "ratio": 0.48173
+    },
+    "frequency": {
+      "chi2": 2.782990156598031,
+      "p_value": 0.9722808386461202,
+      "frequencies": [
+        999440,
+        999332,
+        1000306,
+        999964,
+        1001092,
+        1000466,
+        999337,
+        1000207,
+        999814,
+        1000040
+      ]
+    },
+    "prediction": {
+      "accuracy": 10.0
+    },
+    "entropy": {
+      "avg_entropy": 3.321927894153128
+    }
+  }
+}

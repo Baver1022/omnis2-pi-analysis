@@ -1,0 +1,39 @@
+{
+  "test_name": "Empirical Entropy Bounds",
+  "n": 100000,
+  "max_entropy": 3.321928094887362,
+  "entropy_by_N": [
+    {
+      "N": 1000,
+      "H_N": 3.313367628736425,
+      "H_max": 3.321928094887362,
+      "ratio": 0.9974230429117017
+    },
+    {
+      "N": 10000,
+      "H_N": 3.3215526929610943,
+      "H_max": 3.321928094887362,
+      "ratio": 0.9998869927597633
+    },
+    {
+      "N": 100000,
+      "H_N": 3.321876241491833,
+      "H_max": 3.321928094887362,
+      "ratio": 0.9999843905725686
+    }
+  ],
+  "model_fit": {
+    "c_estimate": 0.009597503054311769,
+    "c_std": 0.006043010793943508,
+    "c_CI_lower": -0.002246798101817507,
+    "c_CI_upper": 0.021441804210441045,
+    "R_squared": 0.30165864610703796,
+    "model": "H(N) = log\u2082(10) * (1 - c/log(N))"
+  },
+  "interpretation": "Entropy analysis for 3 different N values",
+  "execution_time": 0.0105743408203125,
+  "step_id": "07",
+  "step_name": "Empirical Entropy Bounds",
+  "timestamp": "2026-01-05T23:36:13.142376",
+  "status": "completed"
+}

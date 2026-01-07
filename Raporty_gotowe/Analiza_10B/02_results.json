@@ -1,0 +1,16 @@
+{
+  "test_name": "Runs Test (NIST)",
+  "n": 10000000000,
+  "runs": 5000054227,
+  "expected_runs": 4999999998.018238,
+  "ones": 5000099543,
+  "zeros": 4999900457,
+  "z_score": 1.0845796357227522,
+  "p_value": 0.2781078784458566,
+  "status": "completed",
+  "interpretation": "Runs test PASSED with p-value 0.278108",
+  "execution_time": 1211.2087941169739,
+  "step_id": "02",
+  "step_name": "Runs Test (NIST)",
+  "timestamp": "2026-01-05T08:32:12.870820"
+}
