@@ -1,0 +1,100 @@
+{
+  "test_name": "Non-overlapping Template Matching Test (NIST)",
+  "n": 100000,
+  "m": 9,
+  "num_templates": 5,
+  "results_by_template": {
+    "0": {
+      "template": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "num_matches": 200,
+      "expected": 192.30769230769232,
+      "chi2": 0.30769230769230665,
+      "p_value": 0.5790997419539194
+    },
+    "1": {
+      "template": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "num_matches": 195,
+      "expected": 192.30769230769232,
+      "chi2": 0.037692307692307324,
+      "p_value": 0.8460622932235988
+    },
+    "2": {
+      "template": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "num_matches": 185,
+      "expected": 192.30769230769232,
+      "chi2": 0.2776923076923087,
+      "p_value": 0.5982177644910314
+    },
+    "3": {
+      "template": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "num_matches": 172,
+      "expected": 192.30769230769232,
+      "chi2": 2.1444923076923104,
+      "p_value": 0.1430823621161973
+    },
+    "4": {
+      "template": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "num_matches": 196,
+      "expected": 192.30769230769232,
+      "chi2": 0.07089230769230719,
+      "p_value": 0.7900419846801328
+    }
+  },
+  "p_value": 0.1430823621161973,
+  "status": "completed",
+  "interpretation": "Non-overlapping Template test PASSED with p-value 0.143082",
+  "execution_time": 0.9766511917114258,
+  "step_id": "16",
+  "step_name": "Non-overlapping Template (NIST)",
+  "timestamp": "2026-01-05T23:54:18.231277"
+}
