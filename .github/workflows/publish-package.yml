@@ -46,17 +46,18 @@ jobs:
       
       - name: Publish to GitHub Packages
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PACKAGES_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           echo "Publishing to GitHub Packages..."
           echo "Repository: https://github.com/Baver1022/omnis2-pi-analysis/packages"
           echo ""
           # GitHub Packages for Python uses PyPI-compatible API
           # Endpoint: https://upload.pypi.org/legacy/
-          # GITHUB_TOKEN should automatically route to GitHub Packages
+          # Use PACKAGES_TOKEN (PAT) if available, otherwise GITHUB_TOKEN
           python -m twine upload \
             --repository-url https://upload.pypi.org/legacy/ \
             --username __token__ \
-            --password ${{ secrets.GITHUB_TOKEN }} \
+            --password ${{ secrets.PACKAGES_TOKEN || secrets.GITHUB_TOKEN }} \
             --verbose \
             dist/*
