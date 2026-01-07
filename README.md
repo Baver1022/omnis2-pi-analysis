@@ -29,8 +29,10 @@ Analysis of 10 billion Pi digits revealed:
 
 ```
 OMNIS2/
-├── analysis_orchestrator.py      # Main analysis orchestrator
-├── analysis_steps/               # 27 statistical test modules
+├── Program/                      # Main program
+│   ├── analysis_orchestrator.py  # Main analysis orchestrator
+│   ├── analysis_steps/           # 27 statistical test modules
+│   └── requirements.txt          # Python dependencies
 ├── Raporty/                      # Scientific reports (PDF)
 │   ├── RAPORT_Z_ANALIZY_PI.pdf
 │   ├── RAPORT_Z_ANALIZY_PI_EN.pdf
@@ -107,7 +109,7 @@ python3 analysis_orchestrator.py --pi-file pi_10billion.txt
 ### 📖 Other Materials
 
 - **📖 Full documentation:** [OMNIS2 Branch](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)
-- **📊 Research results:** 54 JSON files in `OMNIS2/Dane z analizy/`
+- **📊 Research results:** 55 JSON files in `OMNIS2/Dane z analizy/`
 
 ## 📦 Package Installation
 
