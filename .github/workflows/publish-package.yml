@@ -17,6 +17,19 @@ jobs:
         with:
           ref: OMNIS2  # Checkout OMNIS2 branch where Program/ exists
       
+      - name: Debug - Check files
+        run: |
+          echo "Current directory:"
+          pwd
+          echo ""
+          echo "Files in root:"
+          ls -la
+          echo ""
+          echo "Checking for setup.py and pyproject.toml:"
+          test -f setup.py && echo "✅ setup.py exists" || echo "❌ setup.py missing"
+          test -f pyproject.toml && echo "✅ pyproject.toml exists" || echo "❌ pyproject.toml missing"
+          test -d Program && echo "✅ Program/ exists" || echo "❌ Program/ missing"
+      
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
