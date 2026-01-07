@@ -53,12 +53,10 @@ jobs:
           echo "Package name: omnis2-pi-analysis"
           echo ""
           # GitHub Packages for Python uses PyPI-compatible API
-          # According to GitHub documentation, when using GITHUB_TOKEN,
-          # the package should be published to GitHub Packages automatically
-          # The endpoint is: https://upload.pypi.org/legacy/
-          #
-          # IMPORTANT: GITHUB_TOKEN only works with GitHub Packages, not PyPI
-          # So we use PyPI-compatible endpoint, but GITHUB_TOKEN routes to GitHub Packages
+          # The correct endpoint for GitHub Packages is the same as PyPI
+          # BUT we must configure it to publish to GitHub Packages
+          # Format: https://upload.pypi.org/legacy/
+          # When using GITHUB_TOKEN, it should route to GitHub Packages
           python -m twine upload \
             --repository-url https://upload.pypi.org/legacy/ \
             --username __token__ \
