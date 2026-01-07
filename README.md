@@ -32,8 +32,8 @@ OMNIS2/
 ├── analysis_orchestrator.py      # Main analysis orchestrator
 ├── analysis_steps/               # 27 statistical test modules
 ├── Raporty/                      # Scientific reports (PDF)
-│   ├── RAPORT_NAUKOWY_PI.pdf
-│   ├── RAPORT_NAUKOWY_PI_EN.pdf
+│   ├── RAPORT_Z_ANALIZY_PI.pdf
+│   ├── RAPORT_Z_ANALIZY_PI_EN.pdf
 │   └── WZORY_MATEMATYCZNE_27_TESTOW.pdf
 ├── dane_z_windows/               # Research results
 │   └── Analiza_10B/             # 55 JSON files with results
