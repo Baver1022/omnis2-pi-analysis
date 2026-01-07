@@ -1,4 +1,4 @@
-name: Publish Python Package to GitHub Packages
+name: Build and Release Python Package
 
 on:
   release:
@@ -6,11 +6,10 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  packages: write
+  contents: write
 
 jobs:
-  publish:
+  build-and-release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,20 +24,14 @@ jobs:
       - name: Install build dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install build wheel twine
+          pip install build wheel
       
       - name: Build package
         run: python -m build
       
-      - name: Configure pip for GitHub Packages
-        run: |
-          echo "[distutils]" > ~/.pypirc
-          echo "index-servers = github" >> ~/.pypirc
-          echo "[github]" >> ~/.pypirc
-          echo "repository = https://upload.pypi.org/legacy/" >> ~/.pypirc
-          echo "username = __token__" >> ~/.pypirc
-          echo "password = ${{ secrets.GITHUB_TOKEN }}" >> ~/.pypirc
-      
-      - name: Publish to GitHub Packages
-        run: |
-          python -m twine upload --repository github dist/*
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-package
+          path: dist/*
+          retention-days: 30
