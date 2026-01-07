@@ -8,7 +8,6 @@ The project includes:
 - ✅ **27 statistical tests** (Python source code)
 - ✅ **55 JSON files** with analysis results of 10B Pi digits
 - ✅ **Scientific reports** (PDF) - 70+ pages each
-- ✅ **Mathematical formulas** - complete documentation
 - ✅ **GPU acceleration** (CuPy for NVIDIA RTX)
 - ✅ **Streaming processing** - processing 10B digits batch-by-batch
 
@@ -21,30 +20,27 @@ Analysis of 10 billion Pi digits revealed:
 - 📊 **Entropy**: H ≈ 3.32 (close to maximum for decimal system)
 - 📈 **Compression**: R ≈ 0.47 (high unpredictability)
 
-## 🌿 Main Project - OMNIS2 Branch
-
-**All project files are located in the [`OMNIS2`](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2) branch**
-
-### Project structure in OMNIS2 branch:
+## 📁 Project Structure
 
 ```
 OMNIS2/
-├── analysis_orchestrator.py      # Main analysis orchestrator
-├── analysis_steps/               # 27 statistical test modules
+├── Program/                      # Main program
+│   ├── analysis_orchestrator.py  # Main analysis orchestrator
+│   ├── analysis_steps/           # 27 statistical test modules
+│   ├── requirements.txt          # Python dependencies
+│   └── README.md                 # Program documentation
 ├── Raporty/                      # Scientific reports (PDF)
-│   ├── RAPORT_NAUKOWY_PI.pdf
-│   ├── RAPORT_NAUKOWY_PI_EN.pdf
-│   └── WZORY_MATEMATYCZNE_27_TESTOW.pdf
-├── dane_z_windows/               # Research results
-│   └── Analiza_10B/             # 55 JSON files with results
-└── README.md                     # Full documentation
+│   ├── RAPORT_Z_ANALIZY_PI.pdf
+│   └── RAPORT_Z_ANALIZY_PI_EN.pdf
+├── Dane z analizy/               # Research results
+│   └── *.json                    # 55 JSON files with results
+├── README.md                     # This file
+└── LICENSE                       # MIT License
 ```
-
-**[👉 Go to OMNIS2 branch](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)**
 
 ## 🚀 Quick Start
 
-### Download the full project:
+### Installation:
 
 ```bash
 git clone https://github.com/Baver1022/omnis2-pi-analysis.git
@@ -54,8 +50,12 @@ git checkout OMNIS2
 # Install dependencies
 cd Program
 pip install -r requirements.txt
+```
 
-# Run analysis
+### Run Analysis:
+
+```bash
+# From Program/ directory
 python3 analysis_orchestrator.py --pi-file pi_10billion.txt
 ```
 
@@ -67,8 +67,8 @@ python3 analysis_orchestrator.py --pi-file pi_10billion.txt
 
 | 📊 Report | 🌐 Language | 📥 Download | 📄 Description |
 |:---------:|:--------:|:---------:|:-------:|
-| **RAPORT_Z_ANALIZY_PI.pdf** | 🇵🇱 Polish | [📥 Download PDF](https://github.com/Baver1022/omnis2-pi-analysis/blob/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI.pdf) | Comprehensive scientific report (40+ pages) with complete statistical analysis |
-| **RAPORT_Z_ANALIZY_PI_EN.pdf** | 🇬🇧 English | [📥 Download PDF](https://github.com/Baver1022/omnis2-pi-analysis/blob/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI_EN.pdf) | Full scientific report (40+ pages) with complete statistical analysis |
+| **RAPORT_Z_ANALIZY_PI.pdf** | 🇵🇱 Polish | [📥 Download PDF](https://github.com/Baver1022/omnis2-pi-analysis/raw/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI.pdf) | Comprehensive scientific report (40+ pages) with complete statistical analysis |
+| **RAPORT_Z_ANALIZY_PI_EN.pdf** | 🇬🇧 English | [📥 Download PDF](https://github.com/Baver1022/omnis2-pi-analysis/raw/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI_EN.pdf) | Full scientific report (40+ pages) with complete statistical analysis |
 
 </div>
 
@@ -94,14 +94,14 @@ python3 analysis_orchestrator.py --pi-file pi_10billion.txt
 - 💡 Conclusions and cryptographic applications
 - 📚 Bibliography and references
 
-### 📖 Other Materials
+### 📖 Research Results
 
-- **📖 Full documentation:** [OMNIS2 Branch](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)
-- **📊 Research results:** 54 JSON files in `OMNIS2/Dane z analizy/`
+- **📊 Analysis results:** 55 JSON files in `Dane z analizy/` directory
+- **📄 Program documentation:** See `Program/README.md`
 
 ## 🔗 Links
 
-- 🌿 **OMNIS2 Branch:** [https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)
+- 🌿 **Main Branch:** [https://github.com/Baver1022/omnis2-pi-analysis](https://github.com/Baver1022/omnis2-pi-analysis)
 - 📦 **Releases:** [https://github.com/Baver1022/omnis2-pi-analysis/releases](https://github.com/Baver1022/omnis2-pi-analysis/releases)
 - 📦 **Packages:** [https://github.com/Baver1022/omnis2-pi-analysis/packages](https://github.com/Baver1022/omnis2-pi-analysis/packages)
 
@@ -111,12 +111,4 @@ Pi statistical analysis project - part of baver
 
 ## 📄 License
 
-See LICENSE file in the [OMNIS2](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2) branch.
-
----
-
-<div align="center">
-
-**💡 All project files, source code, reports, and research results are located in the [`OMNIS2`](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2) branch**
-
-</div>
+MIT License - see LICENSE file for details
