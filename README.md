@@ -1,5 +1,11 @@
 # 🔬 OMNIS2 - Statistical Analysis of 10 Billion Digits of Pi
 
+## 🌟 What Fascinates Us
+
+What drives us in this project? The **mystery of randomness** hidden in the infinite sequence of Pi digits. Is Pi truly random, or does it contain hidden patterns? Can we trust it for cryptographic applications? These questions led us to conduct one of the most comprehensive statistical analyses of Pi digits ever performed.
+
+We analyzed **10 billion digits** using **27 rigorous statistical tests** - a journey that revealed both expected randomness and surprising anomalies. This is just the beginning - **our next goal is to analyze 1 trillion (1T) digits after the decimal point**, pushing the boundaries of computational statistics and exploring the deepest secrets of this mathematical constant.
+
 ## 📊 About the Project
 
 **OMNIS2** is a comprehensive project for statistical analysis of **10 billion digits of Pi** using **27 statistical tests** (17 NIST tests + 10 SmallCrush tests) with GPU acceleration.
