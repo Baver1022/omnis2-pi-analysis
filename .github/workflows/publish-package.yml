@@ -48,8 +48,10 @@ jobs:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Configure pip to use GitHub Packages
           echo "Publishing to GitHub Packages..."
+          echo "Repository: https://github.com/Baver1022/omnis2-pi-analysis/packages"
+          echo "Package name: omnis2-pi-analysis"
+          echo ""
           python -m twine upload \
             --repository-url https://upload.pypi.org/legacy/ \
             --username __token__ \
