@@ -1,0 +1,10 @@
+{
+  "step_id": "13",
+  "step_name": "Random Excursions Test (NIST)",
+  "status": "completed",
+  "started_at": "2026-01-05T23:54:17.042494",
+  "completed_at": "2026-01-05T23:54:17.063621",
+  "digits_processed": 100000,
+  "total_digits": 100000,
+  "error": null
+}

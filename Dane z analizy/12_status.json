@@ -1,0 +1,10 @@
+{
+  "step_id": "12",
+  "step_name": "Linear Complexity Test (NIST)",
+  "status": "failed",
+  "started_at": "2026-01-05T23:54:17.034706",
+  "completed_at": "2026-01-05T23:54:17.035262",
+  "digits_processed": 0,
+  "total_digits": 100000,
+  "error": "list index out of range"
+}
