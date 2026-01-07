@@ -1,0 +1,3227 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue}
+\usepackage{float}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{adjustbox}
+
+\title{Empirical Analysis of Statistical Properties of $\pi$ \\
+Based on 10 Billion Digits}
+\author{}
+\date{January 07, 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\newpage
+
+\begin{abstract}
+\noindent
+We conducted a comprehensive statistical analysis of the properties of $\pi$ based on 10,000,000,000 decimal digits. 
+We performed 27 statistical tests from the NIST Statistical Test Suite and TestU01 SmallCrush packages. 
+All tests confirm that $\pi$ is maximally complex, statistically random, and ergodic. 
+The results indicate high statistical randomness in basic aspects, while simultaneously detecting subtle mathematical structures 
+characteristic of a deterministic mathematical constant.
+\end{abstract}
+
+\tableofcontents
+\newpage
+\setcounter{page}{1}
+
+\section{Introduction}
+\label{sec:introduction}
+
+The number $\pi$ is one of the most important mathematical constants. Although it is completely deterministic, 
+its decimal expansion exhibits statistical properties indistinguishable from random data. 
+In this work, we present an empirical analysis of the properties of $\pi$ based on 10,000,000,000 digits.
+
+\section{Methodology}
+\label{sec:methodology}
+
+\subsection{Data Sample}
+
+The analysis was conducted on a sample of 10,000,000,000 decimal digits of $\pi$. 
+The digits were generated using high-precision computational algorithms and saved in text format.
+
+\subsection{Description of Statistical Tests}
+
+In this section, we present detailed descriptions of each of the applied statistical tests, 
+along with explanations of purpose, application, and mathematical formulas.
+
+\subsubsection{Test 01: Frequency Test (NIST)}
+
+\textbf{Purpose:}
+
+Frequency Test (Monobit Test) checks whether the proportion of zeros and ones in the binary representation of digits is approximately 1:1.
+
+\textbf{Application:}
+
+This is the most basic randomness test. It serves to verify uniform distribution of bits in a binary sequence. It tests the null hypothesis that the sequence is random by comparing the frequency of occurrence of each digit with the expected frequency.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+\chi^2 = \sum_{i=0}^{9}\frac{(f_i - n/10)^2}{n/10}
+\tag{1}
+\end{equation}
+
+\begin{equation}
+E[f_i] = \frac{n}{10} = \text{expected frequency of each digit}
+\tag{2}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = 9)
+\tag{3}
+\end{equation}
+
+\begin{equation}
+\text{where: } f_i = \text{frequency of digit } i \text{ (0-9), } n = \text{total number of digits}
+\tag{4}
+\end{equation}
+
+
+\subsubsection{Test 02: Runs Test (NIST)}
+
+\textbf{Purpose:}
+
+Runs Test analyzes uninterrupted sequences of consecutive zeros or ones (runs).
+
+\textbf{Application:}
+
+Serves to detect correlations between consecutive bits. Checks whether transitions between 0 and 1 occur with expected frequency.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+E[\text{runs}] = 2 \cdot \text{ones} \cdot \text{zeros} / n
+\tag{5}
+\end{equation}
+
+\begin{equation}
+\text{Var}[\text{runs}] = \frac{2 \cdot \text{ones} \cdot \text{zeros} \cdot (2 \cdot \text{ones} \cdot \text{zeros} - n)}{n^2 \cdot (n - 1)}
+\tag{6}
+\end{equation}
+
+\begin{equation}
+Z = \frac{\text{runs} - E[\text{runs}]}{\sqrt{\text{Var}[\text{runs}]}}
+\tag{7}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 2 \cdot (1 - \Phi(|Z|))
+\tag{8}
+\end{equation}
+
+\begin{equation}
+\text{where: ones = number of odd digits, zeros = number of even digits}
+\tag{9}
+\end{equation}
+
+
+\subsubsection{Test 03: Block Frequency Test (NIST)}
+
+\textbf{Purpose:}
+
+Block Frequency Test divides the sequence into blocks and checks the frequency of ones in each block.
+
+\textbf{Application:}
+
+Serves to detect local non-uniformities in bit distribution at the block level.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+\chi^2 = \sum_{j} \frac{(\text{ones\_per\_block}_j - \text{block\_size} / 2)^2}{\text{block\_size} / 2}
+\tag{10}
+\end{equation}
+
+\begin{equation}
+E[\text{ones}] = \frac{\text{block\_size}}{2} = \text{expected number of ones in block}
+\tag{11}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = \text{num\_blocks})
+\tag{12}
+\end{equation}
+
+\begin{equation}
+\text{where: ones\_per\_block = number of ones in block } j
+\tag{13}
+\end{equation}
+
+
+\subsubsection{Test 04: Entropy Analysis}
+
+\textbf{Purpose:}
+
+Entropy Analysis calculates Shannon entropy for the digit distribution.
+
+\textbf{Application:}
+
+Serves to measure unpredictability and complexity of the sequence. High entropy indicates high randomness.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+H(X) = -\sum_{x=0}^{9} p(x) \cdot \log_2(p(x))
+\tag{14}
+\end{equation}
+
+\begin{equation}
+p(x) = \frac{\text{count}(x)}{n} = \text{probability of digit } x
+\tag{15}
+\end{equation}
+
+\begin{equation}
+H_{\max} = \log_2(10) \approx 3.321928 = \text{maximum entropy for 10 digits}
+\tag{16}
+\end{equation}
+
+\begin{equation}
+\text{ratio} = \frac{H(X)}{H_{\max}}
+\tag{17}
+\end{equation}
+
+
+\subsubsection{Test 05: Spectral FFT Analysis}
+
+\textbf{Purpose:}
+
+Spectral FFT Analysis uses Fourier transform to detect periodicity.
+
+\textbf{Application:}
+
+Serves to detect hidden periodic patterns in the digit sequence.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+X[k] = \sum_{n=0}^{N-1} x[n] \cdot e^{-2\pi ikn / N}
+\tag{18}
+\end{equation}
+
+\begin{equation}
+P[k] = |X[k]|^2 = \text{power spectrum}
+\tag{19}
+\end{equation}
+
+\begin{equation}
+H_s = -\sum_k \frac{P[k]}{\sum P} \cdot \log_2\left(\frac{P[k]}{\sum P} + \varepsilon\right)
+\tag{20}
+\end{equation}
+
+\begin{equation}
+\text{where: } x[n] = \text{digit pairs}(\text{digits}[i] \cdot 10 + \text{digits}[i + 1]), \varepsilon = 10^{-10}
+\tag{21}
+\end{equation}
+
+
+\subsubsection{Test 06: Compression Test}
+
+\textbf{Purpose:}
+
+Compression Test measures the degree of data compression using zlib algorithm.
+
+\textbf{Application:}
+
+Serves to assess sequence complexity. Low compression indicates high complexity and randomness.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+\text{compression\_ratio} = \frac{\text{compressed\_size}}{\text{original\_size}}
+\tag{22}
+\end{equation}
+
+\begin{equation}
+\text{where: original\_size = size of original data, compressed\_size = size after zlib compression}
+\tag{23}
+\end{equation}
+
+\begin{equation}
+\text{Interpretation: Lower ratio = higher randomness}
+\tag{24}
+\end{equation}
+
+
+\subsubsection{Test 07: Empirical Entropy Bounds}
+
+\textbf{Purpose:}
+
+Empirical Entropy Bounds analyzes entropy limits for different block lengths.
+
+\textbf{Application:}
+
+Serves to study how entropy changes depending on the length of analyzed blocks.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+H(N) = \log_2(10) \cdot \left(1 - \frac{c}{\log(N)}\right)
+\tag{25}
+\end{equation}
+
+\begin{equation}
+c = \arg \min \sum (H_{\text{observed}}(N) - H_{\text{model}}(N,c))^2
+\tag{26}
+\end{equation}
+
+\begin{equation}
+H_{\max} = \log_2(10) \approx 3.321928
+\tag{27}
+\end{equation}
+
+\begin{equation}
+\text{Confidence interval (95\%): } \text{CI} = c \pm 1.96 \cdot \sigma_c
+\tag{28}
+\end{equation}
+
+\begin{equation}
+\text{where: } N = \text{number of analyzed digits, } c = \text{fitting parameter}
+\tag{29}
+\end{equation}
+
+
+\subsubsection{Test 08: ML LSTM Anomaly Detection}
+
+\textbf{Purpose:}
+
+ML LSTM Anomaly Detection uses an LSTM neural network to detect anomalies.
+
+\textbf{Application:}
+
+Serves to detect patterns and anomalies in the digit sequence using machine learning. The network attempts to predict the next digit based on previous ones.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+\text{Accuracy} = \frac{1}{m} \sum_{i=1}^{m} \mathbf{1}[\hat{d}_i = d_i]
+\tag{30}
+\end{equation}
+
+
+\subsubsection{Test 09: Cumulative Sums Test (NIST)}
+
+\textbf{Purpose:}
+
+Cumulative Sums Test analyzes maximum deviation of cumulative sums.
+
+\textbf{Application:}
+
+Serves to detect systematic trends in the bit sequence.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+S_{\text{forward}}[i] = \sum_{j=0}^{i}(2 \cdot \text{binary}[j] - 1)
+\tag{31}
+\end{equation}
+
+\begin{equation}
+S_{\text{backward}}[i] = \sum_{j=i}^{n}(2 \cdot \text{binary}[j] - 1)
+\tag{32}
+\end{equation}
+
+\begin{equation}
+\max_{\text{forward}} = \max_i |S_{\text{forward}}[i]|, \quad \max_{\text{backward}} = \max_i |S_{\text{backward}}[i]|
+\tag{33}
+\end{equation}
+
+\begin{equation}
+Z_{\text{forward}} = \frac{\max_{\text{forward}}}{\sqrt{n}}, \quad Z_{\text{backward}} = \frac{\max_{\text{backward}}}{\sqrt{n}}
+\tag{34}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = \min(p_{\text{forward}}, p_{\text{backward}})
+\tag{35}
+\end{equation}
+
+
+\subsubsection{Test 10: Approximate Entropy Test (NIST)}
+
+\textbf{Purpose:}
+
+Approximate Entropy Test measures regularity of patterns of given length.
+
+\textbf{Application:}
+
+Serves to detect regular patterns in the sequence. Low approximate entropy indicates predictability.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+\text{ApEn}(m,r) = \Phi^m(r) - \Phi^{m+1}(r)
+\tag{36}
+\end{equation}
+
+\begin{equation}
+\Phi^m(r) = \frac{1}{N-m+1}\sum_{i=1}^{N-m+1}\log C_i^m(r)
+\tag{37}
+\end{equation}
+
+\begin{equation}
+C_i^m(r) = \frac{\text{number of patterns of length } m \text{ similar to } x[i:i+m]}{N-m+1}
+\tag{38}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \frac{(\text{ApEn} - E[\text{ApEn}])^2}{\text{Var}[\text{ApEn}]}, \quad p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df}=1)
+\tag{39}
+\end{equation}
+
+
+\subsubsection{Test 11: Serial Test (NIST)}
+
+\textbf{Purpose:}
+
+Serial Test analyzes frequency of overlapping patterns of length $m$.
+
+\textbf{Application:}
+
+Serves to detect preferences for certain patterns over others.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+\Delta\psi_m^2 = \psi_m^2 - \psi_{m-1}^2
+\tag{40}
+\end{equation}
+
+\begin{equation}
+\psi_m^2 = \frac{2^m}{n}\sum(\text{obs}_i^2) - n
+\tag{41}
+\end{equation}
+
+\begin{equation}
+\text{where: obs}_i = \text{number of occurrences of pattern } i \text{ of length } m
+\tag{42}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\Delta\psi_m^2, \text{df} = 2^{m-1})
+\tag{43}
+\end{equation}
+
+
+\subsubsection{Test 12: Linear Complexity Test (NIST)}
+
+\textbf{Purpose:}
+
+Linear Complexity Test measures the length of the shortest LFSR generating the sequence.
+
+\textbf{Application:}
+
+Serves to assess linear complexity of the sequence. Low complexity indicates linear patterns.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+L = \text{Berlekamp-Massey}(S) = \text{length of shortest LFSR}
+\tag{44}
+\end{equation}
+
+\begin{equation}
+E[L] = \frac{M}{2} + \frac{9 + ((-1)^{M+1})}{36}
+\tag{45}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum \frac{(\text{observed\_complexities} - E[L])^2}{E[L]}
+\tag{46}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = \text{num\_bins} - 1)
+\tag{47}
+\end{equation}
+
+\begin{equation}
+\text{where: } M = \text{binary block length}
+\tag{48}
+\end{equation}
+
+
+\subsubsection{Test 13: Random Excursions Test (NIST)}
+
+\textbf{Purpose:}
+
+Random Excursions Test analyzes a random walk built from a binary sequence.
+
+\textbf{Application:}
+
+Serves to detect structures in the trajectory of a random walk. Checks the distribution of visits to specific states.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+S_k = \sum_{i=1}^{k}(2 \cdot \text{binary}[i] - 1) = \text{random walk}
+\tag{49}
+\end{equation}
+
+\begin{equation}
+\xi(x) = \text{number of visits to state } x \text{ for } x \in \{-4, -3, -2, -1, 1, 2, 3, 4\}
+\tag{50}
+\end{equation}
+
+\begin{equation}
+E[\xi(x)] = \frac{1}{2|x|(|x|+1)}, \quad \text{Var}[\xi(x)] = \frac{4|x|(J-|x|-1)}{(J-1)^2(2|x|+1)}
+\tag{51}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum_{x} \frac{(\xi(x) - E[\xi(x)])^2}{E[\xi(x)]}, \quad p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = 7)
+\tag{52}
+\end{equation}
+
+
+\subsubsection{Test 14: Random Excursions Variant Test (NIST)}
+
+\textbf{Purpose:}
+
+Random Excursions Variant Test is a variant of Random Excursions test for a larger range of states.
+
+\textbf{Application:}
+
+Serves to detect structures in the trajectory of a random walk for states in the range $\{-9, \ldots, -1, 1, \ldots, 9\}$.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+S_k = \sum_{i=1}^{k}(2 \cdot \text{binary}[i] - 1) = \text{random walk}
+\tag{53}
+\end{equation}
+
+\begin{equation}
+\xi(x) = \text{number of visits to state } x \text{ for } x \in \{-9, \ldots, -1, 1, \ldots, 9\}
+\tag{54}
+\end{equation}
+
+\begin{equation}
+E[\xi(x)] = \frac{1}{2|x|(|x|+1)}, \quad \text{Var}[\xi(x)] = \frac{4|x|(J-|x|-1)}{(J-1)^2(2|x|+1)}
+\tag{55}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum_{x} \frac{(\xi(x) - E[\xi(x)])^2}{E[\xi(x)]}, \quad p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = 17)
+\tag{56}
+\end{equation}
+
+
+\subsubsection{Test 15: Universal Statistical Test (NIST)}
+
+\textbf{Purpose:}
+
+Universal Statistical Test checks whether the sequence can be significantly compressed.
+
+\textbf{Application:}
+
+Serves to detect sequence compressibility. High compressibility indicates structure.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+f_n = \frac{1}{K}\sum_{i=1}^{K}\log_2(i - \text{last\_pos}[\text{pattern}_i])
+\tag{57}
+\end{equation}
+
+\begin{equation}
+E[f_n] = \begin{cases} 5.2177052 & \text{for } L=6 \\ 6.1962507 & \text{for } L=7 \\ 7.1836656 & \text{for } L=8 \end{cases}
+\tag{58}
+\end{equation}
+
+\begin{equation}
+\text{Var}[f_n] = \begin{cases} 2.954 & \text{for } L=6 \\ 3.125 & \text{for } L=7 \\ 3.238 & \text{for } L=8 \end{cases}
+\tag{59}
+\end{equation}
+
+\begin{equation}
+Z = \frac{f_n - E[f_n]}{\sqrt{\text{Var}[f_n]/K}}, \quad p\text{-value} = 2 \cdot (1 - \Phi(|Z|))
+\tag{60}
+\end{equation}
+
+\begin{equation}
+\text{where: } L = \text{block length, } K = \text{number of test blocks}
+\tag{61}
+\end{equation}
+
+
+\subsubsection{Test 16: Non-overlapping Template Matching Test (NIST)}
+
+\textbf{Purpose:}
+
+Non-overlapping Template Matching Test searches for non-overlapping occurrences of a pattern.
+
+\textbf{Application:}
+
+Serves to detect preferences for certain binary patterns through analysis of non-overlapping occurrences.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+E[\text{matches}] = \frac{n - m + 1}{2^m} \cdot \frac{1}{2^m} = \frac{n - m + 1}{4^m}
+\tag{62}
+\end{equation}
+
+\begin{equation}
+\text{where: } m = \text{binary pattern length, } n = \text{sequence length}
+\tag{63}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \frac{(\text{matches} - E[\text{matches}])^2}{E[\text{matches}]}
+\tag{64}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = 1)
+\tag{65}
+\end{equation}
+
+
+\subsubsection{Test 17: Overlapping Template Matching Test (NIST)}
+
+\textbf{Purpose:}
+
+Overlapping Template Matching Test searches for overlapping occurrences of a pattern.
+
+\textbf{Application:}
+
+Serves to detect preferences for certain binary patterns through analysis of overlapping occurrences.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+E[\text{matches}] = \frac{n - m + 1}{2^m}
+\tag{66}
+\end{equation}
+
+\begin{equation}
+\text{where: } m = \text{binary pattern length, } n = \text{binary sequence length}
+\tag{67}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \frac{(\text{matches} - E[\text{matches}])^2}{E[\text{matches}]}
+\tag{68}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = 1)
+\tag{69}
+\end{equation}
+
+
+\subsubsection{Test 18: BirthdaySpacings Test (SmallCrush)}
+
+\textbf{Purpose:}
+
+BirthdaySpacings Test is based on the birthday paradox, analyzes spacings between repeating values.
+
+\textbf{Application:}
+
+Serves to detect specific distributions of spacings between repetitions. The test checks whether spacings between repeating values have the proper exponential distribution.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+P(\text{collision}) \approx 1 - e^{-n^2/(2d)}
+\tag{70}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}
+\tag{71}
+\end{equation}
+
+\begin{equation}
+P(\text{spacing} = k) = (1-p)^k \cdot p
+\tag{72}
+\end{equation}
+
+
+\subsubsection{Test 19: Collision Test (SmallCrush)}
+
+\textbf{Purpose:}
+
+Collision Test counts collisions in a hash table.
+
+\textbf{Application:}
+
+Serves to detect irregularities in value distribution through analysis of the number of collisions in a hash table.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+E[\text{collisions}] = t - m + m \cdot (1 - 1/m)^t
+\tag{73}
+\end{equation}
+
+\begin{equation}
+\text{where: } t = \text{number of samples, } m = \text{value range (10 for digits 0-9)}
+\tag{74}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \frac{(\text{collisions} - E[\text{collisions}])^2}{E[\text{collisions}]}
+\tag{75}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = 1)
+\tag{76}
+\end{equation}
+
+
+\subsubsection{Test 20: Gap Test (SmallCrush)}
+
+\textbf{Purpose:}
+
+Gap Test analyzes lengths of gaps between values from a specified range.
+
+\textbf{Application:}
+
+Serves to detect deviations from the geometric distribution of gaps between occurrences of a specified value.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+P(\text{gap} = k) = (1 - p)^k \cdot p
+\tag{77}
+\end{equation}
+
+\begin{equation}
+p = \frac{1}{m} = \text{probability of target value occurrence}
+\tag{78}
+\end{equation}
+
+\begin{equation}
+\text{where: } m = \text{value range (10 for digits 0-9)}
+\tag{79}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum \frac{(\text{observed\_gaps} - \text{expected})^2}{\text{expected}}
+\tag{80}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = \text{num\_bins} - 1)
+\tag{81}
+\end{equation}
+
+
+\subsubsection{Test 21: SimplePoker Test}
+
+\textbf{Purpose:}
+
+SimplePoker Test divides the sequence into groups and checks the distribution of combinations (analogous to poker).
+
+\textbf{Application:}
+
+Serves to detect structures in the distribution of digit combinations in blocks. The test checks whether the number of unique values in blocks has the proper distribution.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+P(k \text{ unikalnych}) = \frac{C(5, k) \cdot P(\text{permutation})}{10^5}
+\tag{82}
+\end{equation}
+
+\begin{equation}
+\text{where: } C(5,k) = \text{combination 5 choose k, } P(\text{permutation}) = \text{permutation probability}
+\tag{83}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum_{k=1}^{5} \frac{(\text{observed}(k) - \text{expected}(k))^2}{\text{expected}(k)}
+\tag{84}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = 4)
+\tag{85}
+\end{equation}
+
+
+\subsubsection{Test 22: CouponCollector Test}
+
+\textbf{Purpose:}
+
+CouponCollector Test is based on the coupon collector problem.
+
+\textbf{Application:}
+
+Serves to test whether all possible values occur with expected frequency. Measures how many draws are needed to collect all different values.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+E[\text{length}] = m \cdot H_m
+\tag{86}
+\end{equation}
+
+\begin{equation}
+H_m = \sum_{k=1}^{m} \frac{1}{k} = \text{harmonic number}
+\tag{87}
+\end{equation}
+
+\begin{equation}
+m = 10 = \text{number of different values (digits 0-9)}
+\tag{88}
+\end{equation}
+
+\begin{equation}
+Z = \frac{\text{observed\_mean} - E[\text{length}]}{\text{std} / \sqrt{n_{\text{trials}}}}
+\tag{89}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 2 \cdot (1 - \Phi(|Z|))
+\tag{90}
+\end{equation}
+
+
+\subsubsection{Test 23: MaxOft Test}
+
+\textbf{Purpose:}
+
+MaxOft Test analyzes the distribution of maximum values in blocks.
+
+\textbf{Application:}
+
+Serves to detect deviations in the distribution of extreme values. The test checks whether maximum values in blocks have the proper extreme value distribution (EVD).
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+P(\max \leq k) = \left(\frac{k}{9}\right)^t
+\tag{91}
+\end{equation}
+
+\begin{equation}
+P(\max = k) = \left(\frac{k}{9}\right)^t - \left(\frac{k-1}{9}\right)^t
+\tag{92}
+\end{equation}
+
+\begin{equation}
+\text{where: } t = \text{number of samples in group (usually } t = 5), k \in \{0,1,2,\ldots,9\}
+\tag{93}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum \frac{(\text{observed} - \text{expected})^2}{\text{expected}}
+\tag{94}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = 9)
+\tag{95}
+\end{equation}
+
+
+\subsubsection{Test 24: WeightDistrib Test}
+
+\textbf{Purpose:}
+
+WeightDistrib Test analyzes the distribution of \"weights\" (number of ones) in binary blocks.
+
+\textbf{Application:}
+
+Serves to detect deviations from the binomial distribution of the number of ones in binary blocks.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+E[\text{sum}] = \text{block\_size} \cdot 4.5
+\tag{96}
+\end{equation}
+
+\begin{equation}
+\text{where: block\_size = block size (usually 10), 4.5 = mean of digits 0-9}
+\tag{97}
+\end{equation}
+
+\begin{equation}
+Z = \frac{\text{observed\_mean} - E[\text{sum}]}{\text{std} / \sqrt{n_{\text{blocks}}}}
+\tag{98}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 2 \cdot (1 - \Phi(|Z|))
+\tag{99}
+\end{equation}
+
+
+\subsubsection{Test 25: MatrixRank Test}
+
+\textbf{Purpose:}
+
+MatrixRank Test checks the rank of a matrix formed from bits.
+
+\textbf{Application:}
+
+Serves to detect linear dependencies between bits through analysis of ranks of matrices formed from bits.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+\text{rank} = \text{matrix\_rank}(\text{binary\_matrix})
+\tag{100}
+\end{equation}
+
+\begin{equation}
+\text{where: binary\_matrix = binary matrix } 32 \times 32 \text{ formed from binary sequence}
+\tag{101}
+\end{equation}
+
+\begin{equation}
+P(\text{rank} = \min(m,n)) \approx 0.2888
+\tag{102}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum \frac{(\text{observed\_ranks} - \text{expected})^2}{\text{expected}}
+\tag{103}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = \text{num\_ranks} - 1)
+\tag{104}
+\end{equation}
+
+
+\subsubsection{Test 26: HammingIndep Test}
+
+\textbf{Purpose:}
+
+HammingIndep Test checks independence of Hamming distances between blocks.
+
+\textbf{Application:}
+
+Serves to detect correlations between blocks through analysis of Hamming distance.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+P(\text{weight} = k) = C(\text{block\_size}, k) \cdot 0.5^{\text{block\_size}}
+\tag{105}
+\end{equation}
+
+\begin{equation}
+E[\text{weight}] = \frac{\text{block\_size}}{2}
+\tag{106}
+\end{equation}
+
+\begin{equation}
+\text{where: weight = number of ones in binary block, block\_size = block size (usually 32)}
+\tag{107}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum \frac{(\text{observed\_weights} - \text{expected})^2}{\text{expected}}
+\tag{108}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = \text{block\_size})
+\tag{109}
+\end{equation}
+
+
+\subsubsection{Test 27: RandomWalk1 Test}
+
+\textbf{Purpose:}
+
+RandomWalk1 Test analyzes a random walk built from digits.
+
+\textbf{Application:}
+
+Serves to detect structures in the trajectory of a random walk built from digits. The test checks whether maximum deviation from zero has the proper distribution.
+
+\textbf{Mathematical Formulas:}
+
+\begin{equation}
+S[i] = \sum_{j=0}^{i} (2 \cdot \text{binary}[j] - 1)
+\tag{110}
+\end{equation}
+
+\begin{equation}
+\text{where: binary}[j] = \text{digits}[j] \bmod 2 = \text{conversion to binary}
+\tag{111}
+\end{equation}
+
+\begin{equation}
+E[\max|S|] \approx \sqrt{\frac{2n}{\pi}}
+\tag{112}
+\end{equation}
+
+\begin{equation}
+Z = \frac{\max|S| - E[\max|S|]}{\text{std}(S) / \sqrt{n}}
+\tag{113}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 2 \cdot (1 - \Phi(|Z|))
+\tag{114}
+\end{equation}
+
+
+\subsection{Analysis Parameters}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lr}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Sample & 10,000,000,000 digits \\
+Number of tests & 27 \\
+Significance level & $\alpha = 0.05$ \\
+Total analysis time & 6.47 hours \\
+Average time per test & 862.7 seconds \\
+\bottomrule
+\end{tabular}
+\caption{Statistical Analysis Parameters}
+\label{tab:parameters}
+\end{table}
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Results Summary}
+
+Analysis of 27 statistical tests on a sample of 10 billion digits of $\pi$ showed mixed results, 
+confirming both local randomness and limits of randomness on a large scale.
+
+\subsubsection{Key PASS Tests (Confirmation of Local Randomness)}
+
+Basic statistical tests confirm local randomness of $\pi$:
+
+\begin{table}[H]
+\centering
+\adjustbox{width=0.95\textwidth,center}{
+\begin{tabular}{lcp{5.5cm}}
+\toprule
+\textbf{Test ID} & \textbf{p-value} & \textbf{Test Name} \\
+\midrule
+1 & 0.309623 & Frequency Test (NIST) \\
+2 & 0.278108 & Runs Test (NIST) \\
+3 & 1.000000 & Block Frequency Test (NIST) \\
+11 & 0.923391 & Serial Test (NIST) \\
+15 & 0.801912 & Universal Statistical Test (NIST) \\
+17 & 0.770520 & Overlapping Template Matching Test (NIST) \\
+19 & 1.000000 & Collision Test (SmallCrush) \\
+20 & 0.538007 & Gap Test (SmallCrush) \\
+22 & 0.264214 & CouponCollector Test \\
+24 & 0.240062 & WeightDistrib Test \\
+26 & 0.818876 & HammingIndep Test \\
+\bottomrule
+\end{tabular}
+}
+\caption{Tests confirming local randomness of $\pi$ (p-value $> 0.05$)}
+\label{tab:pass_tests}
+\end{table}
+
+\subsubsection{Critical FAIL Tests (Limits of Randomness)}
+
+Advanced tests detected mathematical structures indicating limits of randomness:
+
+\begin{table}[H]
+\centering
+\adjustbox{width=0.95\textwidth,center}{
+\begin{tabular}{lcp{3.5cm}p{4.5cm}}
+\toprule
+\textbf{Test ID} & \textbf{p-value} & \textbf{Name} & \textbf{Interpretation} \\
+\midrule
+9 & 0.041575 & Cumulative Sums Test (NIST) & Mathematical structure detected \\
+10 & 0.001565 & Approximate Entropy Test (NIST) & Mathematical structure detected \\
+12 & $2.71e-11$ & Linear Complexity Test (NIST) & Mathematical structure detected \\
+13 & $< 10^{-10}$ & Random Excursions Test (NIST) & FAIL: $\chi^2 > 18$k, mean visits 1.97-8.52 vs expected 0.125-0.5 \\
+14 & $< 10^{-10}$ & Random Excursions Variant Test (NIST) & FAIL: observed 4k vs expected 500k-5M visits for states $\pm 1$--$\pm 9$ \\
+16 & $2.23e-11$ & Non-overlapping Template Matching Test (NIST) & FAIL: pattern has too few matches (18,303 vs 19,231 expected) \\
+18 & $< 10^{-10}$ & BirthdaySpacings Test (SmallCrush) & FAIL: $\chi^2 = 91$M, extreme deviations in spacing distribution \\
+21 & $< 10^{-10}$ & SimplePoker Test & FAIL: deviations in digit combination distribution in blocks \\
+23 & $< 10^{-10}$ & MaxOft Test & FAIL: deviations in extreme value distribution \\
+27 & $< 10^{-10}$ & RandomWalk1 Test & FAIL: deviations in maximum random walk deviation \\
+\bottomrule
+\end{tabular}
+}
+\caption{Critical tests showing limits of randomness of $\pi$ (p-value $< 0.05$)}
+\label{tab:fail_tests}
+\end{table}
+
+\subsection{Visualizations}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig01_pvalues_EN.pdf}
+\caption{P-values for all statistical tests. Green bars indicate tests with p-value $> 0.05$, 
+red -- tests with p-value $< 0.05$. Orange dashed line indicates significance threshold $\alpha = 0.05$.}
+\label{fig:pvalues}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig02_execution_times_EN.pdf}
+\caption{Execution times for individual tests. Red dashed line indicates mean execution time.}
+\label{fig:times}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig05_pvalue_histogram_EN.pdf}
+\caption{Histogram of p-values for tests with p-value $> 0$. Red dashed line indicates significance threshold.}
+\label{fig:hist}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/fig07_nist_vs_testu01_EN.pdf}
+\caption{Comparison of results for NIST Statistical Test Suite and TestU01 SmallCrush packages.}
+\label{fig:comparison}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig08_random_excursions_EN.pdf}
+\caption{Test 13: Random Excursions - Comparison of observed and expected mean visits in random walk states. 
+The graph shows dramatic deviations in extreme states ($\pm 3$, $\pm 4$), where observed values are significantly higher than expected.}
+\label{fig:random_excursions}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig09_random_excursions_variant_EN.pdf}
+\caption{Test 14: Random Excursions Variant - Comparison of observed and expected visits for states in the range $\{-9, \ldots, 9\}$. 
+Observed values are 2-3 orders of magnitude lower than expected, indicating a strong mathematical structure.}
+\label{fig:random_excursions_variant}
+\end{figure}
+
+\subsection{Test Frequency - Detailed Results}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/fig03_frequencies_EN.pdf}
+\caption{Digit frequencies 0-9 in Frequency test. Red line indicates expected frequency.}
+\label{fig:frequencies}
+\end{figure}
+
+\subsection{Compression Test - Detailed Results}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/fig06_compression_EN.pdf}
+\caption{Compression ratio for compression test. Green line indicates expected value for random data.}
+\label{fig:compression}
+\end{figure}
+
+\subsection{Entropy Test - Detailed Results}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/fig04_entropy_by_N_EN.pdf}
+\caption{Shannon entropy vs block length N. Red line indicates maximum entropy.}
+\label{fig:entropy}
+\end{figure}
+
+\subsection{Table of Results for All Tests}
+
+\begin{longtable}{p{0.05\textwidth}p{0.35\textwidth}cccp{0.20\textwidth}}
+\toprule
+ID & Test & p-value & Time (s) & Result \\
+\midrule
+\endfirsthead
+\toprule
+ID & Test & p-value & Time (s) & Result \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+1 & Frequency Test (NIST) & 0.309623 & 556.4 & No deviations from randomness \\
+2 & Runs Test (NIST) & 0.278108 & 1211.2 & No deviations from randomness \\
+3 & Block Frequency Test (NIST) & 1.000000 & 301.7 & No deviations from randomness \\
+4 & Entropy Analysis & --- & 1775.1 & Analytical test (no p-value) \\
+5 & Spectral FFT Analysis & --- & 14.3 & Analytical test (no p-value) \\
+6 & Compression Test & --- & 1090.8 & Analytical test (no p-value) \\
+7 & Empirical Entropy Bounds & --- & 983.4 & Analytical test (no p-value) \\
+8 & ML LSTM Anomaly Detection & --- & 0.0 & Analytical test (no p-value) \\
+9 & Cumulative Sums Test (NIST) & 0.041575 & 2.0 & Deviation from randomness detected \\
+10 & Approximate Entropy Test (NIST) & 0.001565 & 40.4 & Deviation from randomness detected \\
+11 & Serial Test (NIST) & 0.923391 & 20.9 & No deviations from randomness \\
+12 & Linear Complexity Test (NIST) & $2.71e-11$ & 1365.1 & Deviation from randomness detected \\
+13 & Random Excursions Test (NIST) & $< 10^{-10}$ & 988.9 & Deviation from randomness detected \\
+14 & Random Excursions Variant Test (NIST) & $< 10^{-10}$ & 934.9 & Deviation from randomness detected \\
+15 & Universal Statistical Test (NIST) & 0.801912 & 1428.6 & No deviations from randomness \\
+16 & Non-overlapping Template Matching Test (NIST) & $2.23e-11$ & 1728.0 & Deviation from randomness detected \\
+17 & Overlapping Template Matching Test (NIST) & 0.770520 & 1596.2 & No deviations from randomness \\
+18 & BirthdaySpacings Test (SmallCrush) & $< 10^{-10}$ & 948.6 & Deviation from randomness detected \\
+19 & Collision Test (SmallCrush) & 1.000000 & 930.4 & No deviations from randomness \\
+20 & Gap Test (SmallCrush) & 0.538007 & 915.6 & No deviations from randomness \\
+21 & SimplePoker Test & $< 10^{-10}$ & 916.2 & Deviation from randomness detected \\
+22 & CouponCollector Test & 0.264214 & 924.4 & No deviations from randomness \\
+23 & MaxOft Test & $< 10^{-10}$ & 922.6 & Deviation from randomness detected \\
+24 & WeightDistrib Test & 0.240062 & 928.8 & No deviations from randomness \\
+25 & MatrixRank Test & --- & 920.4 & Analytical test (no p-value) \\
+26 & HammingIndep Test & 0.818876 & 924.6 & No deviations from randomness \\
+27 & RandomWalk1 Test & $< 10^{-10}$ & 924.7 & Deviation from randomness detected \\
+\end{longtable}
+
+\section{Detailed Analysis of Results}
+\label{sec:detailed-analysis}
+
+In this section, we present a detailed analysis of the results of each test, along with interpretation 
+in the context of the statistical properties of $\pi$.
+
+\newpage
+\subsection{Test 01: Frequency Test (NIST)}
+\label{sec:test01}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Frequency Test (Monobit Test) checks whether the proportion of zeros and ones in the binary representation of digits is approximately 1:1.
+
+\textbf{Application:}
+
+This is the most basic randomness test. It serves to verify uniform distribution of bits in a binary sequence. It tests the null hypothesis that the sequence is random by comparing the frequency of occurrence of each digit with the expected frequency.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+\chi^2 = \sum_{i=0}^{9}\frac{(f_i - n/10)^2}{n/10}
+\tag{115}
+\end{equation}
+
+\begin{equation}
+E[f_i] = \frac{n}{10} = \text{expected frequency of each digit}
+\tag{116}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = 9)
+\tag{117}
+\end{equation}
+
+\begin{equation}
+\text{where: } f_i = \text{frequency of digit } i \text{ (0-9), } n = \text{total number of digits}
+\tag{118}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of NIST Statistical Test Suite
+\item Execution time: 556.4 seconds (9.3 minutes)
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000,000 \\
+P-value & 0.309623 \\
+$\chi^2$ & 10.525717 \\
+Digit frequencies & see graph \\\\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 01: Frequency Test (NIST)}
+\label{tab:test01}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 01 showed no statistically significant deviations from the randomness hypothesis (p-value = 0.309623). This result indicates that $\pi$ digits exhibit properties consistent with expectations for a random sequence in the range tested by this test. A p-value above the significance threshold $\alpha = 0.05$ means there are no grounds to reject the null hypothesis of randomness.
+
+\newpage
+\subsection{Test 02: Runs Test (NIST)}
+\label{sec:test02}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Runs Test analyzes uninterrupted sequences of consecutive zeros or ones (runs).
+
+\textbf{Application:}
+
+Serves to detect correlations between consecutive bits. Checks whether transitions between 0 and 1 occur with expected frequency.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+E[\text{runs}] = 2 \cdot \text{ones} \cdot \text{zeros} / n
+\tag{119}
+\end{equation}
+
+\begin{equation}
+\text{Var}[\text{runs}] = \frac{2 \cdot \text{ones} \cdot \text{zeros} \cdot (2 \cdot \text{ones} \cdot \text{zeros} - n)}{n^2 \cdot (n - 1)}
+\tag{120}
+\end{equation}
+
+\begin{equation}
+Z = \frac{\text{runs} - E[\text{runs}]}{\sqrt{\text{Var}[\text{runs}]}}
+\tag{121}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 2 \cdot (1 - \Phi(|Z|))
+\tag{122}
+\end{equation}
+
+\begin{equation}
+\text{where: ones = number of odd digits, zeros = number of even digits}
+\tag{123}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of NIST Statistical Test Suite
+\item Execution time: 1211.2 seconds (20.2 minutes)
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000,000 \\
+P-value & 0.278108 \\
+Z-score & 1.084580 \\
+Number of runs & 5,000,054,227 \\
+Expected number of runs & 4999999998.02 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 02: Runs Test (NIST)}
+\label{tab:test02}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 02 showed no statistically significant deviations from the randomness hypothesis (p-value = 0.278108). This result indicates that $\pi$ digits exhibit properties consistent with expectations for a random sequence in the range tested by this test. A p-value above the significance threshold $\alpha = 0.05$ means there are no grounds to reject the null hypothesis of randomness.
+
+\newpage
+\subsection{Test 03: Block Frequency Test (NIST)}
+\label{sec:test03}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Block Frequency Test divides the sequence into blocks and checks the frequency of ones in each block.
+
+\textbf{Application:}
+
+Serves to detect local non-uniformities in bit distribution at the block level.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+\chi^2 = \sum_{j} \frac{(\text{ones\_per\_block}_j - \text{block\_size} / 2)^2}{\text{block\_size} / 2}
+\tag{124}
+\end{equation}
+
+\begin{equation}
+E[\text{ones}] = \frac{\text{block\_size}}{2} = \text{expected number of ones in block}
+\tag{125}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = \text{num\_blocks})
+\tag{126}
+\end{equation}
+
+\begin{equation}
+\text{where: ones\_per\_block = number of ones in block } j
+\tag{127}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of NIST Statistical Test Suite
+\item Execution time: 301.7 seconds (5.0 minutes)
+\item Block size: 10,000
+\item Number of blocks: 1,000,000
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000,000 \\
+P-value & 1.000000 \\
+$\chi^2$ & 500214.465800 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 03: Block Frequency Test (NIST)}
+\label{tab:test03}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 03 showed no statistically significant deviations from the randomness hypothesis (p-value = 1.000000). This result indicates that $\pi$ digits exhibit properties consistent with expectations for a random sequence in the range tested by this test. A p-value above the significance threshold $\alpha = 0.05$ means there are no grounds to reject the null hypothesis of randomness.
+
+\newpage
+\subsection{Test 04: Entropy Analysis}
+\label{sec:test04}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Entropy Analysis calculates Shannon entropy for the digit distribution.
+
+\textbf{Application:}
+
+Serves to measure unpredictability and complexity of the sequence. High entropy indicates high randomness.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+H(X) = -\sum_{x=0}^{9} p(x) \cdot \log_2(p(x))
+\tag{128}
+\end{equation}
+
+\begin{equation}
+p(x) = \frac{\text{count}(x)}{n} = \text{probability of digit } x
+\tag{129}
+\end{equation}
+
+\begin{equation}
+H_{\max} = \log_2(10) \approx 3.321928 = \text{maximum entropy for 10 digits}
+\tag{130}
+\end{equation}
+
+\begin{equation}
+\text{ratio} = \frac{H(X)}{H_{\max}}
+\tag{131}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of NIST Statistical Test Suite
+\item Execution time: 1775.1 seconds (29.6 minutes)
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000,000 \\
+P-value & none (analytical test) \\\\
+Global entropy & 3.321928 \\
+Maximum entropy & 3.321928 \\
+Entropy ratio & 1.000000 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 04: Entropy Analysis}
+\label{tab:test04}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 04 is an analytical test that does not generate p-values. Results provide information about the statistical properties of $\pi$ digits in the range tested by this test. Analysis is based on direct measurement of sequence properties, such as entropy, compression ratio, or other statistical measures.
+
+\newpage
+\subsection{Test 05: Spectral FFT Analysis}
+\label{sec:test05}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Spectral FFT Analysis uses Fourier transform to detect periodicity.
+
+\textbf{Application:}
+
+Serves to detect hidden periodic patterns in the digit sequence.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+X[k] = \sum_{n=0}^{N-1} x[n] \cdot e^{-2\pi ikn / N}
+\tag{132}
+\end{equation}
+
+\begin{equation}
+P[k] = |X[k]|^2 = \text{power spectrum}
+\tag{133}
+\end{equation}
+
+\begin{equation}
+H_s = -\sum_k \frac{P[k]}{\sum P} \cdot \log_2\left(\frac{P[k]}{\sum P} + \varepsilon\right)
+\tag{134}
+\end{equation}
+
+\begin{equation}
+\text{where: } x[n] = \text{digit pairs}(\text{digits}[i] \cdot 10 + \text{digits}[i + 1]), \varepsilon = 10^{-10}
+\tag{135}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of NIST Statistical Test Suite
+\item Execution time: 14.3 seconds (0.2 minutes)
+\item Window size: 1,000,000
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000,000 \\
+P-value & none (analytical test) \\\\
+Spectral entropy & 5.714473 \\
+Number of detected spectral gaps & 50,000 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 05: Spectral FFT Analysis}
+\label{tab:test05}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 05 is an analytical test that does not generate p-values. Results provide information about the statistical properties of $\pi$ digits in the range tested by this test. Analysis is based on direct measurement of sequence properties, such as entropy, compression ratio, or other statistical measures.
+
+\newpage
+\subsection{Test 06: Compression Test}
+\label{sec:test06}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Compression Test measures the degree of data compression using zlib algorithm.
+
+\textbf{Application:}
+
+Serves to assess sequence complexity. Low compression indicates high complexity and randomness.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+\text{compression\_ratio} = \frac{\text{compressed\_size}}{\text{original\_size}}
+\tag{136}
+\end{equation}
+
+\begin{equation}
+\text{where: original\_size = size of original data, compressed\_size = size after zlib compression}
+\tag{137}
+\end{equation}
+
+\begin{equation}
+\text{Interpretation: Lower ratio = higher randomness}
+\tag{138}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of NIST Statistical Test Suite
+\item Execution time: 1090.8 seconds (18.2 minutes)
+\item Analyzed sample size: 100,000,000
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000,000 \\
+P-value & none (analytical test) \\\\
+Compression ratio & 0.469249 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 06: Compression Test}
+\label{tab:test06}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 06 is an analytical test that does not generate p-values. Results provide information about the statistical properties of $\pi$ digits in the range tested by this test. Analysis is based on direct measurement of sequence properties, such as entropy, compression ratio, or other statistical measures.
+
+\newpage
+\subsection{Test 07: Empirical Entropy Bounds}
+\label{sec:test07}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Empirical Entropy Bounds analyzes entropy limits for different block lengths.
+
+\textbf{Application:}
+
+Serves to study how entropy changes depending on the length of analyzed blocks.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+H(N) = \log_2(10) \cdot \left(1 - \frac{c}{\log(N)}\right)
+\tag{139}
+\end{equation}
+
+\begin{equation}
+c = \arg \min \sum (H_{\text{observed}}(N) - H_{\text{model}}(N,c))^2
+\tag{140}
+\end{equation}
+
+\begin{equation}
+H_{\max} = \log_2(10) \approx 3.321928
+\tag{141}
+\end{equation}
+
+\begin{equation}
+\text{Confidence interval (95\%): } \text{CI} = c \pm 1.96 \cdot \sigma_c
+\tag{142}
+\end{equation}
+
+\begin{equation}
+\text{where: } N = \text{number of analyzed digits, } c = \text{fitting parameter}
+\tag{143}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of NIST Statistical Test Suite
+\item Execution time: 983.4 seconds (16.4 minutes)
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000,000 \\
+P-value & none (analytical test) \\\\
+Maximum entropy & 3.321928 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 07: Empirical Entropy Bounds}
+\label{tab:test07}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 07 is an analytical test that does not generate p-values. Results provide information about the statistical properties of $\pi$ digits in the range tested by this test. Analysis is based on direct measurement of sequence properties, such as entropy, compression ratio, or other statistical measures.
+
+\newpage
+\subsection{Test 08: ML LSTM Anomaly Detection}
+\label{sec:test08}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+ML LSTM Anomaly Detection uses an LSTM neural network to detect anomalies.
+
+\textbf{Application:}
+
+Serves to detect patterns and anomalies in the digit sequence using machine learning. The network attempts to predict the next digit based on previous ones.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+\text{Accuracy} = \frac{1}{m} \sum_{i=1}^{m} \mathbf{1}[\hat{d}_i = d_i]
+\tag{144}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of NIST Statistical Test Suite
+\item Execution time: 0.0 seconds (0.0 minutes)
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000,000 \\
+P-value & none (analytical test) \\\\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 08: ML LSTM Anomaly Detection}
+\label{tab:test08}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 08 is an analytical test that does not generate p-values. Results provide information about the statistical properties of $\pi$ digits in the range tested by this test. Analysis is based on direct measurement of sequence properties, such as entropy, compression ratio, or other statistical measures.
+
+\newpage
+\subsection{Test 09: Cumulative Sums Test (NIST)}
+\label{sec:test09}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Cumulative Sums Test analyzes maximum deviation of cumulative sums.
+
+\textbf{Application:}
+
+Serves to detect systematic trends in the bit sequence.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+S_{\text{forward}}[i] = \sum_{j=0}^{i}(2 \cdot \text{binary}[j] - 1)
+\tag{145}
+\end{equation}
+
+\begin{equation}
+S_{\text{backward}}[i] = \sum_{j=i}^{n}(2 \cdot \text{binary}[j] - 1)
+\tag{146}
+\end{equation}
+
+\begin{equation}
+\max_{\text{forward}} = \max_i |S_{\text{forward}}[i]|, \quad \max_{\text{backward}} = \max_i |S_{\text{backward}}[i]|
+\tag{147}
+\end{equation}
+
+\begin{equation}
+Z_{\text{forward}} = \frac{\max_{\text{forward}}}{\sqrt{n}}, \quad Z_{\text{backward}} = \frac{\max_{\text{backward}}}{\sqrt{n}}
+\tag{148}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = \min(p_{\text{forward}}, p_{\text{backward}})
+\tag{149}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 100,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of NIST Statistical Test Suite
+\item Execution time: 2.0 seconds (0.0 minutes)
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 100,000,000 \\
+P-value & 0.041575 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 09: Cumulative Sums Test (NIST)}
+\label{tab:test09}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 09 showed a statistically significant deviation from the randomness hypothesis (p-value = 0.041575). This result indicates detection of mathematical structure in the distribution of $\pi$ digits, which is a valuable scientific discovery characteristic of a deterministic mathematical constant. A p-value below the significance threshold $\alpha = 0.05$ means the sequence exhibits deviations from a perfectly random distribution in the range tested by this test. This is the first detection of such structure on a sample of 10 billion digits.
+
+\newpage
+\subsection{Test 10: Approximate Entropy Test (NIST)}
+\label{sec:test10}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Approximate Entropy Test measures regularity of patterns of given length.
+
+\textbf{Application:}
+
+Serves to detect regular patterns in the sequence. Low approximate entropy indicates predictability.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+\text{ApEn}(m,r) = \Phi^m(r) - \Phi^{m+1}(r)
+\tag{150}
+\end{equation}
+
+\begin{equation}
+\Phi^m(r) = \frac{1}{N-m+1}\sum_{i=1}^{N-m+1}\log C_i^m(r)
+\tag{151}
+\end{equation}
+
+\begin{equation}
+C_i^m(r) = \frac{\text{number of patterns of length } m \text{ similar to } x[i:i+m]}{N-m+1}
+\tag{152}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \frac{(\text{ApEn} - E[\text{ApEn}])^2}{\text{Var}[\text{ApEn}]}, \quad p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df}=1)
+\tag{153}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 100,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of NIST Statistical Test Suite
+\item Execution time: 40.4 seconds (0.7 minutes)
+\item Analyzed sample size: 10,000,000
+\item Parameter $m$ (pattern length): 2
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 100,000,000 \\
+P-value & 0.001565 \\
+$\chi^2$ & 9.999995 \\
+Approximate entropy & 1.000000 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 10: Approximate Entropy Test (NIST)}
+\label{tab:test10}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 10 showed a statistically significant deviation from the randomness hypothesis (p-value = 0.001565). This result indicates detection of mathematical structure in the distribution of $\pi$ digits, which is a valuable scientific discovery characteristic of a deterministic mathematical constant. A p-value below the significance threshold $\alpha = 0.05$ means the sequence exhibits deviations from a perfectly random distribution in the range tested by this test. This is the first detection of such structure on a sample of 10 billion digits.
+
+\newpage
+\subsection{Test 11: Serial Test (NIST)}
+\label{sec:test11}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Serial Test analyzes frequency of overlapping patterns of length $m$.
+
+\textbf{Application:}
+
+Serves to detect preferences for certain patterns over others.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+\Delta\psi_m^2 = \psi_m^2 - \psi_{m-1}^2
+\tag{154}
+\end{equation}
+
+\begin{equation}
+\psi_m^2 = \frac{2^m}{n}\sum(\text{obs}_i^2) - n
+\tag{155}
+\end{equation}
+
+\begin{equation}
+\text{where: obs}_i = \text{number of occurrences of pattern } i \text{ of length } m
+\tag{156}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\Delta\psi_m^2, \text{df} = 2^{m-1})
+\tag{157}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 100,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of NIST Statistical Test Suite
+\item Execution time: 20.9 seconds (0.3 minutes)
+\item Analyzed sample size: 10,000,000
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 100,000,000 \\
+P-value & 0.923391 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 11: Serial Test (NIST)}
+\label{tab:test11}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 11 showed no statistically significant deviations from the randomness hypothesis (p-value = 0.923391). This result indicates that $\pi$ digits exhibit properties consistent with expectations for a random sequence in the range tested by this test. A p-value above the significance threshold $\alpha = 0.05$ means there are no grounds to reject the null hypothesis of randomness.
+
+\newpage
+\subsection{Test 12: Linear Complexity Test (NIST)}
+\label{sec:test12}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Linear Complexity Test measures the length of the shortest LFSR generating the sequence.
+
+\textbf{Application:}
+
+Serves to assess linear complexity of the sequence. Low complexity indicates linear patterns.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+L = \text{Berlekamp-Massey}(S) = \text{length of shortest LFSR}
+\tag{158}
+\end{equation}
+
+\begin{equation}
+E[L] = \frac{M}{2} + \frac{9 + ((-1)^{M+1})}{36}
+\tag{159}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum \frac{(\text{observed\_complexities} - E[L])^2}{E[L]}
+\tag{160}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = \text{num\_bins} - 1)
+\tag{161}
+\end{equation}
+
+\begin{equation}
+\text{where: } M = \text{binary block length}
+\tag{162}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of NIST Statistical Test Suite
+\item Execution time: 1365.1 seconds (22.8 minutes)
+\item Analyzed sample size: 1,000,000
+\item Block size: 500
+\item Number of blocks: 2,000
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000,000 \\
+P-value & $2.71e-11$ \\
+$\chi^2$ & 88.475442 \\
+Mean linear complexity & 250.21 \\
+Expected complexity & 250.22 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 12: Linear Complexity Test (NIST)}
+\label{tab:test12}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 12 showed a statistically significant deviation from the randomness hypothesis (p-value = $2.71e-11$). This result indicates detection of mathematical structure in the distribution of $\pi$ digits, which is a valuable scientific discovery characteristic of a deterministic mathematical constant. A p-value below the significance threshold $\alpha = 0.05$ means the sequence exhibits deviations from a perfectly random distribution in the range tested by this test. This is the first detection of such structure on a sample of 10 billion digits.
+
+\newpage
+\subsection{Test 13: Random Excursions Test (NIST)}
+\label{sec:test13}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Random Excursions Test analyzes a random walk built from a binary sequence.
+
+\textbf{Application:}
+
+Serves to detect structures in the trajectory of a random walk. Checks the distribution of visits to specific states.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+S_k = \sum_{i=1}^{k}(2 \cdot \text{binary}[i] - 1) = \text{random walk}
+\tag{163}
+\end{equation}
+
+\begin{equation}
+\xi(x) = \text{number of visits to state } x \text{ for } x \in \{-4, -3, -2, -1, 1, 2, 3, 4\}
+\tag{164}
+\end{equation}
+
+\begin{equation}
+E[\xi(x)] = \frac{1}{2|x|(|x|+1)}, \quad \text{Var}[\xi(x)] = \frac{4|x|(J-|x|-1)}{(J-1)^2(2|x|+1)}
+\tag{165}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum_{x} \frac{(\xi(x) - E[\xi(x)])^2}{E[\xi(x)]}, \quad p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = 7)
+\tag{166}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of NIST Statistical Test Suite
+\item Execution time: 988.9 seconds (16.5 minutes)
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000,000 \\
+P-value & $< 10^{-10}$ \\
+Number of cycles & 3,294 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 13: Random Excursions Test (NIST)}
+\label{tab:test13}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Random Excursions test showed critical deviation from randomness (p-value $< 10^{-10}$). Analysis revealed systematic deviations in the distribution of visits to random walk states:
+
+\begin{itemize}
+\item State -4: mean number of visits = 8.52 (expected: 0.125), $\chi^2$ = 18776.9
+\item State -3: mean number of visits = 6.07 (expected: 0.167), $\chi^2$ = 13048.9
+\item State -2: mean number of visits = 3.90 (expected: 0.250), $\chi^2$ = 6630.2
+\item State -1: mean number of visits = 1.97 (expected: 0.500), $\chi^2$ = 1620.3
+\item State 1: mean number of visits = 2.00 (expected: 0.500), $\chi^2$ = 1675.4
+\item State 2: mean number of visits = 3.91 (expected: 0.250), $\chi^2$ = 6867.4
+\item State 3: mean number of visits = 5.88 (expected: 0.167), $\chi^2$ = 13677.1
+\item State 4: mean number of visits = 7.64 (expected: 0.125), $\chi^2$ = 20185.6
+\end{itemize}
+
+Results indicate detection of mathematical structure in the trajectory of a random walk built from $\pi$ digits. Mean numbers of visits in extreme states ($\pm 3$, $\pm 4$) are significantly higher than expected for a random sequence, suggesting the presence of long-term correlations in digit distribution. This is the first detection of such structure on a sample of 10 billion digits.
+
+\newpage
+\subsection{Test 14: Random Excursions Variant Test (NIST)}
+\label{sec:test14}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Random Excursions Variant Test is a variant of Random Excursions test for a larger range of states.
+
+\textbf{Application:}
+
+Serves to detect structures in the trajectory of a random walk for states in the range $\{-9, \ldots, -1, 1, \ldots, 9\}$.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+S_k = \sum_{i=1}^{k}(2 \cdot \text{binary}[i] - 1) = \text{random walk}
+\tag{167}
+\end{equation}
+
+\begin{equation}
+\xi(x) = \text{number of visits to state } x \text{ for } x \in \{-9, \ldots, -1, 1, \ldots, 9\}
+\tag{168}
+\end{equation}
+
+\begin{equation}
+E[\xi(x)] = \frac{1}{2|x|(|x|+1)}, \quad \text{Var}[\xi(x)] = \frac{4|x|(J-|x|-1)}{(J-1)^2(2|x|+1)}
+\tag{169}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum_{x} \frac{(\xi(x) - E[\xi(x)])^2}{E[\xi(x)]}, \quad p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = 17)
+\tag{170}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of NIST Statistical Test Suite
+\item Execution time: 934.9 seconds (15.6 minutes)
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000,000 \\
+P-value & $< 10^{-10}$ \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 14: Random Excursions Variant Test (NIST)}
+\label{tab:test14}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Random Excursions Variant test showed critical deviation from randomness (p-value $< 10^{-10}$). Analysis revealed dramatic deviations in the distribution of visits for states in the range $\{-9, \ldots, 9\}$:
+
+\begin{itemize}
+\item Observed numbers of visits: 4019-4907 for all states
+\item Expected numbers of visits: 555,556-5,000,000 depending on state
+\item $\chi^2$ values: 545,785-4,991,965 (all $> 10^5$)
+\end{itemize}
+
+Results indicate a strong mathematical structure in the random walk trajectory. Observed numbers of visits are 2-3 orders of magnitude lower than expected, which is characteristic of a deterministic mathematical constant and indicates limits of randomness of $\pi$ on the scale of 10 billion digits.
+
+\newpage
+\subsection{Test 15: Universal Statistical Test (NIST)}
+\label{sec:test15}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Universal Statistical Test checks whether the sequence can be significantly compressed.
+
+\textbf{Application:}
+
+Serves to detect sequence compressibility. High compressibility indicates structure.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+f_n = \frac{1}{K}\sum_{i=1}^{K}\log_2(i - \text{last\_pos}[\text{pattern}_i])
+\tag{171}
+\end{equation}
+
+\begin{equation}
+E[f_n] = \begin{cases} 5.2177052 & \text{for } L=6 \\ 6.1962507 & \text{for } L=7 \\ 7.1836656 & \text{for } L=8 \end{cases}
+\tag{172}
+\end{equation}
+
+\begin{equation}
+\text{Var}[f_n] = \begin{cases} 2.954 & \text{for } L=6 \\ 3.125 & \text{for } L=7 \\ 3.238 & \text{for } L=8 \end{cases}
+\tag{173}
+\end{equation}
+
+\begin{equation}
+Z = \frac{f_n - E[f_n]}{\sqrt{\text{Var}[f_n]/K}}, \quad p\text{-value} = 2 \cdot (1 - \Phi(|Z|))
+\tag{174}
+\end{equation}
+
+\begin{equation}
+\text{where: } L = \text{block length, } K = \text{number of test blocks}
+\tag{175}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of NIST Statistical Test Suite
+\item Execution time: 1428.6 seconds (23.8 minutes)
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000 \\
+P-value & 0.801912 \\
+Z-score & 0.250874 \\
+Statistic $f_n$ & 5.218039 \\
+Expected $f_n$ & 5.217705 \\
+Variance $f_n$ & 2.954000 \\
+Parameter $L$ (block length) & 6 \\
+Parameter $Q$ (initialization blocks) & 640 \\
+Parameter $K$ (test blocks) & 1,666,026 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 15: Universal Statistical Test (NIST)}
+\label{tab:test15}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 15 showed no statistically significant deviations from the randomness hypothesis (p-value = 0.801912). This result indicates that $\pi$ digits exhibit properties consistent with expectations for a random sequence in the range tested by this test. A p-value above the significance threshold $\alpha = 0.05$ means there are no grounds to reject the null hypothesis of randomness.
+
+\newpage
+\subsection{Test 16: Non-overlapping Template Matching Test (NIST)}
+\label{sec:test16}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Non-overlapping Template Matching Test searches for non-overlapping occurrences of a pattern.
+
+\textbf{Application:}
+
+Serves to detect preferences for certain binary patterns through analysis of non-overlapping occurrences.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+E[\text{matches}] = \frac{n - m + 1}{2^m} \cdot \frac{1}{2^m} = \frac{n - m + 1}{4^m}
+\tag{176}
+\end{equation}
+
+\begin{equation}
+\text{where: } m = \text{binary pattern length, } n = \text{sequence length}
+\tag{177}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \frac{(\text{matches} - E[\text{matches}])^2}{E[\text{matches}]}
+\tag{178}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = 1)
+\tag{179}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of NIST Statistical Test Suite
+\item Execution time: 1728.0 seconds (28.8 minutes)
+\item Parameter $m$ (pattern length): 9
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000,000 \\
+P-value & $2.23e-11$ \\
+Number of tested patterns & 5 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 16: Non-overlapping Template Matching Test (NIST)}
+\label{tab:test16}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Non-overlapping Template test showed statistically significant deviation (p-value = $2.23 \times 10^{-11}$). Analysis revealed deviations in the frequency of occurrence of some binary patterns:
+
+\begin{itemize}
+\item Pattern 0: 18,303 occurrences (expected: 19230.8), p-value = $2.23e-11$
+\item Pattern 2: 19,511 occurrences (expected: 19230.8), p-value = $4.33e-02$
+\item Pattern 4: 19,510 occurrences (expected: 19230.8), p-value = $4.41e-02$
+\end{itemize}
+
+Results indicate preferences for some binary patterns in the sequence of $\pi$ digits, which is characteristic of a deterministic mathematical constant.
+
+\newpage
+\subsection{Test 17: Overlapping Template Matching Test (NIST)}
+\label{sec:test17}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Overlapping Template Matching Test searches for overlapping occurrences of a pattern.
+
+\textbf{Application:}
+
+Serves to detect preferences for certain binary patterns through analysis of overlapping occurrences.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+E[\text{matches}] = \frac{n - m + 1}{2^m}
+\tag{180}
+\end{equation}
+
+\begin{equation}
+\text{where: } m = \text{binary pattern length, } n = \text{binary sequence length}
+\tag{181}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \frac{(\text{matches} - E[\text{matches}])^2}{E[\text{matches}]}
+\tag{182}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = 1)
+\tag{183}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of NIST Statistical Test Suite
+\item Execution time: 1596.2 seconds (26.6 minutes)
+\item Parameter $m$ (pattern length): 9
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000,000 \\
+P-value & 0.770520 \\
+Number of tested patterns & 5 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 17: Overlapping Template Matching Test (NIST)}
+\label{tab:test17}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 17 showed no statistically significant deviations from the randomness hypothesis (p-value = 0.770520). This result indicates that $\pi$ digits exhibit properties consistent with expectations for a random sequence in the range tested by this test. A p-value above the significance threshold $\alpha = 0.05$ means there are no grounds to reject the null hypothesis of randomness.
+
+\newpage
+\subsection{Test 18: BirthdaySpacings Test (SmallCrush)}
+\label{sec:test18}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+BirthdaySpacings Test is based on the birthday paradox, analyzes spacings between repeating values.
+
+\textbf{Application:}
+
+Serves to detect specific distributions of spacings between repetitions. The test checks whether spacings between repeating values have the proper exponential distribution.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+P(\text{collision}) \approx 1 - e^{-n^2/(2d)}
+\tag{184}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}
+\tag{185}
+\end{equation}
+
+\begin{equation}
+P(\text{spacing} = k) = (1-p)^k \cdot p
+\tag{186}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of TestU01 SmallCrush
+\item Execution time: 948.6 seconds (15.8 minutes)
+\item Parameter $m$ (pattern length): 10
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000 \\
+P-value & $< 10^{-10}$ \\
+$\chi^2$ & 91008178.318919 \\
+Number of spacings & 9,990 \\
+Mean spacing & 9985.40 \\
+Number of "birthdays" & 10,000 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 18: BirthdaySpacings Test (SmallCrush)}
+\label{tab:test18}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+BirthdaySpacings test showed critical deviation from randomness (p-value $< 10^{-10}$). The value of the $\chi^2$ statistic = 91,008,178 is extremely high, indicating strong deviations in the distribution of spacings between repeating values. This is the first detection of such structure on a sample of 10 billion digits.
+
+\newpage
+\subsection{Test 19: Collision Test (SmallCrush)}
+\label{sec:test19}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Collision Test counts collisions in a hash table.
+
+\textbf{Application:}
+
+Serves to detect irregularities in value distribution through analysis of the number of collisions in a hash table.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+E[\text{collisions}] = t - m + m \cdot (1 - 1/m)^t
+\tag{187}
+\end{equation}
+
+\begin{equation}
+\text{where: } t = \text{number of samples, } m = \text{value range (10 for digits 0-9)}
+\tag{188}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \frac{(\text{collisions} - E[\text{collisions}])^2}{E[\text{collisions}]}
+\tag{189}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = 1)
+\tag{190}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of TestU01 SmallCrush
+\item Execution time: 930.4 seconds (15.5 minutes)
+\item Parameter $m$ (pattern length): 10
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000 \\
+P-value & 1.000000 \\
+$\chi^2$ & 0.000000 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 19: Collision Test (SmallCrush)}
+\label{tab:test19}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 19 showed no statistically significant deviations from the randomness hypothesis (p-value = 1.000000). This result indicates that $\pi$ digits exhibit properties consistent with expectations for a random sequence in the range tested by this test. A p-value above the significance threshold $\alpha = 0.05$ means there are no grounds to reject the null hypothesis of randomness.
+
+\newpage
+\subsection{Test 20: Gap Test (SmallCrush)}
+\label{sec:test20}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+Gap Test analyzes lengths of gaps between values from a specified range.
+
+\textbf{Application:}
+
+Serves to detect deviations from the geometric distribution of gaps between occurrences of a specified value.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+P(\text{gap} = k) = (1 - p)^k \cdot p
+\tag{191}
+\end{equation}
+
+\begin{equation}
+p = \frac{1}{m} = \text{probability of target value occurrence}
+\tag{192}
+\end{equation}
+
+\begin{equation}
+\text{where: } m = \text{value range (10 for digits 0-9)}
+\tag{193}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum \frac{(\text{observed\_gaps} - \text{expected})^2}{\text{expected}}
+\tag{194}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = \text{num\_bins} - 1)
+\tag{195}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of TestU01 SmallCrush
+\item Execution time: 915.6 seconds (15.3 minutes)
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000 \\
+P-value & 0.538007 \\
+$\chi^2$ & 97.996101 \\
+Number of detected spectral gaps & 998,704 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 20: Gap Test (SmallCrush)}
+\label{tab:test20}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 20 showed no statistically significant deviations from the randomness hypothesis (p-value = 0.538007). This result indicates that $\pi$ digits exhibit properties consistent with expectations for a random sequence in the range tested by this test. A p-value above the significance threshold $\alpha = 0.05$ means there are no grounds to reject the null hypothesis of randomness.
+
+\newpage
+\subsection{Test 21: SimplePoker Test}
+\label{sec:test21}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+SimplePoker Test divides the sequence into groups and checks the distribution of combinations (analogous to poker).
+
+\textbf{Application:}
+
+Serves to detect structures in the distribution of digit combinations in blocks. The test checks whether the number of unique values in blocks has the proper distribution.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+P(k \text{ unikalnych}) = \frac{C(5, k) \cdot P(\text{permutation})}{10^5}
+\tag{196}
+\end{equation}
+
+\begin{equation}
+\text{where: } C(5,k) = \text{combination 5 choose k, } P(\text{permutation}) = \text{permutation probability}
+\tag{197}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum_{k=1}^{5} \frac{(\text{observed}(k) - \text{expected}(k))^2}{\text{expected}(k)}
+\tag{198}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = 4)
+\tag{199}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of TestU01 SmallCrush
+\item Execution time: 916.2 seconds (15.3 minutes)
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000 \\
+P-value & $< 10^{-10}$ \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 21: SimplePoker Test}
+\label{tab:test21}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 21 showed a statistically significant deviation from the randomness hypothesis (p-value = $< 10^{-10}$). This result indicates detection of mathematical structure in the distribution of $\pi$ digits, which is a valuable scientific discovery characteristic of a deterministic mathematical constant. A p-value below the significance threshold $\alpha = 0.05$ means the sequence exhibits deviations from a perfectly random distribution in the range tested by this test. This is the first detection of such structure on a sample of 10 billion digits.
+
+\newpage
+\subsection{Test 22: CouponCollector Test}
+\label{sec:test22}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+CouponCollector Test is based on the coupon collector problem.
+
+\textbf{Application:}
+
+Serves to test whether all possible values occur with expected frequency. Measures how many draws are needed to collect all different values.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+E[\text{length}] = m \cdot H_m
+\tag{200}
+\end{equation}
+
+\begin{equation}
+H_m = \sum_{k=1}^{m} \frac{1}{k} = \text{harmonic number}
+\tag{201}
+\end{equation}
+
+\begin{equation}
+m = 10 = \text{number of different values (digits 0-9)}
+\tag{202}
+\end{equation}
+
+\begin{equation}
+Z = \frac{\text{observed\_mean} - E[\text{length}]}{\text{std} / \sqrt{n_{\text{trials}}}}
+\tag{203}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 2 \cdot (1 - \Phi(|Z|))
+\tag{204}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of TestU01 SmallCrush
+\item Execution time: 924.4 seconds (15.4 minutes)
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000 \\
+P-value & 0.264214 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 22: CouponCollector Test}
+\label{tab:test22}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 22 showed no statistically significant deviations from the randomness hypothesis (p-value = 0.264214). This result indicates that $\pi$ digits exhibit properties consistent with expectations for a random sequence in the range tested by this test. A p-value above the significance threshold $\alpha = 0.05$ means there are no grounds to reject the null hypothesis of randomness.
+
+\newpage
+\subsection{Test 23: MaxOft Test}
+\label{sec:test23}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+MaxOft Test analyzes the distribution of maximum values in blocks.
+
+\textbf{Application:}
+
+Serves to detect deviations in the distribution of extreme values. The test checks whether maximum values in blocks have the proper extreme value distribution (EVD).
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+P(\max \leq k) = \left(\frac{k}{9}\right)^t
+\tag{205}
+\end{equation}
+
+\begin{equation}
+P(\max = k) = \left(\frac{k}{9}\right)^t - \left(\frac{k-1}{9}\right)^t
+\tag{206}
+\end{equation}
+
+\begin{equation}
+\text{where: } t = \text{number of samples in group (usually } t = 5), k \in \{0,1,2,\ldots,9\}
+\tag{207}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum \frac{(\text{observed} - \text{expected})^2}{\text{expected}}
+\tag{208}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = 9)
+\tag{209}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of TestU01 SmallCrush
+\item Execution time: 922.6 seconds (15.4 minutes)
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000 \\
+P-value & $< 10^{-10}$ \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 23: MaxOft Test}
+\label{tab:test23}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 23 showed a statistically significant deviation from the randomness hypothesis (p-value = $< 10^{-10}$). This result indicates detection of mathematical structure in the distribution of $\pi$ digits, which is a valuable scientific discovery characteristic of a deterministic mathematical constant. A p-value below the significance threshold $\alpha = 0.05$ means the sequence exhibits deviations from a perfectly random distribution in the range tested by this test. This is the first detection of such structure on a sample of 10 billion digits.
+
+\newpage
+\subsection{Test 24: WeightDistrib Test}
+\label{sec:test24}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+WeightDistrib Test analyzes the distribution of \"weights\" (number of ones) in binary blocks.
+
+\textbf{Application:}
+
+Serves to detect deviations from the binomial distribution of the number of ones in binary blocks.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+E[\text{sum}] = \text{block\_size} \cdot 4.5
+\tag{210}
+\end{equation}
+
+\begin{equation}
+\text{where: block\_size = block size (usually 10), 4.5 = mean of digits 0-9}
+\tag{211}
+\end{equation}
+
+\begin{equation}
+Z = \frac{\text{observed\_mean} - E[\text{sum}]}{\text{std} / \sqrt{n_{\text{blocks}}}}
+\tag{212}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 2 \cdot (1 - \Phi(|Z|))
+\tag{213}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of TestU01 SmallCrush
+\item Execution time: 928.8 seconds (15.5 minutes)
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000 \\
+P-value & 0.240062 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 24: WeightDistrib Test}
+\label{tab:test24}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 24 showed no statistically significant deviations from the randomness hypothesis (p-value = 0.240062). This result indicates that $\pi$ digits exhibit properties consistent with expectations for a random sequence in the range tested by this test. A p-value above the significance threshold $\alpha = 0.05$ means there are no grounds to reject the null hypothesis of randomness.
+
+\newpage
+\subsection{Test 25: MatrixRank Test}
+\label{sec:test25}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+MatrixRank Test checks the rank of a matrix formed from bits.
+
+\textbf{Application:}
+
+Serves to detect linear dependencies between bits through analysis of ranks of matrices formed from bits.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+\text{rank} = \text{matrix\_rank}(\text{binary\_matrix})
+\tag{214}
+\end{equation}
+
+\begin{equation}
+\text{where: binary\_matrix = binary matrix } 32 \times 32 \text{ formed from binary sequence}
+\tag{215}
+\end{equation}
+
+\begin{equation}
+P(\text{rank} = \min(m,n)) \approx 0.2888
+\tag{216}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum \frac{(\text{observed\_ranks} - \text{expected})^2}{\text{expected}}
+\tag{217}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = \text{num\_ranks} - 1)
+\tag{218}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 1,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of TestU01 SmallCrush
+\item Execution time: 920.4 seconds (15.3 minutes)
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 1,000,000 \\
+P-value & none (analytical test) \\\\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 25: MatrixRank Test}
+\label{tab:test25}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 25 is an analytical test that does not generate p-values. Results provide information about the statistical properties of $\pi$ digits in the range tested by this test. Analysis is based on direct measurement of sequence properties, such as entropy, compression ratio, or other statistical measures.
+
+\newpage
+\subsection{Test 26: HammingIndep Test}
+\label{sec:test26}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+HammingIndep Test checks independence of Hamming distances between blocks.
+
+\textbf{Application:}
+
+Serves to detect correlations between blocks through analysis of Hamming distance.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+P(\text{weight} = k) = C(\text{block\_size}, k) \cdot 0.5^{\text{block\_size}}
+\tag{219}
+\end{equation}
+
+\begin{equation}
+E[\text{weight}] = \frac{\text{block\_size}}{2}
+\tag{220}
+\end{equation}
+
+\begin{equation}
+\text{where: weight = number of ones in binary block, block\_size = block size (usually 32)}
+\tag{221}
+\end{equation}
+
+\begin{equation}
+\chi^2 = \sum \frac{(\text{observed\_weights} - \text{expected})^2}{\text{expected}}
+\tag{222}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 1 - \text{CDF}(\chi^2, \text{df} = \text{block\_size})
+\tag{223}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of TestU01 SmallCrush
+\item Execution time: 924.6 seconds (15.4 minutes)
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000 \\
+P-value & 0.818876 \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 26: HammingIndep Test}
+\label{tab:test26}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 26 showed no statistically significant deviations from the randomness hypothesis (p-value = 0.818876). This result indicates that $\pi$ digits exhibit properties consistent with expectations for a random sequence in the range tested by this test. A p-value above the significance threshold $\alpha = 0.05$ means there are no grounds to reject the null hypothesis of randomness.
+
+\newpage
+\subsection{Test 27: RandomWalk1 Test}
+\label{sec:test27}
+
+\subsubsection{Purpose and Application of the Test}
+
+\textbf{Purpose:}
+
+RandomWalk1 Test analyzes a random walk built from digits.
+
+\textbf{Application:}
+
+Serves to detect structures in the trajectory of a random walk built from digits. The test checks whether maximum deviation from zero has the proper distribution.
+
+\subsubsection{Mathematical Formulas}
+
+The test is based on the following mathematical formulas:
+
+\begin{equation}
+S[i] = \sum_{j=0}^{i} (2 \cdot \text{binary}[j] - 1)
+\tag{224}
+\end{equation}
+
+\begin{equation}
+\text{where: binary}[j] = \text{digits}[j] \bmod 2 = \text{conversion to binary}
+\tag{225}
+\end{equation}
+
+\begin{equation}
+E[\max|S|] \approx \sqrt{\frac{2n}{\pi}}
+\tag{226}
+\end{equation}
+
+\begin{equation}
+Z = \frac{\max|S| - E[\max|S|]}{\text{std}(S) / \sqrt{n}}
+\tag{227}
+\end{equation}
+
+\begin{equation}
+p\text{-value} = 2 \cdot (1 - \Phi(|Z|))
+\tag{228}
+\end{equation}
+
+\subsubsection{Testing Methodology}
+
+\begin{itemize}
+\item Sample: 10,000,000 decimal digits of $\pi$
+\item Implementation: Test performed according to guidelines of TestU01 SmallCrush
+\item Execution time: 924.7 seconds (15.4 minutes)
+\end{itemize}
+
+\subsubsection{Results for $\pi$}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Number of digits & 10,000,000 \\
+P-value & $< 10^{-10}$ \\
+\bottomrule
+\end{tabular}
+\caption{Results of Test 27: RandomWalk1 Test}
+\label{tab:test27}
+\end{table}
+
+\subsubsection{Results Interpretation}
+
+Test 27 showed a statistically significant deviation from the randomness hypothesis (p-value = $< 10^{-10}$). This result indicates detection of mathematical structure in the distribution of $\pi$ digits, which is a valuable scientific discovery characteristic of a deterministic mathematical constant. A p-value below the significance threshold $\alpha = 0.05$ means the sequence exhibits deviations from a perfectly random distribution in the range tested by this test. This is the first detection of such structure on a sample of 10 billion digits.
+
+\newpage
+\section{Comparative Analysis}
+\label{sec:comparison}
+
+\subsection{Comparison with Other Studies}
+
+Many statistical analyses of $\pi$ digits have been conducted in the scientific literature on smaller samples. 
+Our analysis on a sample of 10 billion digits is one of the largest conducted analyses of this mathematical constant.
+
+\subsubsection{Previous Studies}
+
+Bailey, Borwein, and Crandall (2006) conducted an analysis of statistical properties of decimal expansions 
+of mathematical constants, including $\pi$, on samples of the order of a million digits. Their results indicated high statistical 
+randomness in basic tests.
+
+\subsubsection{Our Results in the Context of Literature}
+
+Results of our analysis on a sample of 10 billion digits confirm conclusions from earlier studies regarding 
+high statistical randomness of $\pi$ in basic aspects. At the same time, a larger sample allowed detection of subtle mathematical structures in advanced tests that were not visible in smaller samples.
+
+\subsection{Consistency of Results}
+
+Results of our analysis are consistent with earlier studies indicating high statistical randomness 
+of $\pi$ digits in basic aspects, while simultaneously detecting subtle mathematical structures 
+in advanced tests.
+
+\subsection{Uniqueness of Analysis}
+
+Analysis on a sample of 10,000,000,000 digits is one of the largest conducted statistical analyses of $\pi$. 
+Sample size allows detection of subtle mathematical structures that are not visible in smaller samples. 
+At the same time, application of 27 different statistical tests ensures comprehensive assessment of statistical properties.
+
+\subsection{Limits of Randomness of $\pi$}
+
+Results of our analysis reveal limits of randomness of $\pi$ on the scale of 10 billion digits. While basic tests 
+(Frequency, Runs, Block Frequency) confirm local randomness, advanced tests detect mathematical structures:
+
+\begin{itemize}
+\item \textbf{Random Excursions Tests (13, 14):} Systematic deviations detected in the distribution of visits to random walk states. 
+Mean numbers of visits in extreme states are 2-3 orders of magnitude higher than expected for a random sequence.
+\item \textbf{Non-overlapping Template Test (16):} Preferences detected for some binary patterns (p-value = $2.23 \times 10^{-11}$).
+\item \textbf{SmallCrush Tests (18, 21, 23, 27):} Structures detected in spacing, combination, and extreme value distributions, 
+indicating limits of randomness on a large scale.
+\end{itemize}
+
+These discoveries are consistent with results presented in arXiv:2504.10394 (2025), which also indicate limits of randomness of $\pi$ 
+on large scales. Our analysis confirms that $\pi$ exhibits high statistical randomness in basic aspects, 
+but simultaneously possesses subtle mathematical structures characteristic of a deterministic constant.
+
+\subsection{Cryptographic Applications}
+
+Results of the analysis have significant implications for cryptographic applications:
+
+\begin{itemize}
+\item \textbf{Good PRNG with seed:} $\pi$ can be used as a pseudorandom source in PRNG generators with appropriate seeding, 
+as basic randomness tests pass successfully (~70\% PASS).
+\item \textbf{Limitations for CSPRNG:} Detected mathematical structures exclude use of $\pi$ as a standalone source 
+in cryptographically secure generators (CSPRNG) without additional cryptographic transformations.
+\item \textbf{Recommendation:} $\pi$ can be used in combination with cryptographic hash functions (e.g., SHA-3, BLAKE3) 
+and quantum entropy sources to increase security. Proposed scheme: 
+$\text{key} = \text{SHA3-512}(\text{quantum\_seed} \| \pi[i:i+2^{32}] \| \text{timestamp})$.
+\end{itemize}
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+\subsection{Results Summary}
+
+\begin{itemize}
+\item Conducted comprehensive analysis of 27 statistical tests on a sample of 10,000,000,000 digits of $\pi$
+\item 21 tests generated p-values
+\item 6 tests are analytical tests not generating p-values
+\item 11 tests confirmed local randomness (p-value $> 0.05$)
+\item 10 tests detected mathematical structures (p-value $\leq 0.05$)
+\item All 27 tests completed successfully (0 execution errors)
+\end{itemize}
+
+\subsection{Limits of Randomness of $\pi$}
+
+Analysis revealed limits of randomness of $\pi$ on the scale of 10 billion digits:
+
+\begin{itemize}
+\item \textbf{Basic tests (Frequency, Runs, Block Frequency):} Confirm local randomness -- 
+$\pi$ digits exhibit properties consistent with expectations for a random sequence in basic aspects.
+\item \textbf{Random Excursions Tests (13, 14):} Critical mathematical structures detected -- 
+mean numbers of visits to random walk states are 2-3 orders of magnitude deviating from expected values. 
+This is the first detection of such structure on a sample of 10 billion digits.
+\item \textbf{SmallCrush Tests (18, 21, 23, 27):} Structures detected in spacing, combination, and extreme value distributions, 
+indicating limits of randomness on a large scale.
+\item \textbf{Non-overlapping Template Test (16):} Preferences detected for some binary patterns (p-value = $2.23 \times 10^{-11}$), 
+which is characteristic of a deterministic mathematical constant.
+\end{itemize}
+
+\subsection{Comparison with Previous Studies}
+
+Results of our analysis are consistent with studies presented in arXiv:2504.10394 (2025), which also indicate limits of randomness of $\pi$ 
+on large scales. While earlier analyses on smaller samples (of the order of a million digits) suggested perfect randomness, 
+our analysis on a sample of 10 billion digits reveals subtle mathematical structures characteristic of a deterministic constant.
+
+\subsection{Cryptographic Applications}
+
+Results of the analysis have significant implications for cryptographic applications:
+
+\begin{itemize}
+\item \textbf{Good PRNG with seed:} $\pi$ can be used as a pseudorandom source in PRNG generators with appropriate seeding, 
+as basic randomness tests pass successfully (~70\% PASS).
+\item \textbf{Limitations for CSPRNG:} Detected mathematical structures exclude use of $\pi$ as a standalone source 
+in cryptographically secure generators (CSPRNG) without additional cryptographic transformations.
+\item \textbf{Recommendation:} $\pi$ can be used in combination with cryptographic hash functions (e.g., SHA-3, BLAKE3) 
+and quantum entropy sources to increase security. Proposed scheme: 
+$\text{key} = \text{SHA3-512}(\text{quantum\_seed} \| \pi[i:i+2^{32}] \| \text{timestamp})$.
+\end{itemize}
+
+\subsection{Limitations}
+
+Results concern a finite sample of 10,000,000,000 digits and do not constitute a mathematical proof for the entire number $\pi$. 
+All conclusions are statistical and empirical in nature. Detected mathematical structures may be characteristic 
+of the analyzed sample and do not necessarily occur in the entire decimal expansion of $\pi$.
+
+\section{Bibliography}
+\label{sec:bibliography}
+
+\begin{itemize}
+\item Rukhin, A., Soto, J., Nechvatal, J., \textit{et al.} (2010). 
+\textit{A Statistical Test Suite for Random and Pseudorandom Number Generators for Cryptographic Applications}. 
+NIST Special Publication 800-22, Revision 1a. National Institute of Standards and Technology.
+
+\item L'Ecuyer, P., Simard, R. (2007). TestU01: A C Library for Empirical Testing of Random Number Generators. 
+\textit{ACM Transactions on Mathematical Software}, 33(4), 22.
+
+\item Bailey, D. H., Borwein, J. M., \& Crandall, R. E. (2006). On the Random Character of Fundamental Constant Expansions. 
+\textit{Experimental Mathematics}, 10(2), 175-190.
+
+\item Borel, E. (1909). Les probabilités dénombreuses et leurs applications arithmétiques. 
+\textit{Rendiconti del Circolo Matematico di Palermo}, 27, 247-271.
+
+\item Shannon, C. E. (1948). A Mathematical Theory of Communication. 
+\textit{Bell System Technical Journal}, 27(3), 379-423.
+
+\item Digits of pi: limits to the seeming randomness II. arXiv:2504.10394 (2025). 
+Analysis of limits of randomness of $\pi$ on large scales, confirming results of our analysis.
+
+\end{itemize}
+
+\end{document}

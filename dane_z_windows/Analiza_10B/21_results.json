@@ -1,0 +1,10 @@
+{
+  "test_name": "SimplePoker Test",
+  "n": 10000000,
+  "p_value": 0.0,
+  "status": "completed",
+  "execution_time": 916.2375736236572,
+  "step_id": "21",
+  "step_name": "SmallCrush: SimplePoker",
+  "timestamp": "2026-01-07T03:53:28.502866"
+}

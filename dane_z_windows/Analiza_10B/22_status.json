@@ -1,0 +1,10 @@
+{
+  "step_id": "22",
+  "step_name": "SmallCrush: CouponCollector",
+  "status": "completed",
+  "started_at": "2026-01-07T03:53:28.532473",
+  "completed_at": "2026-01-07T04:08:52.897394",
+  "digits_processed": 10000000000,
+  "total_digits": 10000000000,
+  "error": null
+}
