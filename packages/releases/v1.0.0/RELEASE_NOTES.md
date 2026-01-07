@@ -1,70 +1,79 @@
-# OMNIS2 - Releases
+# Release v1.0.0 - OMNIS2 Pi Analysis
+
+**Data wydania:** 2026-01-07  
+**Branch:** OMNIS2
 
 ## Opis
 
-Ten katalog zawiera wydania (releases) projektu OMNIS2 - Analiza Statystyczna 10 Miliardów Cyfr Liczby Pi.
+Pierwsze wydanie projektu OMNIS2 - kompleksowej analizy statystycznej 10 miliardów cyfr liczby Pi.
 
-## Struktura
+## Co zawiera
 
-```
-packages/releases/
-├── README.md                    # Ten plik
-└── v1.0.0/                     # Przykładowa wersja (do utworzenia)
-    ├── omnis2-pi-analysis-v1.0.0.tar.gz
-    ├── omnis2-pi-analysis-v1.0.0.zip
-    └── CHANGELOG.md
-```
-
-## Wydania
-
-### v1.0.0 (2026-01-07)
+### Kod źródłowy
 - ✅ 27 testów statystycznych (NIST + SmallCrush)
-- ✅ Analiza 10 miliardów cyfr Pi
-- ✅ Generatory raportów naukowych (PL i EN)
-- ✅ 55 plików JSON z wynikami badań
-- ✅ Dokumentacja i wzory matematyczne
+- ✅ Główny orchestrator analizy
+- ✅ Moduły testów z akceleracją GPU
+- ✅ Streaming processing dla dużych plików
+
+### Wyniki badań
+- ✅ 55 plików JSON z wynikami analizy
+- ✅ Szczegółowe statystyki dla każdego testu
+- ✅ Metadane wykonania (czas, liczba cyfr)
+
+### Dokumentacja
+- ✅ Kompletny README.md
+- ✅ Wzory matematyczne (PDF)
+- ✅ Opis wyników badań
+- ✅ Instrukcje instalacji i użycia
 
 ## Instalacja
 
-### Z pliku tar.gz:
 ```bash
-tar -xzf omnis2-pi-analysis-v1.0.0.tar.gz
-cd omnis2-pi-analysis-v1.0.0
-pip install -r requirements.txt
-```
+# Sklonuj repozytorium
+git clone https://github.com/Baver1022/omnis2-pi-analysis.git
+cd omnis2-pi-analysis
+git checkout OMNIS2
 
-### Z pliku zip:
-```bash
-unzip omnis2-pi-analysis-v1.0.0.zip
-cd omnis2-pi-analysis-v1.0.0
+# Zainstaluj zależności
 pip install -r requirements.txt
 ```
 
 ## Użycie
 
-Po instalacji:
 ```bash
 # Uruchomienie analizy
-python3 analysis_orchestrator.py --pi-file pi_10billion.txt
+python3 analysis_orchestrator.py --pi-file pi_10billion.txt --output-dir analiza_wynikow_output
 
-# Generowanie raportu PL
-python3 generuj_raport_kompletny_final.py
-
-# Generowanie raportu EN
-python3 generuj_raport_kompletny_final_EN.py
+# Sprawdzenie statusu
+python3 analysis_orchestrator.py --status-only
 ```
 
 ## Wymagania
 
 - Python 3.8+
 - NumPy, SciPy, Pandas
-- Matplotlib (dla wizualizacji)
-- LaTeX (dla generowania PDF)
+- Matplotlib (opcjonalne, dla wizualizacji)
 - CuPy (opcjonalne, dla GPU acceleration)
 
-Zobacz `requirements.txt` w głównym katalogu projektu.
+## Wyniki Analizy
+
+- ✅ ~70% testów PASS - podstawowe testy potwierdzają lokalną losowość
+- ⚠️ Krytyczne FAIL w testach Random Excursions (13, 14) i niektórych SmallCrush
+- 📊 Entropia: H ≈ 3.32 (blisko maksimum dla systemu dziesiętnego)
+- 📈 Kompresja: R ≈ 0.47 (wysoka nieprzewidywalność)
+
+## Pliki do pobrania
+
+- `omnis2-pi-analysis-v1.0.0.tar.gz` - Archiwum źródłowe
+- `omnis2-pi-analysis-v1.0.0.zip` - Archiwum ZIP
 
 ## Licencja
 
 Zobacz plik LICENSE w głównym katalogu projektu.
+
+## Linki
+
+- **Repozytorium:** https://github.com/Baver1022/omnis2-pi-analysis
+- **Branch OMNIS2:** https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2
+- **Issues:** https://github.com/Baver1022/omnis2-pi-analysis/issues
 
