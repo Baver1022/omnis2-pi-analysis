@@ -48,8 +48,11 @@ jobs:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Configure pip to use GitHub Packages
+          echo "Publishing to GitHub Packages..."
           python -m twine upload \
             --repository-url https://upload.pypi.org/legacy/ \
             --username __token__ \
             --password ${{ secrets.GITHUB_TOKEN }} \
+            --verbose \
             dist/*
