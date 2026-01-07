@@ -1,5 +1,18 @@
 # 🔬 OMNIS2 - Statistical Analysis of 10 Billion Digits of Pi
 
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![GitHub](https://img.shields.io/github/stars/Baver1022/omnis2-pi-analysis?style=for-the-badge&logo=github)
+![GitHub forks](https://img.shields.io/github/forks/Baver1022/omnis2-pi-analysis?style=for-the-badge&logo=github)
+
+**🔬 Comprehensive statistical analysis of 10 billion Pi digits using 27 rigorous tests**
+
+[📖 Documentation](#-documentation) • [🚀 Quick Start](#-quick-start) • [📊 Results](#-analysis-results) • [📄 Reports](#-scientific-reports)
+
+</div>
+
 ## 🌟 What Fascinates Us
 
 What drives us in this project? The **mystery of randomness** hidden in the infinite sequence of Pi digits. Is Pi truly random, or does it contain hidden patterns? Can we trust it for cryptographic applications? These questions led us to conduct one of the most comprehensive statistical analyses of Pi digits ever performed.
@@ -9,6 +22,8 @@ We analyzed **10 billion digits** using **27 rigorous statistical tests** - a jo
 ## 📊 About the Project
 
 **OMNIS2** is a comprehensive project for statistical analysis of **10 billion digits of Pi** using **27 statistical tests** (17 NIST tests + 10 SmallCrush tests) with GPU acceleration.
+
+> **Keywords:** Pi digits analysis, statistical randomness testing, NIST tests, SmallCrush, GPU computing, cryptography, number theory, mathematical constants, data science, Python, CuPy, statistical analysis, randomness validation, Pi research, computational mathematics
 
 The project includes:
 - ✅ **27 statistical tests** (Python source code)
@@ -136,8 +151,34 @@ See LICENSE file in the [OMNIS2](https://github.com/Baver1022/omnis2-pi-analysis
 
 ---
 
+## 🌟 Star This Repository
+
+If you find this project interesting or useful, please consider giving it a ⭐ star! It helps others discover the project and supports continued development.
+
+<div align="center">
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Baver1022/omnis2-pi-analysis&type=Date)](https://star-history.com/#Baver1022/omnis2-pi-analysis&Date)
+
+</div>
+
+## 📈 Project Statistics
+
+<div align="center">
+
+![GitHub watchers](https://img.shields.io/github/watchers/Baver1022/omnis2-pi-analysis?style=social)
+![GitHub stars](https://img.shields.io/github/stars/Baver1022/omnis2-pi-analysis?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Baver1022/omnis2-pi-analysis?style=social)
+![GitHub issues](https://img.shields.io/github/issues/Baver1022/omnis2-pi-analysis?style=flat-square)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/Baver1022/omnis2-pi-analysis?style=flat-square)
+
+</div>
+
+---
+
 <div align="center">
 
 **💡 All project files, source code, reports, and research results are located in the [`OMNIS2`](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2) branch**
+
+Made with ❤️ for mathematics and science
 
 </div>
