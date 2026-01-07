@@ -44,7 +44,17 @@ OMNIS2/
 
 ## 🚀 Quick Start
 
-### Download the full project:
+### Option 1: Install from GitHub Packages (Recommended)
+
+```bash
+# Install the package
+pip install omnis2-pi-analysis
+
+# Run analysis
+python3 -m omnis2_pi_analysis.analysis_orchestrator --pi-file pi_10billion.txt
+```
+
+### Option 2: Download the full project:
 
 ```bash
 git clone https://github.com/Baver1022/omnis2-pi-analysis.git
@@ -98,6 +108,20 @@ python3 analysis_orchestrator.py --pi-file pi_10billion.txt
 
 - **📖 Full documentation:** [OMNIS2 Branch](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)
 - **📊 Research results:** 54 JSON files in `OMNIS2/Dane z analizy/`
+
+## 📦 Package Installation
+
+The project is available as a Python package on **GitHub Packages**:
+
+```bash
+pip install omnis2-pi-analysis
+```
+
+**Package Details:**
+- 📦 **Name:** `omnis2-pi-analysis`
+- 📌 **Version:** `1.0.0`
+- 🔗 **GitHub Packages:** [View Package](https://github.com/Baver1022/omnis2-pi-analysis/packages)
+- 📚 **Documentation:** See [OMNIS2 Branch](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)
 
 ## 🔗 Links
 
