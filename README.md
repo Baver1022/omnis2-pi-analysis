@@ -52,10 +52,10 @@ cd omnis2-pi-analysis
 git checkout OMNIS2
 
 # Install dependencies
+cd Program
 pip install -r requirements.txt
 
 # Run analysis
-cd Program
 python3 analysis_orchestrator.py --pi-file pi_10billion.txt
 ```
 
