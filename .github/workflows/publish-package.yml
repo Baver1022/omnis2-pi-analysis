@@ -53,8 +53,8 @@ jobs:
           echo "Repository: https://github.com/Baver1022/omnis2-pi-analysis/packages"
           echo ""
           # GitHub Packages for Python uses PyPI-compatible API
-          # Endpoint: https://upload.pypi.org/legacy/
-          # Use PACKAGES_TOKEN (PAT) if available, otherwise GITHUB_TOKEN
+          # The endpoint https://upload.pypi.org/legacy/ should work with PAT
+          # GITHUB_TOKEN doesn't work with PyPI endpoint for GitHub Packages
           python -m twine upload \
             --repository-url https://upload.pypi.org/legacy/ \
             --username __token__ \
