@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: OMNIS2  # Checkout OMNIS2 branch where Program/ exists
       
       - name: Set up Python
         uses: actions/setup-python@v5
