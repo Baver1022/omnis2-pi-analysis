@@ -1,0 +1,14 @@
+{
+  "test_name": "Block Frequency Test (NIST)",
+  "n": 100000,
+  "block_size": 1000,
+  "num_blocks": 100,
+  "chi2": 56.874,
+  "p_value": 0.9998401342036619,
+  "status": "completed",
+  "interpretation": "Block frequency test PASSED with p-value 0.999840",
+  "execution_time": 0.0004811286926269531,
+  "step_id": "03",
+  "step_name": "Block Frequency Test (NIST)",
+  "timestamp": "2026-01-05T23:54:16.446691"
+}

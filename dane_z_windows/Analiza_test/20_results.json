@@ -1,0 +1,15 @@
+{
+  "test_name": "Gap Test (SmallCrush)",
+  "n": 100000,
+  "target_value": 5,
+  "num_occurrences": 10012,
+  "num_gaps": 10011,
+  "mean_gap": 8.986614723803816,
+  "chi2": 128.01781694585367,
+  "p_value": 0.030904919058046043,
+  "status": "completed",
+  "execution_time": 0.0005779266357421875,
+  "step_id": "20",
+  "step_name": "SmallCrush: Gap",
+  "timestamp": "2026-01-05T23:54:19.385354"
+}
