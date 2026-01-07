@@ -3,6 +3,8 @@
 <div align="center">
 
 ![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![AI](https://img.shields.io/badge/AI-Machine%20Learning-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![GPU](https://img.shields.io/badge/GPU-CUDA-76B900?style=for-the-badge&logo=nvidia&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 ![GitHub](https://img.shields.io/github/stars/Baver1022/omnis2-pi-analysis?style=for-the-badge&logo=github)
 ![GitHub forks](https://img.shields.io/github/forks/Baver1022/omnis2-pi-analysis?style=for-the-badge&logo=github)
@@ -23,7 +25,7 @@ We analyzed **10 billion digits** using **27 rigorous statistical tests** - a jo
 
 **OMNIS2** is a comprehensive project for statistical analysis of **10 billion digits of Pi** using **27 statistical tests** (17 NIST tests + 10 SmallCrush tests) with GPU acceleration.
 
-> **Keywords:** Pi digits analysis, statistical randomness testing, NIST tests, SmallCrush, GPU computing, cryptography, number theory, mathematical constants, data science, Python, CuPy, statistical analysis, randomness validation, Pi research, computational mathematics
+> **Keywords:** Pi digits analysis, statistical randomness testing, NIST tests, SmallCrush, GPU computing, cryptography, number theory, mathematical constants, data science, Python, CuPy, statistical analysis, randomness validation, Pi research, computational mathematics, **AI, machine learning, deep learning, neural networks, pattern recognition, data analysis, artificial intelligence**
 
 The project includes:
 - ✅ **27 statistical tests** (Python source code)
