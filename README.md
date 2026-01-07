@@ -55,6 +55,7 @@ git checkout OMNIS2
 pip install -r requirements.txt
 
 # Run analysis
+cd Program
 python3 analysis_orchestrator.py --pi-file pi_10billion.txt
 ```
 
