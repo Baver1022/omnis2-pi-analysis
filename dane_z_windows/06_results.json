@@ -1,0 +1,14 @@
+{
+  "test_name": "Compression Test",
+  "n": 10000000000,
+  "sample_size": 100000000,
+  "original_size": 100000000,
+  "compressed_size": 46924885,
+  "compression_ratio": 0.46924885,
+  "interpretation": "Compression ratio: 0.469249 (lower = more random, sample: 100,000,000 cyfr)",
+  "execution_time": 1090.8059430122375,
+  "step_id": "06",
+  "step_name": "Compression Test",
+  "timestamp": "2026-01-05T14:20:21.647129",
+  "status": "completed"
+}
