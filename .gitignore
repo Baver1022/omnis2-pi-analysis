@@ -81,3 +81,8 @@ analiza_wynikow_output/figures/*.pdf
 test_output/
 test_results/
 
+
+# Gotowe pliki do Releases/Packages (nie commituj)
+setup.py
+pyproject.toml
+RELEASE_DESCRIPTION.txt
