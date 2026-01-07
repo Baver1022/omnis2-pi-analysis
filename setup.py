@@ -8,6 +8,7 @@ if readme_file.exists():
         long_description = f.read()
 
 setup(
+    # For GitHub Packages, package name should match repository
     name="omnis2-pi-analysis",
     version="1.0.0",
     author="baver",
