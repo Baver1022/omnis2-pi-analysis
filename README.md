@@ -35,10 +35,9 @@ OMNIS2/
 │   └── requirements.txt          # Python dependencies
 ├── Raporty/                      # Scientific reports (PDF)
 │   ├── RAPORT_Z_ANALIZY_PI.pdf
-│   ├── RAPORT_Z_ANALIZY_PI_EN.pdf
-│   └── WZORY_MATEMATYCZNE_27_TESTOW.pdf
-├── dane_z_windows/               # Research results
-│   └── Analiza_10B/             # 55 JSON files with results
+│   └── RAPORT_Z_ANALIZY_PI_EN.pdf
+├── Dane z analizy/               # Research results
+│   └── *.json                    # 55 JSON files with results
 └── README.md                     # Full documentation
 ```
 
