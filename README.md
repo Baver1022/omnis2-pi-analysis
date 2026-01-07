@@ -60,10 +60,44 @@ python3 analysis_orchestrator.py --pi-file pi_10billion.txt
 
 ## 📚 Dokumentacja
 
+### 📄 Raporty Naukowe
+
+<div align="center">
+
+| 📊 Raport | 🌐 Język | 📥 Pobierz | 📄 Opis |
+|:---------:|:--------:|:---------:|:-------:|
+| **RAPORT_Z_ANALIZY_PI.pdf** | 🇵🇱 Polski | [📥 Pobierz PDF](OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI.pdf) | Kompleksowy raport naukowy (40+ stron) z pełną analizą statystyczną |
+| **RAPORT_Z_ANALIZY_PI_EN.pdf** | 🇬🇧 English | [📥 Download PDF](OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI_EN.pdf) | Full scientific report (40+ pages) with complete statistical analysis |
+| **WZORY_MATEMATYCZNE_27_TESTOW.pdf** | 📐 Formuły | [📥 Pobierz PDF](OMNIS2/Raporty/WZORY_MATEMATYCZNE_27_TESTOW.pdf) | Dokumentacja matematyczna wszystkich 27 testów statystycznych |
+
+</div>
+
+#### 📋 Zawartość Raportów Naukowych
+
+**RAPORT_Z_ANALIZY_PI.pdf** (Polski) zawiera:
+- 📖 Wprowadzenie teoretyczne
+- 🔬 Szczegółowy opis wszystkich 27 testów statystycznych
+- 📐 Wzory matematyczne dla każdego testu
+- 📊 Wyniki i interpretacje statystyczne
+- 📈 Wykresy i tabele wyników
+- 🔍 Analizę porównawczą z innymi badaniami
+- 💡 Wnioski i zastosowania kryptograficzne
+- 📚 Bibliografia i referencje
+
+**RAPORT_Z_ANALIZY_PI_EN.pdf** (English) zawiera:
+- 📖 Theoretical introduction
+- 🔬 Detailed description of all 27 statistical tests
+- 📐 Mathematical formulas for each test
+- 📊 Results and statistical interpretations
+- 📈 Charts and result tables
+- 🔍 Comparative analysis with other studies
+- 💡 Conclusions and cryptographic applications
+- 📚 Bibliography and references
+
+### 📖 Inne Materiały
+
 - **📖 Pełna dokumentacja:** [Branch OMNIS2](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)
-- **📄 Raporty naukowe:** W katalogu `Raporty/` (w OMNIS2)
-- **📐 Wzory matematyczne:** `WZORY_MATEMATYCZNE_27_TESTOW.pdf` (w OMNIS2)
-- **📊 Wyniki badań:** 55 plików JSON w `dane_z_windows/Analiza_10B/` (w OMNIS2)
+- **📊 Wyniki badań:** 54 pliki JSON w `OMNIS2/Dane z analizy/`
 
 ## 🔗 Linki
 
