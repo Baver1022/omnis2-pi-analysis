@@ -80,36 +80,26 @@ python3 analysis_orchestrator.py --pi-file pi_10billion.txt
 
 ### 📄 Scientific Reports
 
+Both reports contain comprehensive analysis of 10 billion Pi digits using 27 statistical tests, including:
+
+- 📖 **Theoretical introduction** - mathematical foundations and test methodology
+- 🔬 **Detailed description** of all 27 statistical tests (17 NIST + 10 SmallCrush)
+- 📐 **Mathematical formulas** - complete formulas and test procedures
+- 📊 **Results and interpretations** - statistical analysis and significance testing
+- 📈 **Charts and tables** - visualizations of test results
+- 🔍 **Comparative analysis** - comparison with previous studies
+- 💡 **Conclusions** - implications for cryptography and number theory
+- 📚 **Bibliography** - complete references and citations
+
 <div align="center">
 
-| 📊 Report | 🌐 Language | 📥 Download | 📄 Description |
-|:---------:|:--------:|:---------:|:-------:|
-| **RAPORT_Z_ANALIZY_PI.pdf** | 🇵🇱 Polish | [📥 Download PDF](https://github.com/Baver1022/omnis2-pi-analysis/raw/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI.pdf) | Comprehensive scientific report (40+ pages) with complete statistical analysis |
-| **RAPORT_Z_ANALIZY_PI_EN.pdf** | 🇬🇧 English | [📥 Download PDF](https://github.com/Baver1022/omnis2-pi-analysis/raw/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI_EN.pdf) | Full scientific report (40+ pages) with complete statistical analysis |
+| | 🇵🇱 Polish | 🇬🇧 English |
+|:---:|:---:|:---:|
+| **📄 Report** | [RAPORT_Z_ANALIZY_PI.pdf](https://github.com/Baver1022/omnis2-pi-analysis/raw/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI.pdf) | [RAPORT_Z_ANALIZY_PI_EN.pdf](https://github.com/Baver1022/omnis2-pi-analysis/raw/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI_EN.pdf) |
+| **📊 Pages** | 40+ | 40+ |
+| **📥 Download** | [📥 PDF](https://github.com/Baver1022/omnis2-pi-analysis/raw/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI.pdf) | [📥 PDF](https://github.com/Baver1022/omnis2-pi-analysis/raw/OMNIS2/Raporty/RAPORT_Z_ANALIZY_PI_EN.pdf) |
 
 </div>
-
-#### 📋 Scientific Reports Content
-
-**RAPORT_Z_ANALIZY_PI.pdf** (Polish) contains:
-- 📖 Theoretical introduction
-- 🔬 Detailed description of all 27 statistical tests
-- 📐 Mathematical formulas for each test
-- 📊 Results and statistical interpretations
-- 📈 Charts and result tables
-- 🔍 Comparative analysis with other studies
-- 💡 Conclusions and cryptographic applications
-- 📚 Bibliography and references
-
-**RAPORT_Z_ANALIZY_PI_EN.pdf** (English) contains:
-- 📖 Theoretical introduction
-- 🔬 Detailed description of all 27 statistical tests
-- 📐 Mathematical formulas for each test
-- 📊 Results and statistical interpretations
-- 📈 Charts and result tables
-- 🔍 Comparative analysis with other studies
-- 💡 Conclusions and cryptographic applications
-- 📚 Bibliography and references
 
 ### 📖 Other Materials
 
@@ -138,7 +128,7 @@ pip install omnis2-pi-analysis
 
 ## 👤 Author
 
-Pi statistical analysis project - part of baver + AI
+Pi statistical analysis project - part of baver
 
 ## 📄 License
 
