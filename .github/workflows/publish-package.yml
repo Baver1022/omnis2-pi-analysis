@@ -43,46 +43,31 @@ jobs:
       - name: Build package
         run: python -m build
       
-      - name: Publish to GitHub Packages
+      # NOTE: Publishing to GitHub Packages is currently disabled
+      # because GITHUB_TOKEN doesn't work with PyPI endpoint (https://upload.pypi.org/legacy/)
+      # GitHub Packages for Python uses PyPI-compatible API, but requires
+      # a different authentication method or endpoint
+      #
+      # TODO: Find the correct way to publish Python packages to GitHub Packages
+      # Possible solutions:
+      # 1. Use GitHub Packages API directly (if available)
+      # 2. Use a different tool or method
+      # 3. Configure package differently
+      #
+      # For now, the package is built but not published
+      # You can manually publish it through GitHub UI or find the correct endpoint
+      - name: Publish to GitHub Packages (DISABLED)
+        if: false
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Publishing to GitHub Packages..."
+          echo "NOTE: This step is currently disabled"
+          echo "GITHUB_TOKEN doesn't work with PyPI endpoint"
           echo "Repository: https://github.com/Baver1022/omnis2-pi-analysis/packages"
-          echo "Package name: omnis2-pi-analysis"
-          echo ""
-          # GitHub Packages for Python uses PyPI-compatible API
-          # According to GitHub documentation, the endpoint is:
-          # https://upload.pypi.org/legacy/
-          # 
-          # HOWEVER, GITHUB_TOKEN only works with GitHub Packages, not PyPI
-          # So we cannot use PyPI endpoint with GITHUB_TOKEN
-          #
-          # SOLUTION: GitHub Packages for Python requires using
-          # the GitHub Packages registry endpoint
-          # The correct URL format for GitHub Packages is:
-          # https://pypi.python.org/pypi (but this is PyPI, not GitHub Packages!)
-          #
-          # ACTUAL SOLUTION: According to GitHub documentation,
-          # when using GITHUB_TOKEN with PyPI-compatible API endpoint,
-          # the package is automatically published to GitHub Packages
-          # BUT the error shows GITHUB_TOKEN doesn't work with PyPI endpoint
-          #
-          # REAL FIX: We need to use GitHub Packages registry endpoint
-          # But GitHub Packages for Python doesn't have a separate endpoint!
-          # It uses PyPI-compatible API
-          #
-          # FINAL SOLUTION: Use the GitHub Packages registry URL
-          # Format: https://pypi.python.org/pypi
-          # This is PyPI endpoint, but when using GITHUB_TOKEN,
-          # it should route to GitHub Packages
-          # BUT the error shows it doesn't work!
-          #
-          # Let me try using the repository URL format instead
-          # But I'm not sure if this will work...
           python -m twine upload \
-            --repository-url https://pypi.python.org/pypi \
+            --repository-url https://upload.pypi.org/legacy/ \
             --username __token__ \
             --password ${{ secrets.GITHUB_TOKEN }} \
             --verbose \
