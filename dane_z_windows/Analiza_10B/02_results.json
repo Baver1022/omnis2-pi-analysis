@@ -1,16 +1,16 @@
 {
   "test_name": "Runs Test (NIST)",
-  "n": 10000000000,
-  "runs": 5000054227,
-  "expected_runs": 4999999998.018238,
-  "ones": 5000099543,
-  "zeros": 4999900457,
-  "z_score": 1.0845796357227522,
-  "p_value": 0.2781078784458566,
+  "n": 100000,
+  "runs": 50330,
+  "expected_runs": 49999.96958,
+  "ones": 50039,
+  "zeros": 49961,
+  "z_score": 2.0873073552753723,
+  "p_value": 0.03686036034046292,
   "status": "completed",
-  "interpretation": "Runs test PASSED with p-value 0.278108",
-  "execution_time": 1211.2087941169739,
+  "interpretation": "Runs test PASSED with p-value 0.036860",
+  "execution_time": 0.005458354949951172,
   "step_id": "02",
   "step_name": "Runs Test (NIST)",
-  "timestamp": "2026-01-05T08:32:12.870820"
+  "timestamp": "2026-01-05T23:54:16.404829"
 }

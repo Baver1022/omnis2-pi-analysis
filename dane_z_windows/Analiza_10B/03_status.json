@@ -2,9 +2,9 @@
   "step_id": "03",
   "step_name": "Block Frequency Test (NIST)",
   "status": "completed",
-  "started_at": "2026-01-05T08:32:12.880985",
-  "completed_at": "2026-01-05T08:37:14.610485",
-  "digits_processed": 10000000000,
-  "total_digits": 10000000000,
+  "started_at": "2026-01-05T23:54:16.445976",
+  "completed_at": "2026-01-05T23:54:16.446587",
+  "digits_processed": 100000,
+  "total_digits": 100000,
   "error": null
 }

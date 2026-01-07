@@ -1,17 +1,17 @@
 {
   "test_name": "Serial Test (NIST)",
-  "n": 100000000,
-  "sample_size": 10000000,
-  "num_pairs": 9999999,
-  "num_triplets": 9999998,
-  "chi2_pairs": 75.37499743749974,
-  "p_value_pairs": 0.9629874944624955,
-  "p_value_triplets": 0.9233910421727757,
-  "p_value": 0.9233910421727757,
+  "n": 100000,
+  "sample_size": 100000,
+  "num_pairs": 99999,
+  "num_triplets": 99998,
+  "chi2_pairs": 97.0979609796098,
+  "p_value_pairs": 0.5352884244934244,
+  "p_value_triplets": 0.29623994849881863,
+  "p_value": 0.29623994849881863,
   "status": "completed",
-  "interpretation": "Serial test PASSED with p-value 0.923391",
-  "execution_time": 20.89857792854309,
+  "interpretation": "Serial test PASSED with p-value 0.296240",
+  "execution_time": 0.06060433387756348,
   "step_id": "11",
   "step_name": "Serial Test (NIST)",
-  "timestamp": "2026-01-05T23:28:59.497658"
+  "timestamp": "2026-01-05T23:54:16.988699"
 }

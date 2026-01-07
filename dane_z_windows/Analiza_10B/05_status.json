@@ -2,9 +2,9 @@
   "step_id": "05",
   "step_name": "Spectral FFT Analysis (GPU)",
   "status": "completed",
-  "started_at": "2026-01-05T09:06:49.697056",
-  "completed_at": "2026-01-05T09:07:04.013588",
-  "digits_processed": 10000000000,
-  "total_digits": 10000000000,
+  "started_at": "2026-01-05T23:54:16.532759",
+  "completed_at": "2026-01-05T23:54:16.543681",
+  "digits_processed": 100000,
+  "total_digits": 100000,
   "error": null
 }
