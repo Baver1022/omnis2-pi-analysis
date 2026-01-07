@@ -1,0 +1,166 @@
+{
+  "name": "\u00a4\u00c7",
+  "num_digits": 100000000,
+  "timestamp": "2026-01-05T02:22:21.639388",
+  "gpu_used": true,
+  "tests": {
+    "nist": {
+      "timestamp": "2026-01-05T02:22:21.936697",
+      "num_digits": 100000000,
+      "tests": {
+        "frequency": {
+          "test_name": "Frequency Test",
+          "ones": 49993526,
+          "zeros": 50006474,
+          "s_obs": 1.2948,
+          "p_value": 0.19538923200147007,
+          "status": "PASS"
+        },
+        "block_frequency": {
+          "test_name": "Block Frequency Test",
+          "num_blocks": 781250,
+          "chi_square": 781667.5625,
+          "p_value": 0.36899216204968666,
+          "status": "PASS"
+        },
+        "runs": {
+          "test_name": "Runs Test",
+          "runs": 49990596,
+          "expected_runs": 49999999.16174648,
+          "z_score": -1.8806323902280109,
+          "p_value": 0.06002194249061299,
+          "status": "PASS"
+        },
+        "longest_run": {
+          "test_name": "Longest Run Test",
+          "max_run": 29,
+          "expected_max": 13.287712379549449,
+          "p_value": 0.5,
+          "status": "PASS"
+        },
+        "binary_matrix_rank": {
+          "test_name": "Binary Matrix Rank Test",
+          "num_matrices": 97656,
+          "p_value": 0.5,
+          "status": "PASS"
+        },
+        "dft": {
+          "test_name": "Discrete Fourier Transform Test",
+          "proportion": 0.94996736,
+          "expected_proportion": 0.95,
+          "z_score": -1.0589814371389303,
+          "p_value": 0.28960823372953404,
+          "status": "PASS"
+        }
+      },
+      "summary": {
+        "passed": 6,
+        "total": 6,
+        "pass_rate": 1.0
+      }
+    },
+    "spectral": {
+      "window_size": 100000000,
+      "gpu_used": true,
+      "pairs_analysis": {
+        "spectral_entropy": 4.224436822501618,
+        "max_power": 2.4501381184071946e+19,
+        "dominant_frequencies": [
+          [
+            0,
+            2.4501381184071946e+19
+          ],
+          [
+            9479260,
+            1668180994055.0344
+          ],
+          [
+            4179570,
+            1664009906657.8
+          ]
+        ]
+      },
+      "triplets_analysis": null,
+      "spectral_gaps": [
+        [
+          32,
+          32
+        ],
+        [
+          52,
+          52
+        ],
+        [
+          58,
+          58
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          84,
+          84
+        ]
+      ]
+    },
+    "entropy_bounds": {
+      "entropy_by_N": [
+        {
+          "N": 1000000,
+          "H_N": 3.321924119885428,
+          "H_max": 3.321928094887362,
+          "ratio": 0.999998803405185,
+          "difference": 3.975001934275468e-06
+        },
+        {
+          "N": 10000000,
+          "H_N": 3.321927894091943,
+          "H_max": 3.321928094887362,
+          "ratio": 0.9999999395545558,
+          "difference": 2.0079541940276613e-07
+        },
+        {
+          "N": 100000000,
+          "H_N": 3.32192804245175,
+          "H_max": 3.321928094887362,
+          "ratio": 0.9999999842153079,
+          "difference": 5.243561229661964e-08
+        }
+      ],
+      "model_fit": {
+        "c_estimate": 5.932199508582614e-06,
+        "c_std": 7.500078105490865e-06,
+        "c_CI_lower": -8.767953578179482e-06,
+        "c_CI_upper": 2.0632352595344708e-05,
+        "R_squared": 0.13251518483681823,
+        "model": "H(N) = log\u00d4\u00e9\u00e9(10) \u252c\u011a (1 - 0.000006/log(N))"
+      }
+    },
+    "compression": {
+      "ratio": 0.48173
+    },
+    "frequency": {
+      "chi2": 7.268462000000001,
+      "p_value": 0.6091907198024512,
+      "frequencies": [
+        9999922,
+        10002475,
+        10001092,
+        9998442,
+        10003863,
+        9993478,
+        9999417,
+        9999610,
+        10002180,
+        9999521
+      ]
+    },
+    "prediction": {
+      "accuracy": 10.0
+    },
+    "entropy": {
+      "avg_entropy": 3.32192804245175
+    }
+  }
+}
