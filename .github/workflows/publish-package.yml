@@ -8,7 +8,6 @@ on:
 permissions:
   contents: read
   packages: write
-  id-token: write
 
 jobs:
   publish:
@@ -16,20 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: OMNIS2  # Checkout OMNIS2 branch where Program/ exists
-      
-      - name: Debug - Check files
-        run: |
-          echo "Current directory:"
-          pwd
-          echo ""
-          echo "Files in root:"
-          ls -la
-          echo ""
-          echo "Checking for setup.py and pyproject.toml:"
-          test -f setup.py && echo "✅ setup.py exists" || echo "❌ setup.py missing"
-          test -f pyproject.toml && echo "✅ pyproject.toml exists" || echo "❌ pyproject.toml missing"
-          test -d Program && echo "✅ Program/ exists" || echo "❌ Program/ missing"
+          ref: OMNIS2
       
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -49,16 +35,8 @@ jobs:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PACKAGES_TOKEN }}
         run: |
-          echo "Publishing to GitHub Packages..."
-          echo "Repository: https://github.com/Baver1022/omnis2-pi-analysis/packages"
-          echo ""
-          # GitHub Packages for Python uses PyPI-compatible API
-          # Endpoint: https://upload.pypi.org/legacy/
-          # Must use Personal Access Token (PAT) with write:packages permission
-          # Package will be published as: https://github.com/Baver1022/omnis2-pi-analysis/packages
           python -m twine upload \
             --repository-url https://upload.pypi.org/legacy/ \
             --username __token__ \
             --password ${{ secrets.PACKAGES_TOKEN }} \
-            --verbose \
             dist/*
