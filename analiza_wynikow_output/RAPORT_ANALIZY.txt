@@ -4,7 +4,7 @@ Analiza 10 miliardów cyfr Pi - 27 testów statystycznych
 ================================================================================
 
 Data generacji: 2026-01-07 07:26:56
-Katalog wyników: /home/baver/hexstrike-ai/OMNIS2/dane_z_windows/Analiza_10B
+Katalog wyników: /home/baver/baver/OMNIS2/dane_z_windows/Analiza_10B
 
 ================================================================================
 PODSUMOWANIE
