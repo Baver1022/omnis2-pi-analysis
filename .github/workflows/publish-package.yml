@@ -45,14 +45,12 @@ jobs:
         run: python -m build
       
       - name: Publish to GitHub Packages
-        if: ${{ secrets.PACKAGES_TOKEN != '' }}
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PACKAGES_TOKEN }}
         run: |
           echo "Publishing to GitHub Packages..."
           echo "Repository: https://github.com/Baver1022/omnis2-pi-analysis/packages"
-          echo "Using PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN != '' && 'YES' || 'NO' }}"
           echo ""
           # GitHub Packages for Python uses PyPI-compatible API
           # Endpoint: https://upload.pypi.org/legacy/
@@ -64,10 +62,3 @@ jobs:
             --password ${{ secrets.PACKAGES_TOKEN }} \
             --verbose \
             dist/*
-      
-      - name: Debug - Check if PACKAGES_TOKEN exists
-        if: ${{ secrets.PACKAGES_TOKEN == '' }}
-        run: |
-          echo "⚠️  PACKAGES_TOKEN is not set!"
-          echo "Please add PACKAGES_TOKEN to repository secrets."
-          echo "Settings → Secrets and variables → Actions → New repository secret"
