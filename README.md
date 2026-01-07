@@ -34,6 +34,7 @@ The project includes:
 - ✅ **Mathematical formulas** - complete documentation
 - ✅ **GPU acceleration** (CuPy for NVIDIA RTX)
 - ✅ **Streaming processing** - processing 10B digits batch-by-batch
+- ✅ **AI/ML components** - LSTM neural networks for pattern prediction and analysis
 
 ## 📈 Analysis Results
 
