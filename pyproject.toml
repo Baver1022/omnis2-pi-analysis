@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "omnis2-pi-analysis"
+version = "1.0.0"
+description = "Comprehensive statistical analysis of Pi digits using 27 statistical tests"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "numpy>=1.21.0",
+    "scipy>=1.7.0",
+    "matplotlib>=3.4.0",
+    "torch>=1.9.0",
+]

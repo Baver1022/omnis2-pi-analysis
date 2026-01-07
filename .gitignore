@@ -1,0 +1,86 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+env/
+venv/
+ENV/
+.venv/
+hexstrike-env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.cursor/
+
+# LaTeX temporary files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# Logs
+*.log
+*.log.*
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large data files (nie commitujemy plików z cyframi Pi)
+pi_*.txt
+pi_10billion.txt
+pi_1m.txt
+pi_100k.txt
+pi_test.txt
+
+# Analysis results - JSON files są częścią wyników badań (NIE ignorujemy)
+# dane_z_windows/Analiza_10B/*.json  # WYNIKI BADAŃ - dodaj do repo
+# dane_z_windows/Analiza_10B/*.log   # Logi ignorujemy
+analiza_wynikow_output/*.png        # Tymczasowe wizualizacje PNG
+analiza_wynikow_output/*.csv       # CSV można wygenerować ponownie
+
+# Generated PDFs (można wygenerować ponownie)
+analiza_wynikow_output/*.pdf
+analiza_wynikow_output/figures/*.pdf
+
+# Archives
+*.tar.gz
+*.zip
+
+# Compiled files
+*.pyc
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+.env.local
+
+# Test outputs
+test_output/
+test_results/
+
+
+# Gotowe pliki do Releases/Packages (nie commituj)
+RELEASE_DESCRIPTION.txt
