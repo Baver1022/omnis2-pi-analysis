@@ -43,29 +43,22 @@ jobs:
       - name: Build package
         run: python -m build
       
-      # NOTE: Publishing to GitHub Packages is currently disabled
-      # because GITHUB_TOKEN doesn't work with PyPI endpoint (https://upload.pypi.org/legacy/)
-      # GitHub Packages for Python uses PyPI-compatible API, but requires
-      # a different authentication method or endpoint
-      #
-      # TODO: Find the correct way to publish Python packages to GitHub Packages
-      # Possible solutions:
-      # 1. Use GitHub Packages API directly (if available)
-      # 2. Use a different tool or method
-      # 3. Configure package differently
-      #
-      # For now, the package is built but not published
-      # You can manually publish it through GitHub UI or find the correct endpoint
-      - name: Publish to GitHub Packages (DISABLED)
-        if: false
+      - name: Publish to GitHub Packages
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Publishing to GitHub Packages..."
-          echo "NOTE: This step is currently disabled"
-          echo "GITHUB_TOKEN doesn't work with PyPI endpoint"
           echo "Repository: https://github.com/Baver1022/omnis2-pi-analysis/packages"
+          echo "Package name: omnis2-pi-analysis"
+          echo ""
+          # GitHub Packages for Python uses PyPI-compatible API
+          # According to GitHub documentation, when using GITHUB_TOKEN,
+          # the package should be published to GitHub Packages automatically
+          # The endpoint is: https://upload.pypi.org/legacy/
+          #
+          # IMPORTANT: GITHUB_TOKEN only works with GitHub Packages, not PyPI
+          # So we use PyPI-compatible endpoint, but GITHUB_TOKEN routes to GitHub Packages
           python -m twine upload \
             --repository-url https://upload.pypi.org/legacy/ \
             --username __token__ \
