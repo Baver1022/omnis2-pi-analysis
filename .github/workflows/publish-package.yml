@@ -43,19 +43,22 @@ jobs:
       - name: Build package
         run: python -m build
       
+      - name: Upload package artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-package
+          path: dist/*
+          retention-days: 30
+      
       - name: Publish to GitHub Packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "Publishing to GitHub Packages..."
-          echo "Repository: https://github.com/Baver1022/omnis2-pi-analysis/packages"
+          echo "Package built successfully!"
+          echo "Files available in artifacts:"
+          ls -la dist/
           echo ""
-          # GitHub Packages for Python uses PyPI-compatible API
-          # The correct endpoint is: https://upload.pypi.org/legacy/
-          # When using GITHUB_TOKEN, it automatically routes to GitHub Packages
-          python -m twine upload \
-            --repository-url https://upload.pypi.org/legacy/ \
-            --username __token__ \
-            --password ${{ secrets.GITHUB_TOKEN }} \
-            --verbose \
-            dist/*
+          echo "To publish to GitHub Packages:"
+          echo "1. Download files from workflow artifacts"
+          echo "2. Use GitHub CLI: gh release upload <tag> dist/*.whl dist/*.tar.gz"
+          echo "   OR publish manually through GitHub Packages API"
