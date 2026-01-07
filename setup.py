@@ -15,6 +15,10 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Baver1022/omnis2-pi-analysis",
+    project_urls={
+        "Repository": "https://github.com/Baver1022/omnis2-pi-analysis",
+        "Package": "https://github.com/Baver1022/omnis2-pi-analysis/packages",
+    },
     packages=find_packages(where="Program"),
     package_dir={"": "Program"},
     classifiers=[
