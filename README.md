@@ -13,7 +13,7 @@
 
 **🔬 Comprehensive statistical analysis of 10 billion Pi digits using 27 rigorous tests**
 
-[📖 Documentation](#-documentation) • [🚀 Quick Start](#-quick-start) • [📊 Results](#-analysis-results) • [📄 Reports](#-scientific-reports)
+[🇵🇱 Polski](README_PL.md) • [📖 Documentation](#-documentation) • [🚀 Quick Start](#-quick-start) • [📊 Results](#-analysis-results) • [📄 Reports](#-scientific-reports)
 
 </div>
 
