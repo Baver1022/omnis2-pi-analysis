@@ -146,6 +146,26 @@ pip install omnis2-pi-analysis
 - 📦 **Releases:** [https://github.com/Baver1022/omnis2-pi-analysis/releases](https://github.com/Baver1022/omnis2-pi-analysis/releases)
 - 📦 **Packages:** [https://github.com/Baver1022/omnis2-pi-analysis/packages](https://github.com/Baver1022/omnis2-pi-analysis/packages)
 
+## ⚡ Performance Benchmarks
+
+Performance results from my analysis:
+
+- **10 Billion Digits Processing:**
+  - CPU-only: ~[time] hours
+  - GPU-accelerated (NVIDIA RTX): ~[time] hours
+  - Speedup: ~[X]x faster with GPU
+
+- **Test Execution Times:**
+  - Frequency tests: ~[time] per billion digits
+  - Entropy analysis: ~[time] per billion digits
+  - Spectral FFT (GPU): ~[time] per billion digits
+  - LSTM prediction: ~[time] per million digits
+
+- **Memory Usage:**
+  - Peak memory: ~[X] GB
+  - Streaming batch size: 1M digits
+  - GPU memory: ~[X] GB
+
 ## 🗺️ Roadmap
 
 ### ✅ Completed
