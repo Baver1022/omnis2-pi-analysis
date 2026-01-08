@@ -8,6 +8,8 @@
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 ![GitHub](https://img.shields.io/github/stars/Baver1022/omnis2-pi-analysis?style=for-the-badge&logo=github)
 ![GitHub forks](https://img.shields.io/github/forks/Baver1022/omnis2-pi-analysis?style=for-the-badge&logo=github)
+![Last Commit](https://img.shields.io/github/last-commit/Baver1022/omnis2-pi-analysis?style=flat-square&logo=git)
+![Code Size](https://img.shields.io/github/languages/code-size/Baver1022/omnis2-pi-analysis?style=flat-square)
 
 **🔬 Comprehensive statistical analysis of 10 billion Pi digits using 27 rigorous tests**
 
@@ -143,6 +145,76 @@ pip install omnis2-pi-analysis
 - 🌿 **OMNIS2 Branch:** [https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)
 - 📦 **Releases:** [https://github.com/Baver1022/omnis2-pi-analysis/releases](https://github.com/Baver1022/omnis2-pi-analysis/releases)
 - 📦 **Packages:** [https://github.com/Baver1022/omnis2-pi-analysis/packages](https://github.com/Baver1022/omnis2-pi-analysis/packages)
+
+## 🗺️ Roadmap
+
+### ✅ Completed
+- ✅ Analysis of 10 billion Pi digits
+- ✅ 27 statistical tests implementation
+- ✅ GPU acceleration with CuPy
+- ✅ Scientific reports (Polish & English)
+- ✅ LSTM neural networks for pattern prediction
+
+### 🚀 In Progress
+- 🔄 Optimization of test algorithms
+- 🔄 Enhanced visualization tools
+- 🔄 API development for remote analysis
+
+### 📅 Planned
+- 📋 **1 Trillion (1T) digits analysis** - Our next major milestone
+- 📋 Real-time analysis dashboard
+- 📋 Machine learning model improvements
+- 📋 Distributed computing support
+- 📋 Web interface for interactive analysis
+
+## ❓ FAQ
+
+### Q: Why analyze Pi digits?
+**A:** Pi's digit distribution is a fundamental question in number theory and cryptography. Understanding its randomness properties has implications for cryptographic applications and mathematical research.
+
+### Q: How long did the 10B analysis take?
+**A:** The analysis of 10 billion digits took approximately [time] using GPU acceleration on NVIDIA RTX hardware.
+
+### Q: Can I use this for my own research?
+**A:** Yes! This project is open source under MIT License. Feel free to use, modify, and contribute.
+
+### Q: What's the next step?
+**A:** Our goal is to analyze **1 trillion digits** after the decimal point, which will provide even deeper insights into Pi's statistical properties.
+
+### Q: How can I contribute?
+**A:** See our [Contributing Guidelines](CONTRIBUTING.md) or open an issue to discuss your ideas!
+
+## 📖 Citation
+
+If you use this project in your research, please cite:
+
+```bibtex
+@software{omnis2_pi_analysis,
+  author = {baver},
+  title = {OMNIS2: Statistical Analysis of 10 Billion Digits of Pi},
+  year = {2026},
+  url = {https://github.com/Baver1022/omnis2-pi-analysis},
+  version = {1.0.0}
+}
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+## 💬 Support
+
+- 📧 **Issues:** [GitHub Issues](https://github.com/Baver1022/omnis2-pi-analysis/issues)
+- 💬 **Discussions:** [GitHub Discussions](https://github.com/Baver1022/omnis2-pi-analysis/discussions)
+- 📖 **Documentation:** See [OMNIS2 Branch](https://github.com/Baver1022/omnis2-pi-analysis/tree/OMNIS2)
 
 ## 👤 Author
 
