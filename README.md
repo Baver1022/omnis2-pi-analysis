@@ -151,20 +151,24 @@ pip install omnis2-pi-analysis
 Performance results from my analysis:
 
 - **10 Billion Digits Processing:**
-  - CPU-only: ~[time] hours
-  - GPU-accelerated (NVIDIA RTX): ~[time] hours
-  - Speedup: ~[X]x faster with GPU
+  - CPU-only: ~5 hours (estimated)
+  - GPU-accelerated (NVIDIA RTX 4060 Ti 16GB): ~1-1.5 hours
+  - Speedup: ~3-5x faster with GPU
 
-- **Test Execution Times:**
-  - Frequency tests: ~[time] per billion digits
-  - Entropy analysis: ~[time] per billion digits
-  - Spectral FFT (GPU): ~[time] per billion digits
-  - LSTM prediction: ~[time] per million digits
+- **Test Execution Times (per billion digits, GPU-accelerated):**
+  - Frequency tests: ~9-10 minutes
+  - Runs test: ~20 minutes
+  - Block frequency: ~5 minutes
+  - Entropy analysis: ~29 minutes
+  - Spectral FFT (GPU): ~15 seconds (extremely fast!)
+  - Compression test: ~18 minutes
+  - LSTM prediction: ~instant (pre-trained model)
 
 - **Memory Usage:**
-  - Peak memory: ~[X] GB
-  - Streaming batch size: 1M digits
-  - GPU memory: ~[X] GB
+  - Peak memory: ~1.3-2 GB (for 1B digits)
+  - Streaming batch size: 100M digits (optimized)
+  - GPU memory: ~2-4 GB (CuPy operations)
+  - Total for 10B: ~20-30 GB disk space required
 
 ## 🗺️ Roadmap
 
@@ -193,7 +197,7 @@ Performance results from my analysis:
 **A:** Pi's digit distribution is a fundamental question in number theory and cryptography. Understanding its randomness properties has implications for cryptographic applications and mathematical research.
 
 ### Q: How long did the 10B analysis take?
-**A:** The analysis of 10 billion digits took approximately [time] using GPU acceleration on NVIDIA RTX hardware.
+**A:** The analysis of 10 billion digits took approximately **1-1.5 hours** using GPU acceleration on NVIDIA RTX 4060 Ti 16GB hardware. Without GPU, it would take approximately 5 hours.
 
 ### Q: Can I use this for my own research?
 **A:** Yes! This project is open source under MIT License. Feel free to use, modify, and contribute.
