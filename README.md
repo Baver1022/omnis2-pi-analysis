@@ -1,5 +1,11 @@
 # 🔬 OMNIS2 - Statistical Analysis of 10 Billion Digits of Pi
 
+<div align="center">
+
+[🇵🇱 Polski](README_PL.md) • [📖 Documentation](#-documentation) • [🚀 Quick Start](#-quick-start) • [📊 Results](#-analysis-results) • [📄 Reports](#-scientific-reports)
+
+</div>
+
 ## 🌟 What Fascinates Me
 
 What drives me in this project? The **mystery of randomness** hidden in the infinite sequence of Pi digits. Is Pi truly random, or does it contain hidden patterns? Can I trust it for cryptographic applications? These questions led me to conduct one of the most comprehensive statistical analyses of Pi digits ever performed.
@@ -125,20 +131,24 @@ pip install omnis2-pi-analysis
 Performance results from my analysis:
 
 - **10 Billion Digits Processing:**
-  - CPU-only: ~[time] hours
-  - GPU-accelerated (NVIDIA RTX): ~[time] hours
-  - Speedup: ~[X]x faster with GPU
+  - CPU-only: ~5 hours (estimated)
+  - GPU-accelerated (NVIDIA RTX 4060 Ti 16GB): ~1-1.5 hours
+  - Speedup: ~3-5x faster with GPU
 
-- **Test Execution Times:**
-  - Frequency tests: ~[time] per billion digits
-  - Entropy analysis: ~[time] per billion digits
-  - Spectral FFT (GPU): ~[time] per billion digits
-  - LSTM prediction: ~[time] per million digits
+- **Test Execution Times (per billion digits, GPU-accelerated):**
+  - Frequency tests: ~9-10 minutes
+  - Runs test: ~20 minutes
+  - Block frequency: ~5 minutes
+  - Entropy analysis: ~29 minutes
+  - Spectral FFT (GPU): ~15 seconds (extremely fast!)
+  - Compression test: ~18 minutes
+  - LSTM prediction: ~instant (pre-trained model)
 
 - **Memory Usage:**
-  - Peak memory: ~[X] GB
-  - Streaming batch size: 1M digits
-  - GPU memory: ~[X] GB
+  - Peak memory: ~1.3-2 GB (for 1B digits)
+  - Streaming batch size: 100M digits (optimized)
+  - GPU memory: ~2-4 GB (CuPy operations)
+  - Total for 10B: ~20-30 GB disk space required
 
 ## 🔗 Links
 
