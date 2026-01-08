@@ -1,10 +1,10 @@
 # 🔬 OMNIS2 - Statistical Analysis of 10 Billion Digits of Pi
 
-## 🌟 What Fascinates Us
+## 🌟 What Fascinates Me
 
-What drives us in this project? The **mystery of randomness** hidden in the infinite sequence of Pi digits. Is Pi truly random, or does it contain hidden patterns? Can we trust it for cryptographic applications? These questions led us to conduct one of the most comprehensive statistical analyses of Pi digits ever performed.
+What drives me in this project? The **mystery of randomness** hidden in the infinite sequence of Pi digits. Is Pi truly random, or does it contain hidden patterns? Can I trust it for cryptographic applications? These questions led me to conduct one of the most comprehensive statistical analyses of Pi digits ever performed.
 
-We analyzed **10 billion digits** using **27 rigorous statistical tests** - a journey that revealed both expected randomness and surprising anomalies. This is just the beginning - **our next goal is to analyze 1 trillion (1T) digits after the decimal point**, pushing the boundaries of computational statistics and exploring the deepest secrets of this mathematical constant.
+I analyzed **10 billion digits** using **27 rigorous statistical tests** - a journey that revealed both expected randomness and surprising anomalies. This is just the beginning - **my next goal is to analyze 1 trillion (1T) digits after the decimal point**, pushing the boundaries of computational statistics and exploring the deepest secrets of this mathematical constant.
 
 ## 📊 About the Project
 
@@ -20,7 +20,7 @@ The project includes:
 
 ## 📈 Analysis Results
 
-Analysis of 10 billion Pi digits revealed:
+My analysis of 10 billion Pi digits revealed:
 
 - ✅ **~70% tests PASS** - basic tests confirm local randomness
 - ⚠️ **Critical FAIL** in Random Excursions tests (13, 14) and some SmallCrush tests
@@ -80,7 +80,7 @@ python3 analysis_orchestrator.py --pi-file pi_10billion.txt
 
 ### 📄 Scientific Reports
 
-Both reports contain comprehensive analysis of 10 billion Pi digits using 27 statistical tests, including:
+Both reports contain my comprehensive analysis of 10 billion Pi digits using 27 statistical tests, including:
 
 - 📖 **Theoretical introduction** - mathematical foundations and test methodology
 - 🔬 **Detailed description** of all 27 statistical tests (17 NIST + 10 SmallCrush)
